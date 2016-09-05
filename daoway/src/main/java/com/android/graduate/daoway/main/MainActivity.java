@@ -110,7 +110,9 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
         cur = i;
     }
-
+    /*
+    * 初始化fragment
+    * */
     private void initFragment() {
         fragments.add(HomeFragment.newInstance(null));
         fragments.add(CategoryFragment.newInstance(null));
