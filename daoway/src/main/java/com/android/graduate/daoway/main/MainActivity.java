@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     TextView titleTv;
     @BindView(R.id.search_iv)
     ImageView searchIv;
+    @BindView(R.id.action_divider)
+    View actionDivider;
     private int cur;
     private FragmentManager fragmentManager;
 
@@ -67,29 +69,34 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.home_rb:
                                 locationTv.setVisibility(View.VISIBLE);
                                 titleTv.setVisibility(View.INVISIBLE);
+                                actionDivider.setVisibility(View.VISIBLE);
                                 searchIv.setVisibility(View.VISIBLE);
                                 break;
                             case R.id.category_rb:
                                 locationTv.setVisibility(View.VISIBLE);
                                 titleTv.setVisibility(View.INVISIBLE);
+                                actionDivider.setVisibility(View.VISIBLE);
                                 searchIv.setVisibility(View.VISIBLE);
                                 break;
                             case R.id.cart_rb:
                                 locationTv.setVisibility(View.GONE);
                                 titleTv.setVisibility(View.VISIBLE);
                                 titleTv.setText("购物车");
+                                actionDivider.setVisibility(View.INVISIBLE);
                                 searchIv.setVisibility(View.GONE);
                                 break;
                             case R.id.order_rb:
                                 locationTv.setVisibility(View.GONE);
                                 titleTv.setVisibility(View.VISIBLE);
                                 titleTv.setText("订单");
+                                actionDivider.setVisibility(View.INVISIBLE);
                                 searchIv.setVisibility(View.GONE);
                                 break;
                             case R.id.mine_rb:
                                 locationTv.setVisibility(View.GONE);
                                 titleTv.setVisibility(View.VISIBLE);
                                 titleTv.setText("我的");
+                                actionDivider.setVisibility(View.INVISIBLE);
                                 searchIv.setVisibility(View.GONE);
                                 break;
                         }
@@ -110,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
         cur = i;
     }
+
     /*
     * 初始化fragment
     * */
