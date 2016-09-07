@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".main.MainActivity">
+    tools:context=".main.MainActivity"
+
+    >
 
    <RelativeLayout
        android:id="@+id/bar_rl"

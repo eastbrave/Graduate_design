@@ -15,6 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".start.ClassDetailActivity"></activity>
         <activity android:name=".utils.BaseActivity"/>
         <activity android:name=".f_search.SearchActivity"/>
         <activity android:name=".g_location.LocationActivity"/>

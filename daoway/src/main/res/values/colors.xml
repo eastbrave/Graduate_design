@@ -10,6 +10,13 @@
     <color name="color_normal_gray">#6F6F6F</color>
     <color name="black">#000000</color>
     <color name="divider">#e4e4e4</color>
+    <color name="yanyan">#bfbdbd</color>
+    <color name="pidan">#eaeae9</color>
+    <color name="pidan_cheng">#ff281f</color>
+    <color name="pidan_huangcheng">#ff813c</color>
+    <color name="pidan_lan">#259bf6</color>
+    <color name="pidan_fen">#ff3b7c</color>
+    <color name="pidan_lv">#00d878</color>
     <color name="color_recommend_one">#fef5f5</color>
     <color name="color_recommend_two">#e9f9ff</color>
     <color name="color_recommend_three">#e8fff3</color>

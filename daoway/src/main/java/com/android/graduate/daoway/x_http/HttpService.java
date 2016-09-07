@@ -1,5 +1,11 @@
 package com.android.graduate.daoway.x_http;
 
+import com.android.graduate.daoway.y_bean.CategoryBean;
+
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
+
 import com.android.graduate.daoway.a_home.bean.BannerBean;
 import com.android.graduate.daoway.a_home.bean.BusinessBean;
 import com.android.graduate.daoway.a_home.bean.HomeBean;
@@ -14,6 +20,9 @@ import retrofit2.http.Query;
  * Created by Administrator on 2016/9/5.
  */
 public interface HttpService {
+    //分类页面
+     @GET("/daoway/rest/category/withtags?&communityId=242212&hasChaoshi=true")
+    Call<CategoryBean> getData(@Query("manualCity") String city);
     //首页banner 接口
     @GET("/daoway/rest/config/banners?platform=android&community_id=242212")
     Call<BannerBean> queryBanner(@Query("city") String city);
