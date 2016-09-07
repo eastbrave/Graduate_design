@@ -5,7 +5,13 @@
     <color name="colorAccent">#FF4081</color>
     <color name="color_east_white">#ffffff</color>
     <color name="color_checked_Red">#EB463A</color>
+    <color name="color_home_label_other">#65a2e4</color>
+    <color name="color_home_label_first">#EB463A</color>
     <color name="color_normal_gray">#6F6F6F</color>
     <color name="black">#000000</color>
     <color name="divider">#e4e4e4</color>
+    <color name="color_recommend_one">#fef5f5</color>
+    <color name="color_recommend_two">#e9f9ff</color>
+    <color name="color_recommend_three">#e8fff3</color>
+    <color name="color_recommend_four">#fff8ed</color>
 </resources>

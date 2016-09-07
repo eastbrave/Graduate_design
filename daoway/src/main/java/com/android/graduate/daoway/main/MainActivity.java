@@ -17,6 +17,7 @@ import com.android.graduate.daoway.b_category.CategoryFragment;
 import com.android.graduate.daoway.c_cart.CartFragment;
 import com.android.graduate.daoway.d_order.OrderFragment;
 import com.android.graduate.daoway.e_mine.MineFragment;
+import com.android.graduate.daoway.utils.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     List<Fragment> fragments = new ArrayList<>();
     RadioButton[] radioArray;
     @BindView(R.id.switch_rg)
