@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+    <RelativeLayout
+        android:id="@+id/shop_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/divider"
+            />
+        <ImageView
+            android:id="@+id/shop_cart_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_buy_car"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            />
+        <TextView
+            android:id="@+id/shop_cart_num_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="7sp"
+            android:layout_toRightOf="@id/shop_cart_iv"
+            android:background="@drawable/cart_num_bg"
+            android:layout_marginTop="8dp"
+            android:text="1"
+            android:gravity="center"
+            android:paddingLeft="2.5dp"
+            android:paddingRight="2.5dp"
+            />
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:layout_centerVertical="true"
+
+           android:layout_toRightOf="@+id/shop_cart_iv"
+           android:layout_marginLeft="15dp"
+           >
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="合计："
+               android:textSize="12sp"
+
+               />
+           <TextView
+               android:id="@+id/shop_cart_total_price_tv"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="0.00"
+               android:textSize="18sp"
+               android:textColor="@color/color_app_Red"
+
+               />
+           <TextView
+
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="元"
+               android:textSize="10sp"
+               android:textColor="@color/color_app_Red"
+                android:layout_marginLeft="1dp"
+               />
+       </LinearLayout>
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:text="立即购买"
+            android:textColor="@color/white"
+            android:background="@drawable/shape_login_btn"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            />
+    </RelativeLayout>
+    <com.ecloud.pulltozoomview.PullToZoomScrollViewEx
+        android:id="@+id/shop_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/shop_bottom"
+        />
+
+    <com.ecloud.pulltozoomview.TransparentToolBar
+        android:id="@+id/shop_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize">
+        <ImageView
+            android:id="@+id/shop_bar_back_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/btn_left_back_3"
+            />
+        <TextView
+            android:id="@+id/shop_bar_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="18sp"
+            android:text="商品名称"
+            />
+        <ImageView
+            android:id="@+id/shop_bar_menu_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/btn_menu_3"
+            />
+    </com.ecloud.pulltozoomview.TransparentToolBar>
+
+
+
+
+</RelativeLayout>
