@@ -6,15 +6,16 @@
     >
     <ImageView
         android:id="@+id/item_home_sort_icon"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:scaleType="fitXY"
-        android:layout_margin="10dp"
+        android:layout_marginBottom="5dp"
         />
     <TextView
         android:id="@+id/item_home_sort_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="家政"
+        android:textColor="@color/black"
         />
 </LinearLayout>

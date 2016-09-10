@@ -5,21 +5,34 @@
     <com.bigkoo.convenientbanner.ConvenientBanner
         android:id="@+id/home_banner"
         android:layout_width="match_parent"
-        android:layout_height="150dp"/>
+        android:layout_height="130dp"/>
     <com.android.graduate.daoway.widget.MyGridView
         android:id="@+id/home_sort_gridView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:numColumns="5"
+        android:padding="8dp"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:background="@color/white"
         />
     <!--gridView 下面 分割线-->
     <View
         android:layout_width="match_parent"
-        android:layout_height="10dp"/>
+        android:layout_height="10dp"
+        android:background="@color/divider"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/color_recommend_divider"
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:orientation="horizontal"
+        android:background="@color/white"
         >
         <RelativeLayout
             android:id="@+id/top_recommend_item1_rl"
@@ -46,14 +59,20 @@
                 />
             <ImageView
                 android:id="@+id/top_recommend_item_image_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
                 android:layout_centerHorizontal="true"
                 android:src="@mipmap/ic_launcher"
                 android:layout_below="@id/top_recommend_item_label_1"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 />
         </RelativeLayout>
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/color_recommend_divider"
+            />
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -92,9 +111,14 @@
                     android:layout_centerVertical="true"
                     android:src="@mipmap/ic_launcher"
                     android:layout_toRightOf="@id/top_recommend_item_label_2"
-                    
+                    android:layout_marginLeft="15dp"
                     />
             </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/color_recommend_divider"
+                />
             <RelativeLayout
                 android:id="@+id/top_recommend_item3_rl"
                 android:layout_width="match_parent"
@@ -126,36 +150,54 @@
                     android:layout_centerVertical="true"
                     android:src="@mipmap/ic_launcher"
                     android:layout_toRightOf="@id/top_recommend_item_label_3"
+                    android:layout_marginLeft="15dp"
                    
                     />
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/color_recommend_divider"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/divider"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="6dp"
-        android:layout_marginBottom="6dp"
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp"
+        android:background="@color/white"
         >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:background="@color/white"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="3dp"
             >
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/home_title_tuijian_icon"
-                android:layout_marginLeft="5dp"
                 android:text="今日推荐"
+                android:textSize="13sp"
                 />
             <TextView
                 android:id="@+id/top_home_recommend_more_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="13sp"
                 android:text="本地42个服务商"
+                android:drawableRight="@drawable/img_right_small_arraw"
                 />
         </LinearLayout>
 
@@ -165,34 +207,16 @@
             android:layout_height="match_parent"
             android:numColumns="4"
             android:horizontalSpacing="5dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:background="@color/white"
             />
     </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:paddingRight="2dp"
-        android:paddingLeft="2dp"
-        >
-        <TextView
-            android:id="@+id/recommend_title_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/recommend_more_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <com.android.graduate.daoway.widget.MyGridView
-            android:id="@+id/recommend_gridView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:numColumns="4"
-            />
-    </RelativeLayout>
-
     <View
         android:layout_width="match_parent"
-        android:layout_height="10dp"/>
+        android:layout_height="10dp"
+        android:background="@color/divider"
+        />
+
+
 </LinearLayout>

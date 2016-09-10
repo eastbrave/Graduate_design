@@ -23,6 +23,7 @@ import butterknife.ButterKnife;
  */
 public class BusinessAdapter extends BaseAdapter {
 
+
     private Context mContext;
     private List<BusinessBean.DataBean> businessDatas;
 
@@ -58,12 +59,15 @@ public class BusinessAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
         viewHolder.tvName.setText(businessDatas.get(position).getTitle());
-        viewHolder.tvNum.setText("已接"+businessDatas.get(position).getCompleteOrderNum()+"单");
-        double star=businessDatas.get(position).getStar();
-        String rate=(int)(star/5*100)+"%";
-        viewHolder.tvNum.setText("好评"+rate);
+        viewHolder.tvNum.setText("已接" + businessDatas.get(position).getCompleteOrderNum() + "单");
+        double star = businessDatas.get(position).getStar();
+        String rate = (int) (star / 5 * 100) + "%";
+        viewHolder.tvRate.setText("好评" + rate);
         Picasso.with(mContext).load(businessDatas.get(position).getImgUrl()).into(viewHolder.imageIv);
-
+        String tag=businessDatas.get(position).getTagIcons().get(0).toString();
+        if(tag!=null){
+            Picasso.with(mContext).load(tag).into(viewHolder.itemHomeBusinessTagIv);
+        }
         return view;
     }
 
@@ -76,6 +80,8 @@ public class BusinessAdapter extends BaseAdapter {
         TextView tvRate;
         @BindView(R.id.item_home_business_image)
         ImageView imageIv;
+        @BindView(R.id.item_home_business_tag_iv)
+        ImageView itemHomeBusinessTagIv;
         ViewHolder(View view) {
             ButterKnife.bind(this, view);
             view.setTag(this);

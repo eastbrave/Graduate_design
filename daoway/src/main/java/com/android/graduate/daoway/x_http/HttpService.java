@@ -10,10 +10,12 @@ import com.android.graduate.daoway.a_home.bean.BannerBean;
 import com.android.graduate.daoway.a_home.bean.BusinessBean;
 import com.android.graduate.daoway.a_home.bean.HomeBean;
 import com.android.graduate.daoway.a_home.bean.RecomBean;
+import com.android.graduate.daoway.a_home.bean.ShopBean;
 import com.android.graduate.daoway.a_home.bean.SortBean;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
@@ -36,15 +38,19 @@ public interface HttpService {
     Call<RecomBean> queryRecommend(@Query("city") String city);
 
     //首页List接口
-    @GET("http://api.daoway.cn/daoway/rest/service_items/recommend_top?start=0&size=10&imei=990006202677968&includeNotInScope=true")
+    @GET("/daoway/rest/service_items/recommend_top?start=0&size=10&imei=990006202677968&includeNotInScope=true")
     Call<HomeBean> queryHomeBean(@Query("manualCity") String city,@Query("lot") double lot,@Query("lat") double lat);
 
 
-     //首页List接口
-    @GET("http://api.daoway.cn/daoway/rest/services?start=0&size=10&imei=990006202677968&includeNotInScope=true")
+     //首页business List接口
+    @GET("/daoway/rest/services?start=0&size=10&imei=990006202677968&includeNotInScope=true")
     Call<BusinessBean> queryBusinessBean(@Query("manualCity") String city, @Query("lot") double lot, @Query("lat") double lat);
 
+    //店铺首页
+    @GET("/daoway/rest/service/{id}?userId=9a863a39ef0444beb506780a0a6bcfa1&imei=990006202677968")
+    Call<ShopBean> queryShopBean(@Path("id") String id,@Query("manualCity")String ctiy,@Query("lot") double lot, @Query("lat") double lat);
 
-
-
+/*   // @GET("http://api.daoway.cn/daoway/rest/service/05219ff82a41477e8a7c4539bad74a17?userId=9a863a39ef0444beb506780a0a6bcfa1&manualCity=武汉&lot=114.42472076416016&lat=30.4676456451416&imei=990006202677968")
+    @GET("http://api.daoway.cn/daoway/rest/service/{id}?userId=9a863a39ef0444beb506780a0a6bcfa1&manualCity=武汉&lot=114.42472076416016&lat=30.4676456451416&imei=990006202677968")
+    Call<ShopBean> queryShopBean(@Path("id") String id);*/
 }

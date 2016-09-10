@@ -9,7 +9,8 @@
     <color name="color_home_label_first">#EB463A</color>
     <color name="color_normal_gray">#6F6F6F</color>
     <color name="black">#000000</color>
-    <color name="divider">#e4e4e4</color>
+    <color name="divider">#e3e6e6</color>
+    <color name="color_recommend_divider">#c7c6c6</color>
     <color name="yanyan">#bfbdbd</color>
     <color name="pidan">#eaeae9</color>
     <color name="pidan_cheng">#ff281f</color>
@@ -21,4 +22,17 @@
     <color name="color_recommend_two">#e9f9ff</color>
     <color name="color_recommend_three">#e8fff3</color>
     <color name="color_recommend_four">#fff8ed</color>
+    <color name="white">#ffffff</color>
+    <color name="color_recommend_text_one">#f9dc7b</color>
+    <color name="color_recommend_text_two">#41be7f</color>
+    <color name="color_recommend_text_three">#58a7e3</color>
+    <color name="color_recommend_title_one">#f07f98</color>
+    <color name="color_recommend_title_two">#6bbbf3</color>
+    <color name="color_recommend_title_three">#64c87a</color>
+    <color name="color_recommend_title_four">#dabb80</color>
+    <color name="color_Red">#ff0000</color>
+    <color name="color_app_Red">#e5321f</color>
+    <color name="color_hint">#cccccc</color>
+    <color name="color_forget">#03b2ff</color>
+    <color name="color_shop_green">#68C17C</color>
 </resources>

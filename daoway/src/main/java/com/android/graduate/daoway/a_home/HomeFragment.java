@@ -1,6 +1,7 @@
 package com.android.graduate.daoway.a_home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -181,7 +182,20 @@ public class HomeFragment extends Fragment {
         rcDatas.addAll(recomBean.getData().getRecommend());
         acDatas.addAll(recomBean.getData().getActivity());
         rcAdapter.notifyDataSetChanged();
-        // TODO: 2016/9/6 设置今日推荐头部数据
+        // 设置今日推荐头部数据
+        Picasso.with(mContext).load(acDatas.get(0).getImg()).into(viewHolder.itemImage1);
+        Picasso.with(mContext).load(acDatas.get(1).getImg()).into(viewHolder.itemImage2);
+        Picasso.with(mContext).load(acDatas.get(2).getImg()).into(viewHolder.itemImage3);
+        viewHolder.itemName1.setText(acDatas.get(0).getTitle());
+
+        viewHolder.itemName2.setText(acDatas.get(1).getTitle());
+        viewHolder.itemName3.setText(acDatas.get(2).getTitle());
+        viewHolder.itemLabel1.setText(acDatas.get(0).getSubject());
+        viewHolder.itemLabel2.setText(acDatas.get(1).getSubject());
+        viewHolder.itemLabel3.setText(acDatas.get(2).getSubject());
+        viewHolder.itemName1.setTextColor(getResources().getColor(R.color.color_recommend_text_one));
+        viewHolder.itemName2.setTextColor(getResources().getColor(R.color.color_recommend_text_two));
+        viewHolder.itemName3.setTextColor(getResources().getColor(R.color.color_recommend_text_three));
     }
 
     private void formatSortResult(SortBean sortBean) {
@@ -251,6 +265,13 @@ public class HomeFragment extends Fragment {
         public View createView(Context context) {
             imageView = new ImageView(mContext);
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent=new Intent(mContext,ShopActivity.class);
+                    startActivity(intent);
+                }
+            });
             return imageView;
         }
 
@@ -290,11 +311,8 @@ public class HomeFragment extends Fragment {
          ConvenientBanner banner;
          @BindView(R.id.home_sort_gridView)
          MyGridView sortGV;
-         @BindView(R.id.recommend_title_tv)
-         TextView recommendTitleTv;
-         @BindView(R.id.recommend_more_tv)
-         TextView recommendMoreTv;
-         @BindView(R.id.recommend_gridView)
+
+         @BindView(R.id.top_home_recommend_grid)
          MyGridView rcGV;
 
 

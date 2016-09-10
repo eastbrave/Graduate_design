@@ -20,6 +20,7 @@
         <activity android:name=".f_search.SearchActivity"/>
         <activity android:name=".g_location.LocationActivity"/>
         <activity android:name=".h_login_and_register.LoginActivity"/>
+        <activity android:name=".a_home.ShopActivity"/>
 
     </application>
 

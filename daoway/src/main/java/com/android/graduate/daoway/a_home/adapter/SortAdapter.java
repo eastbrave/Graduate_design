@@ -63,6 +63,7 @@ public class SortAdapter extends BaseAdapter {
     }
 
     class ViewHolder {
+
         @BindView(R.id.item_home_sort_icon)
         ImageView imageIV;
         @BindView(R.id.item_home_sort_txt)

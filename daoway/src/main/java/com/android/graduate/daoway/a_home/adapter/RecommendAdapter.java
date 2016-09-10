@@ -1,6 +1,7 @@
 package com.android.graduate.daoway.a_home.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +55,24 @@ public class RecommendAdapter extends BaseAdapter {
             viewHolder = new ViewHolder(view);
         } else {
             viewHolder = (ViewHolder) view.getTag();
+        }
+        switch (position){
+            case 0:
+                view.setBackgroundColor(mContext.getResources().getColor(R.color.color_recommend_one));
+                viewHolder.tvName.setTextColor(mContext.getResources().getColor(R.color.color_recommend_title_one));
+                break;
+            case 1:
+                view.setBackgroundColor(mContext.getResources().getColor(R.color.color_recommend_two));
+                viewHolder.tvName.setTextColor(mContext.getResources().getColor(R.color.color_recommend_title_two));
+                break;
+            case 2:
+                view.setBackgroundColor(mContext.getResources().getColor(R.color.color_recommend_three));
+                viewHolder.tvName.setTextColor(mContext.getResources().getColor(R.color.color_recommend_title_three));
+                break;
+            case 3:
+                view.setBackgroundColor(mContext.getResources().getColor(R.color.color_recommend_four));
+                viewHolder.tvName.setTextColor(mContext.getResources().getColor(R.color.color_recommend_title_four));
+                break;
         }
         viewHolder.tvName.setText(rcDatas.get(position).getTitle());
         viewHolder.tvSubject.setText(rcDatas.get(position).getSubject());
