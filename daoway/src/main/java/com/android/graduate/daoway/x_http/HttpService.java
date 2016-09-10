@@ -1,17 +1,14 @@
 package com.android.graduate.daoway.x_http;
 
-import com.android.graduate.daoway.y_bean.CategoryBean;
-
-import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Query;
-
 import com.android.graduate.daoway.a_home.bean.BannerBean;
 import com.android.graduate.daoway.a_home.bean.BusinessBean;
 import com.android.graduate.daoway.a_home.bean.HomeBean;
 import com.android.graduate.daoway.a_home.bean.RecomBean;
 import com.android.graduate.daoway.a_home.bean.ShopBean;
 import com.android.graduate.daoway.a_home.bean.SortBean;
+import com.android.graduate.daoway.y_bean.CategoryBean;
+import com.android.graduate.daoway.y_bean.ClassDetailBean;
+import com.android.graduate.daoway.y_bean.ClassDetailBean2;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -53,4 +50,10 @@ public interface HttpService {
 /*   // @GET("http://api.daoway.cn/daoway/rest/service/05219ff82a41477e8a7c4539bad74a17?userId=9a863a39ef0444beb506780a0a6bcfa1&manualCity=武汉&lot=114.42472076416016&lat=30.4676456451416&imei=990006202677968")
     @GET("http://api.daoway.cn/daoway/rest/service/{id}?userId=9a863a39ef0444beb506780a0a6bcfa1&manualCity=武汉&lot=114.42472076416016&lat=30.4676456451416&imei=990006202677968")
     Call<ShopBean> queryShopBean(@Path("id") String id);*/
+  //分类详情
+   @GET("http://api.daoway.cn/daoway/rest/service_items/filter?start=0&size=20&lot=114.42472076416016&lat=30.4676456451416&imei=990006202677968&category=20&userId=9a863a39ef0444beb506780a0a6bcfa1&&manualCity=武汉")
+   Call<ClassDetailBean> getItems(@Query("tag") String name);
+  //分类详情商家
+  @GET("http://api.daoway.cn/daoway/rest/services/filter?start=0&size=20&lot=114.42472076416016&lat=30.4676456451416&&manualCity=武汉&imei=990006202677968&includeNotInScope=true&userId=9a863a39ef0444beb506780a0a6bcfa1")
+  Call<ClassDetailBean2> getDatas(@Query("category")  String num);
 }

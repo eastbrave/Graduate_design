@@ -54,6 +54,7 @@ public class GvAdapter extends BaseAdapter {
             viewHolder= (ViewHolder) view.getTag();
         }
        viewHolder.text.setText(mlist.get(i).getName());
+
         boolean hasService = mlist.get(i).isHasService();
         boolean hot = mlist.get(i).isHot();
         if(hasService){

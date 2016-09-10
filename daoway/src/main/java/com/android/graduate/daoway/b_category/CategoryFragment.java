@@ -1,6 +1,7 @@
 package com.android.graduate.daoway.b_category;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,12 +16,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.graduate.daoway.R;
+import com.android.graduate.daoway.start.ClassDetailActivity;
 import com.android.graduate.daoway.widget.MyGridView;
 import com.android.graduate.daoway.x_http.HttpUtils;
 import com.android.graduate.daoway.y_bean.CategoryBean;
 import com.android.graduate.daoway.z_constant.GvAdapter;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -241,7 +244,7 @@ public class CategoryFragment extends Fragment {
         }
 
         @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(final int i, View view, ViewGroup viewGroup) {
             ViewHolder2 viewHolder2;
            if(view==null){
                view=LayoutInflater.from(mContext).inflate(R.layout.fragment_category_list2,null);
@@ -251,12 +254,54 @@ public class CategoryFragment extends Fragment {
            }
            viewHolder2.text1.setText(data.get(i).getName());
             String name="热门";
-            if(data.get(i).getName().equals(name)){
+            if(i==0){
                 viewHolder2.text2.setVisibility(View.GONE);
+            }else {
+                viewHolder2.text2.setVisibility(View.VISIBLE);
             }
+            final   CategoryBean.DataBean dataBean = data.get(i);
+            viewHolder2.text2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent=new Intent(mContext, ClassDetailActivity.class);
+                    CategoryBean.DataBean dataBean = data.get(i);
+                    intent.putExtra("bean",dataBean);
+                    startActivity(intent);
+
+                }
+            });
             GvAdapter  gvAdapter=new GvAdapter(mContext,data.get(i).getTags());
              viewHolder2.gv.setAdapter(gvAdapter);
             gvAdapter.notifyDataSetChanged();
+
+
+
+
+            //设置GridView监听
+            viewHolder2.gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Intent intent=new Intent(mContext, ClassDetailActivity.class);
+                    CategoryBean.DataBean.TagsBean tagsBean = dataBean.getTags().get(i);
+                    intent.putExtra("tags",tagsBean);
+                    //热门第一个catId
+                    String catId = dataBean.getTags().get(i).getCatId();
+                    //遍历ID
+                    List<String> id=new ArrayList<>();
+                    for (int j = 0; j <data.size() ; j++) {
+                        id.add(data.get(j).getId());
+                    }
+                    int res=0;
+                    for (int d = 0; d <id.size() ; d++) {
+                        if(id.get(d).equals(catId)){
+                            res=d;
+                        }
+                    }
+                    CategoryBean.DataBean dataBean = data.get(res);
+                    intent.putExtra("bean",dataBean);
+                    startActivity(intent);
+                }
+            });
             return view;
         }
     }
