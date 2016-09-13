@@ -1,1 +1,1 @@
-include ':daoway', ':PullToZoomView'
+include ':daoway', ':PullToZoomView', ':greendao_tool'

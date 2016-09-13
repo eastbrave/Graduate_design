@@ -1,4 +1,4 @@
-package com.android.graduate.daoway.a_home.adapter;
+package com.android.graduate.daoway.f_search;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.graduate.daoway.R;
-import com.android.graduate.daoway.a_home.bean.SortBean;
+import com.android.graduate.daoway.f_search.SearchBean.SearchBean;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -17,28 +17,25 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
 /**
- * Created by Administrator on 2016/9/6.
- * 首页第二栏，分类列表的适配器
+ * Created by Administrator on 2016/9/10.
  */
-public class SortAdapter extends BaseAdapter {
+public class GridAdapter extends BaseAdapter {
     private Context mContext;
-    private List<SortBean.DataBean> mSortDatas;
-    public static final int SIZE=10;
-    public SortAdapter(Context mContext, List<SortBean.DataBean> mSortDatas) {
-        this.mContext = mContext;
-        this.mSortDatas = mSortDatas;
+    List<String> mDatas;
+    public GridAdapter(Context mContext, List<String> mDatas) {
+        this.mContext=mContext;
+        this.mDatas=mDatas;
     }
 
     @Override
     public int getCount() {
-        return mSortDatas==null ? 0:10;
+        return mDatas==null? 0:mDatas.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return mSortDatas.get(i);
+        return null;
     }
 
     @Override
@@ -51,32 +48,26 @@ public class SortAdapter extends BaseAdapter {
         View view = convertView;
         ViewHolder viewHolder=null;
         if (view == null) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.item_home_sort, parent, false);
+            view = LayoutInflater.from(mContext).inflate(R.layout.item_search_grid, parent, false);
             viewHolder=new ViewHolder(view);
         } else {
             viewHolder= (ViewHolder) view.getTag();
         }
-        try{
-            Picasso.with(mContext).load(mSortDatas.get(position).getIconUrl2()).into(viewHolder.imageIV);
-            viewHolder.tvName.setText(mSortDatas.get(position).getName());
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
+        viewHolder.tvName.setText(mDatas.get(position));
         return view;
     }
 
+
+
     class ViewHolder {
 
-        @BindView(R.id.item_home_sort_icon)
-        ImageView imageIV;
-        @BindView(R.id.item_home_sort_txt)
+        @BindView(R.id.item_search_tv)
         TextView tvName;
 
-       public  ViewHolder(View view) {
+        public  ViewHolder(View view) {
             ButterKnife.bind(this, view);
             view.setTag(this);
         }
     }
+
 }

@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
@@ -22,6 +21,7 @@ import com.android.graduate.daoway.R;
 import com.android.graduate.daoway.a_home.adapter.ShopListAdapter;
 import com.android.graduate.daoway.a_home.bean.ShopBean;
 import com.android.graduate.daoway.utils.BaseActivity;
+import com.android.graduate.daoway.widget.MyListView;
 import com.android.graduate.daoway.x_http.HttpUtils;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
@@ -30,7 +30,9 @@ import com.ecloud.pulltozoomview.PullToZoomScrollViewEx;
 import com.ecloud.pulltozoomview.TransparentToolBar;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -59,6 +61,8 @@ public class ShopActivity extends BaseActivity {
     TextView shopBarTitleTv;
     @BindView(R.id.shop_bar_menu_iv)
     ImageView shopBarMenuIv;
+
+
 
     private String id = "05219ff82a41477e8a7c4539bad74a17";
     private String city = "武汉";
@@ -93,9 +97,9 @@ public class ShopActivity extends BaseActivity {
     }
 
     private void setBar() {
+
         ScrollView pullRootView = shopScrollView.getPullRootView();
         internalScrollView = (PullToZoomScrollViewEx.InternalScrollView) pullRootView;
-
         shopBar.setNameTV(shopBarTitleTv);
         shopBar.setBackIB(shopBarBackIv);
         shopBar.setMenuIB(shopBarMenuIv);
@@ -142,10 +146,17 @@ public class ShopActivity extends BaseActivity {
         mPriceDatas.addAll(data.getPrices());
         shopListAdapter.notifyDataSetChanged();
         //设置店铺信息
+        shopBarTitleTv.setText(data.getTitle());
         viewHolder.shopName.setText(data.getTitle());
+
         viewHolder.shopTimeTv.setText(data.getStartTime() + "-" + data.getEndTime());
         // TODO: 2016/9/10 计算可预约时间
-        viewHolder.shopOrderNumTv.setText(data.getOrderTakingCount());
+        long time = data.getNextAppointTime();
+//        String apt=getTime(time);
+        //      String appointTime=apt.substring(11);
+        //      viewHolder.shopAppointTimeTv.setText(appointTime);
+
+        viewHolder.shopOrderNumTv.setText(data.getOrderTakingCount() + "");
         viewHolder.orderSuccessRate.setText(data.getOrderTakingRate());
         viewHolder.orderSuccessRate.setText(data.getPositiveCommentRate());
         viewHolder.shopGuarantee1Tv.setText(data.getGuarantee().getItems().get(0).getLabel());
@@ -199,17 +210,20 @@ public class ShopActivity extends BaseActivity {
         //评价专区
 
         viewHolder.ratingBar.setStepSize(data.getStar());//几星
-        viewHolder.shopCommentNumTv.setText(data.getCommentCount());//条数
+        viewHolder.shopCommentNumTv.setText("(" + data.getCommentCount() + "条)");//条数
         viewHolder.commentAreaItemFirstTv.setText(data.getLastComment().getComment());//内容
-        viewHolder.commentAreaTimeTv.setText(data.getLastComment().getCreatetime()+"");//时间
+        //      viewHolder.commentAreaTimeTv.setText(getTime(data.getLastComment().getCreatetime()));//时间
         viewHolder.commentAreaUserTv.setText(data.getLastComment().getNick());//昵称
         //服务商信息
         viewHolder.shopIntroduceContentTv.setText(data.getDescription());
 
 
+    }
 
-
-
+    private String getTime(long time) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yy-mm-dd e HH:mm");
+        String format = sdf.format(new Date(time * 1000));
+        return format;
     }
 
     class HeaderViewHolder implements Holder<ShopBean.DataBean.ImgsBean> {
@@ -234,22 +248,19 @@ public class ShopActivity extends BaseActivity {
         //   zoomViewHolder = new ZoomViewHolder(zoomView);
 
         View scrollView = LayoutInflater.from(this).inflate(R.layout.shop_content_layout, null, false);
-        viewHolder = new ViewHolder(scrollView);
+
         shopScrollView.setZoomView(zoomView);
         shopScrollView.setZoomEnabled(true);
-      /*  shopScrollView.setOnPullZoomListener(new PullToZoomBase.OnPullZoomListener() {
-            @Override
-            public void onPullZooming(int newScrollValue) {
 
-            }
-
-            @Override
-            public void onPullZoomEnd() {
-
-            }
-        });*/
         bannerView = (ConvenientBanner) findViewById(R.id.shop_banner);
         shopScrollView.setScrollContentView(scrollView);
+
+
+        viewHolder = new ViewHolder(scrollView);
+
+
+        //  View fuckView=LayoutInflater.from(this).inflate(R.layout.activity_shop,null);
+
 
         DisplayMetrics localDisplayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(localDisplayMetrics);
@@ -257,6 +268,7 @@ public class ShopActivity extends BaseActivity {
         mScreenWidth = localDisplayMetrics.widthPixels;
         LinearLayout.LayoutParams localObject = new LinearLayout.LayoutParams(mScreenWidth, mScreenWidth);
         shopScrollView.setHeaderLayoutParams(localObject);
+
 
     }
 
@@ -290,8 +302,8 @@ public class ShopActivity extends BaseActivity {
         TextView shopTimeTagTv;
         @BindView(R.id.shop_order_day_tv)
         TextView shopOrderDayTv;
-        @BindView(R.id.shop_order_time_tv)
-        TextView shopOrderTimeTv;
+        @BindView(R.id.shop_appoint_time_tv)
+        TextView shopAppointTimeTv;
         @BindView(R.id.shop_order_num_tv)
         TextView shopOrderNumTv;
         @BindView(R.id.shop_order_success_rate)
@@ -317,7 +329,7 @@ public class ShopActivity extends BaseActivity {
         @BindView(R.id.shop_menu_tab)
         TabLayout shopMenuTab;
         @BindView(R.id.shop_menu_list_lv)
-        ListView shopMenuListLv;
+        MyListView shopMenuListLv;
         @BindView(R.id.shop_comment_num_tv)
         TextView shopCommentNumTv;
         @BindView(R.id.shop_comment_area_item_first_tv)
@@ -328,12 +340,14 @@ public class ShopActivity extends BaseActivity {
         TextView commentAreaUserTv;
         @BindView(R.id.shop_comment_area_rl)
         RelativeLayout commentAreaRl;
-/*        @BindView(R.id.shop_introduce_title_tv)
-        TextView shopIntroduceTitleTv;*/
+        /*        @BindView(R.id.shop_introduce_title_tv)
+                TextView shopIntroduceTitleTv;*/
         @BindView(R.id.shop_introduce_content_tv)
         TextView shopIntroduceContentTv;
         @BindView(R.id.shop_comment_rate_star_rb)
         RatingBar ratingBar;
+
+
         ViewHolder(View view) {
             ButterKnife.bind(this, view);
         }

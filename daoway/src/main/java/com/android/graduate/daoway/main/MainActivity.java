@@ -1,5 +1,6 @@
 package com.android.graduate.daoway.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,6 +18,8 @@ import com.android.graduate.daoway.b_category.CategoryFragment;
 import com.android.graduate.daoway.c_cart.CartFragment;
 import com.android.graduate.daoway.d_order.OrderFragment;
 import com.android.graduate.daoway.e_mine.MineFragment;
+import com.android.graduate.daoway.f_search.SearchActivity;
+import com.android.graduate.daoway.start.StartActivity;
 import com.android.graduate.daoway.utils.BaseActivity;
 
 import java.util.ArrayList;
@@ -105,6 +108,15 @@ public class MainActivity extends BaseActivity {
                 }
             }
         });
+
+        searchIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void initSwitch(int i) {

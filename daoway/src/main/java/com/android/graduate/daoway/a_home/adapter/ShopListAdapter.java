@@ -61,11 +61,10 @@ public class ShopListAdapter extends BaseAdapter {
         Picasso.with(mContext).load(mPriceDatas.get(position).getPic_url()).into(viewHolder.imageIv);
         viewHolder.tvName.setText(mPriceDatas.get(position).getName());
         viewHolder.itemShopListDescTv.setText(mPriceDatas.get(position).getDescription());
-        viewHolder.priceTv.setText(mPriceDatas.get(position).getPrice());
+        viewHolder.priceTv.setText(mPriceDatas.get(position).getPrice()+"");
         viewHolder.priceUnitTv.setText(mPriceDatas.get(position).getPrice_unit());
-        viewHolder.priceOriginalTv.setText(mPriceDatas.get(position).getOriginalPrice());
-        viewHolder.priceOriginalTv.setText(mPriceDatas.get(position).getOriginalPrice());
-        viewHolder.saleNumTv.setText(mPriceDatas.get(position).getSalesNum());
+        viewHolder.priceOriginalTv.setText(mPriceDatas.get(position).getOriginalPrice()+"元");
+        viewHolder.saleNumTv.setText("已售"+mPriceDatas.get(position).getSalesNum());
         // TODO: 2016/9/9   对减号和已选数量设置存入数据库
         final ViewHolder mViewHolder=viewHolder;
         //减号按钮和选中数量  初始的时候是消失状态

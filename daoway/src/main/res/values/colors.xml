@@ -8,7 +8,7 @@
     <color name="color_home_label_other">#65a2e4</color>
     <color name="color_home_label_first">#EB463A</color>
     <color name="color_normal_gray">#6F6F6F</color>
-    <color name="black">#000000</color>
+    <color name="black">#303030</color>
     <color name="divider">#e3e6e6</color>
     <color name="color_recommend_divider">#c7c6c6</color>
     <color name="yanyan">#bfbdbd</color>
@@ -35,4 +35,5 @@
     <color name="color_hint">#cccccc</color>
     <color name="color_forget">#03b2ff</color>
     <color name="color_shop_green">#68C17C</color>
+    <color name="search">#f7f6f6</color>
 </resources>

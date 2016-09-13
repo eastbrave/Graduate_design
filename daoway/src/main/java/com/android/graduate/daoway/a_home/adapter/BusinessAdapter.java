@@ -64,10 +64,17 @@ public class BusinessAdapter extends BaseAdapter {
         String rate = (int) (star / 5 * 100) + "%";
         viewHolder.tvRate.setText("好评" + rate);
         Picasso.with(mContext).load(businessDatas.get(position).getImgUrl()).into(viewHolder.imageIv);
-        String tag=businessDatas.get(position).getTagIcons().get(0).toString();
-        if(tag!=null){
-            Picasso.with(mContext).load(tag).into(viewHolder.itemHomeBusinessTagIv);
+        try{
+            String  tag=businessDatas.get(position).getTagIcons().get(0).toString();
+            if(tag!=null){
+                Picasso.with(mContext).load(tag).into(viewHolder.itemHomeBusinessTagIv);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
+
+
+
         return view;
     }
 

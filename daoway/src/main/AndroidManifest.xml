@@ -20,10 +20,10 @@
         <activity android:name=".start.ClassDetailActivity"></activity>
         <activity android:name=".utils.BaseActivity"/>
         <activity android:name=".f_search.SearchActivity"/>
-        <activity android:name=".g_location.LocationActivity"/>
+        <activity android:name=".g_location.CitiesActivity"/>
         <activity android:name=".h_login_and_register.LoginActivity"/>
         <activity android:name=".a_home.ShopActivity"/>
-
+        <activity android:name=".f_search.SearchResultActivity"/>
         <activity android:name=".start.ClassDetailitemActivity"></activity>
     </application>
 

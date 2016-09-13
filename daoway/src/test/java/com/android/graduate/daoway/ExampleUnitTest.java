@@ -31,7 +31,8 @@ public class ExampleUnitTest {
     @Test
     public void returnDate()  {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-        String now = sdf.format(new Date(1454428800));
+      //  String now = sdf.format(new Date(1454428800));
+        String now = sdf.format(new Date(1467353517000L));
         System.out.print(now);
     }
 }

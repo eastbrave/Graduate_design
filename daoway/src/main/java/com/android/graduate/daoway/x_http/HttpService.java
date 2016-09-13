@@ -6,6 +6,8 @@ import com.android.graduate.daoway.a_home.bean.HomeBean;
 import com.android.graduate.daoway.a_home.bean.RecomBean;
 import com.android.graduate.daoway.a_home.bean.ShopBean;
 import com.android.graduate.daoway.a_home.bean.SortBean;
+import com.android.graduate.daoway.f_search.SearchBean.SearchBean;
+import com.android.graduate.daoway.g_location.CitiesBean;
 import com.android.graduate.daoway.y_bean.CategoryBean;
 import com.android.graduate.daoway.y_bean.ClassDetailBean;
 import com.android.graduate.daoway.y_bean.ClassDetailBean2;
@@ -47,6 +49,14 @@ public interface HttpService {
     @GET("/daoway/rest/service/{id}?userId=9a863a39ef0444beb506780a0a6bcfa1&imei=990006202677968")
     Call<ShopBean> queryShopBean(@Path("id") String id,@Query("manualCity")String ctiy,@Query("lot") double lot, @Query("lat") double lat);
 
+    //搜索页面
+    @GET("/daoway/rest/services/hot_search?userId=9a863a39ef0444beb506780a0a6bcfa1")
+    Call<SearchBean> querySearchBean(@Query("lot") double  lot,@Query("lat") double lat);
+
+
+
+
+
 /*   // @GET("http://api.daoway.cn/daoway/rest/service/05219ff82a41477e8a7c4539bad74a17?userId=9a863a39ef0444beb506780a0a6bcfa1&manualCity=武汉&lot=114.42472076416016&lat=30.4676456451416&imei=990006202677968")
     @GET("http://api.daoway.cn/daoway/rest/service/{id}?userId=9a863a39ef0444beb506780a0a6bcfa1&manualCity=武汉&lot=114.42472076416016&lat=30.4676456451416&imei=990006202677968")
     Call<ShopBean> queryShopBean(@Path("id") String id);*/
@@ -56,4 +66,10 @@ public interface HttpService {
   //分类详情商家
   @GET("http://api.daoway.cn/daoway/rest/services/filter?start=0&size=20&lot=114.42472076416016&lat=30.4676456451416&&manualCity=武汉&imei=990006202677968&includeNotInScope=true&userId=9a863a39ef0444beb506780a0a6bcfa1")
   Call<ClassDetailBean2> getDatas(@Query("category")  String num);
+
+    //切换城市接口
+    @GET("/daoway/rest/community/city_list")
+    Call<CitiesBean> queryCitiesBean();
+
+
 }
