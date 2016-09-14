@@ -68,7 +68,7 @@ public interface HttpService {
   Call<ClassDetailBean2> getDatas(@Query("category")  String num);
 
     //切换城市接口
-    @GET("/daoway/rest/community/city_list")
+    @GET("/district/list/allcity?session_id=000040a3fb7d64ce1737c6c7bb3c7e4e157c91")
     Call<CitiesBean> queryCitiesBean();
 
 

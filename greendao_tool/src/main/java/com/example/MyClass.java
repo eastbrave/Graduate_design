@@ -2,7 +2,9 @@ package com.example;
 
 import org.greenrobot.greendao.generator.DaoGenerator;
 import org.greenrobot.greendao.generator.Entity;
+import org.greenrobot.greendao.generator.Property;
 import org.greenrobot.greendao.generator.Schema;
+import org.greenrobot.greendao.generator.ToMany;
 
 public class MyClass {
     public static void main(String[] args){
@@ -10,11 +12,58 @@ public class MyClass {
     }
 
     private static void curdDemo() {
-        Schema schema = new Schema(1,"com.android.graduate.daoway");
+        Schema schema = new Schema(1, "com.android.graduate.daoway");
+     //   schema.setDefaultJavaPackageDao("com.android.graduate.daoway");
         //添加表
-        Entity entity = schema.addEntity("Search");
-        entity.addIdProperty().autoincrement();
-        entity.addStringProperty("content").notNull();
+        Entity search = schema.addEntity("Search");
+        search.addIdProperty().autoincrement();
+        search.addStringProperty("content").notNull();
+
+        Entity user = schema.addEntity("User");
+        user.addIdProperty().autoincrement();
+        user.addIntProperty("phone").notNull();
+        user.addStringProperty("password");
+
+        Entity carts = schema.addEntity("Carts");
+        carts.implementsSerializable();
+        carts.addIdProperty().autoincrement();
+        Property userId = carts.addLongProperty("userId").getProperty();
+        carts.addToOne(user,userId);
+        ToMany toMany = user.addToMany(carts, userId);
+        toMany.setName("Carts");
+
+        Entity orders = schema.addEntity("Orders");
+        orders.implementsSerializable();
+        orders.addIdProperty().autoincrement();
+        Property userId2 = orders.addLongProperty("userId2").getProperty();
+        orders.addToOne(user,userId);
+        ToMany toMany2 = user.addToMany(orders, userId);
+        toMany2.setName("Orders");
+        /*
+        *
+
+
+        //信息表进行建立
+        Entity infoBean = schema.addEntity("infos");
+        infoBean.implementsSerializable();
+        infoBean.addIdProperty();
+        infoBean.addStringProperty("infoTitle");
+        infoBean.addStringProperty("infoAuthor");
+        infoBean.addStringProperty("infoContent");
+        //这里我们为信息表，添加一个typeId外键，它就是infoType表的id
+        Property typeId = infoBean.addLongProperty("typeId").getProperty();
+
+        //这里是重点，我们为这两个表建立1:n的关系，并设置关联字段。
+        infoBean.addToOne(infoTypeBean, typeId);
+        ToMany addToMany = infoTypeBean.addToMany(infoBean,typeId);
+        addToMany.setName("infoes");
+        * */
+
+
+
+
+
+
 
         //自动生成
         try {
@@ -23,6 +72,14 @@ public class MyClass {
             e.printStackTrace();
         }
 
+
+
+
     }
+
+
+
+
+
 
 }

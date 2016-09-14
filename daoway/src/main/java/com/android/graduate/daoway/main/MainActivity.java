@@ -1,6 +1,7 @@
 package com.android.graduate.daoway.main;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -19,6 +20,8 @@ import com.android.graduate.daoway.c_cart.CartFragment;
 import com.android.graduate.daoway.d_order.OrderFragment;
 import com.android.graduate.daoway.e_mine.MineFragment;
 import com.android.graduate.daoway.f_search.SearchActivity;
+import com.android.graduate.daoway.g_location.CitiesActivity;
+import com.android.graduate.daoway.h_login_and_register.LoginActivity;
 import com.android.graduate.daoway.start.StartActivity;
 import com.android.graduate.daoway.utils.BaseActivity;
 
@@ -43,15 +46,25 @@ public class MainActivity extends BaseActivity {
     View actionDivider;
     private int cur;
     private FragmentManager fragmentManager;
+    private SharedPreferences sp;
+    private SharedPreferences.Editor edit;
+    private boolean isLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        judgeLogin();//判断是否为登陆状态
         initFragment();
         initRadioArray();
         initListener();
+    }
+
+    private void judgeLogin() {
+        sp=getSharedPreferences("isLogin",MODE_PRIVATE);
+        edit = sp.edit();
+       isLogin = sp.getBoolean("isLogin", false);//默认是未登录状态
     }
 
     private void initRadioArray() {
@@ -68,7 +81,6 @@ public class MainActivity extends BaseActivity {
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
                 for (int i = 0; i < radioArray.length; i++) {
                     if (checkedId == radioArray[i].getId()) {
-                        initSwitch(i);
                         switch (checkedId) {
                             case R.id.home_rb:
                                 locationTv.setVisibility(View.VISIBLE);
@@ -88,6 +100,11 @@ public class MainActivity extends BaseActivity {
                                 titleTv.setText("购物车");
                                 actionDivider.setVisibility(View.INVISIBLE);
                                 searchIv.setVisibility(View.GONE);
+                                //如果未登录，就跳转到登陆页面
+                                if(!isLogin){
+                                    Intent intent=new Intent(MainActivity.this, LoginActivity.class);
+                                    startActivity(intent);
+                                }
                                 break;
                             case R.id.order_rb:
                                 locationTv.setVisibility(View.GONE);
@@ -95,6 +112,11 @@ public class MainActivity extends BaseActivity {
                                 titleTv.setText("订单");
                                 actionDivider.setVisibility(View.INVISIBLE);
                                 searchIv.setVisibility(View.GONE);
+                                //如果未登录，就跳转到登陆页面
+                                if(!isLogin){
+                                    Intent intent=new Intent(MainActivity.this, LoginActivity.class);
+                                    startActivity(intent);
+                                }
                                 break;
                             case R.id.mine_rb:
                                 locationTv.setVisibility(View.GONE);
@@ -104,6 +126,8 @@ public class MainActivity extends BaseActivity {
                                 searchIv.setVisibility(View.GONE);
                                 break;
                         }
+                        //切换fragment页面
+                        initSwitch(i);
                     }
                 }
             }
@@ -116,6 +140,18 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+
+        //城市定位
+     /*   locationTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, CitiesActivity.class);
+                startActivity(intent);
+            }
+        });*/
+
+
+
 
     }
 

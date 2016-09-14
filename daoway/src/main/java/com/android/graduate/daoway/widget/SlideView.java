@@ -55,7 +55,7 @@ public class SlideView extends View {
         initPromptBox();
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
-        mPaint.setColor(Color.WHITE);
+        mPaint.setColor(Color.BLACK);
         mPaint.setTextSize(30);
         mPaint.setTextAlign(Paint.Align.CENTER);
         mark = new String[]{"*",  "#", "A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N",  "P", "Q", "R", "S", "T",  "W", "X", "Y", "Z"};
@@ -68,7 +68,7 @@ public class SlideView extends View {
     private void initPromptBox() {
         promptBox = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.index_box_layout, null);
         promptBox.setTextSize(40);
-        promptBox.setTextColor(Color.WHITE);
+        promptBox.setTextColor(Color.BLACK);
         promptBox.setGravity(Gravity.CENTER);
         WindowManager.LayoutParams layoutParams =
                 new WindowManager.LayoutParams(150, 150,
@@ -86,7 +86,7 @@ public class SlideView extends View {
         super.onDraw(canvas);
 
         int textHeight = getHeight() / mark.length;
-       // canvas.drawColor(getContext().getResources().getColor(R.color.colorBackgound));
+        canvas.drawColor(Color.parseColor("#00ffffff"));//背景色透明
         for (int i = 0; i < mark.length; i++) {
             canvas.drawText(mark[i], getWidth() / 2, textHeight + (i * textHeight), mPaint);
         }

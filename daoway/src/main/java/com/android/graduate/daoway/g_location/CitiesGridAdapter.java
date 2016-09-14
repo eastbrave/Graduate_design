@@ -19,15 +19,15 @@ import butterknife.ButterKnife;
  */
 public class CitiesGridAdapter extends BaseAdapter {
     private Context mContext;
-    List<String> mDatas;
-    public CitiesGridAdapter(Context mContext, List<String> mDatas) {
+    List<CitiesBean.ResultBean.CityListBean> cityListBeen;
+    public CitiesGridAdapter(Context mContext,  List<CitiesBean.ResultBean.CityListBean> cityListBeen) {
         this.mContext=mContext;
-        this.mDatas=mDatas;
+        this.cityListBeen=cityListBeen;
     }
 
     @Override
     public int getCount() {
-        return mDatas==null? 0:mDatas.size();
+        return cityListBeen==null? 0:cityListBeen.size();
     }
 
     @Override
@@ -50,7 +50,7 @@ public class CitiesGridAdapter extends BaseAdapter {
         } else {
             viewHolder= (ViewHolder) view.getTag();
         }
-        viewHolder.tvName.setText(mDatas.get(position));
+        viewHolder.tvName.setText(cityListBeen.get(position).getCity_name());
         return view;
     }
 
