@@ -1,12 +1,14 @@
 package com.android.graduate.daoway.main;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -26,7 +28,13 @@ import com.android.graduate.daoway.f_search.SearchActivity;
 import com.android.graduate.daoway.h_login_and_register.LoginActivity;
 import com.android.graduate.daoway.start.MapActivity;
 import com.android.graduate.daoway.utils.BaseActivity;
+import com.android.graduate.daoway.x_http.HttpUtils;
+import com.android.graduate.daoway.y_bean.XiaoQuBean;
 import com.android.graduate.daoway.z_db.DBUtils;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
 
 import org.greenrobot.greendao.query.QueryBuilder;
 
@@ -35,6 +43,9 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends BaseActivity {
     List<Fragment> fragments = new ArrayList<>();
@@ -57,6 +68,9 @@ public class MainActivity extends BaseActivity {
     private SharedPreferences sharedPreferences;
     private String village;
     public static int total;
+    private LocationClient mLocationClient;
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -104,10 +118,105 @@ public class MainActivity extends BaseActivity {
         initFragment();
         initRadioArray();
         initListener();
+        initLocation();
 
     }
 
+    private void initLocation() {
+        mLocationClient = new LocationClient(getApplicationContext());
+        mLocationClient.registerLocationListener(new BDLocationListener() {
+            @Override
+            public void onReceiveLocation(BDLocation bdLocation) {
+                String city = bdLocation.getCity();
+                double latNum = bdLocation.getLatitude();
+                double lotNum = bdLocation.getLongitude();
+                String lat = String.valueOf(latNum);
+                String lot = String.valueOf(lotNum);
+                mLocationClient.stop();
+                HttpUtils.init().getCommunities(latNum,lotNum).enqueue(new Callback<XiaoQuBean>() {
+                    @Override
+                    public void onResponse(Call<XiaoQuBean> call, Response<XiaoQuBean> response) {
+                        XiaoQuBean.DataBean data = response.body().getData();
 
+                        List<XiaoQuBean.DataBean.CommunitiesBean> communities = data.getCommunities();
+
+                        List<XiaoQuBean.DataBean.CommunitiesBean> communitie = new ArrayList<>();
+                        communitie.addAll(communities);
+
+                        int cityID = data.getParent().getId();
+                        List<XiaoQuBean.DataBean.BaiduCommunitiesBean> baiduCommunities =
+                                data.getBaiduCommunities();
+                        //将baiduCommunitiesBean转换成communitiesBean,并加入数据列表
+                        for (int i = 0; i < baiduCommunities.size(); i++) {
+                            XiaoQuBean.DataBean.BaiduCommunitiesBean baiduCommunitiesBean = baiduCommunities.get(i);
+                            XiaoQuBean.DataBean.CommunitiesBean communitiesBean = new XiaoQuBean.DataBean.CommunitiesBean();
+                            communitiesBean.setAddr(baiduCommunitiesBean.getAddr());
+                            communitiesBean.setName(baiduCommunitiesBean.getName());
+                            communitiesBean.setLot(baiduCommunitiesBean.getX());
+                            communitiesBean.setLat(baiduCommunitiesBean.getY());
+                            communitiesBean.setId(cityID);
+                            communitie.add(communitiesBean);
+                        }
+
+                        SharedPreferences location = getSharedPreferences("location", Context.MODE_PRIVATE);
+                        String plot = location.getString("plot", "");
+
+                        for (int i = 0; i < communitie.size(); i++) {
+                            if (plot.equals(communitie.get(i).getName())) {
+                                return;
+                            }
+                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                            builder.setMessage("当前小区不在您的位置附近 ,是否重新选择小区?")
+                                    .setPositiveButton("取消", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+
+                                        }
+                                    })
+                                    .setNegativeButton("确认", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            Intent intent = new Intent();
+                                            intent.setClass(MainActivity.this, MapActivity.class);
+                                            startActivityForResult(intent, 3);
+                                        }
+                                    });
+                            builder.show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<XiaoQuBean> call, Throwable t) {
+
+                    }
+                });
+            }
+
+        });
+        LocationClientOption option = new LocationClientOption();
+        option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy
+        );//可选，默认高精度，设置定位模式，高精度，低功耗，仅设备
+        option.setCoorType("bd09ll");//可选，默认gcj02，设置返回的定位结果坐标系
+        option.setScanSpan(0);//可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
+        option.setIsNeedAddress(true);//可选，设置是否需要地址信息，默认不需要
+        option.setOpenGps(false);//可选，默认false,设置是否使用gps
+        option.setLocationNotify(false);//可选，默认false，设置是否当gps有效时按照1S1次频率输出GPS结果
+        option.setIsNeedLocationDescribe(false);//可选，默认false，设置是否需要位置语义化结果，可以在BDLocation.getLocationDescribe里得到，结果类似于“在北京天安门附近”
+        option.setIsNeedLocationPoiList(false);//可选，默认false，设置是否需要POI结果，可以在BDLocation.getPoiList里得到
+        option.setIgnoreKillProcess(true);//可选，默认true，定位SDK内部是一个SERVICE，并放到了独立进程，设置是否在stop的时候杀死这个进程，默认不杀死
+        option.SetIgnoreCacheException(false);//可选，默认false，设置是否收集CRASH信息，默认收集
+        option.setEnableSimulateGps(false);//可选，默认false，设置是否需要过滤gps仿真结果，默认需要
+        mLocationClient.setLocOption(option);
+        mLocationClient.start();
+
+
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 3 && resultCode == 1) {
+            initData();
+        }
+    }
 
     private void initData() {
         sharedPreferences = getSharedPreferences("location", Context.MODE_PRIVATE);
