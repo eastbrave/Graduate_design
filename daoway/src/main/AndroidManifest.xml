@@ -108,17 +108,18 @@
         <activity android:name=".g_location.CitiesActivity" />
         <activity android:name=".f_search.SearchResultActivity" />
         <activity android:name=".start.MapActivity" />
-        <activity android:name=".start.PlotSearchActivity"></activity>
-        <activity android:name=".start.ClassDetailActivity"></activity>
-        <activity android:name=".utils.BaseActivity"/>
-        <activity android:name=".f_search.SearchActivity"/>
-        <activity android:name=".g_location.CitiesActivity"/>
-        <activity android:name=".h_login_and_register.LoginActivity"/>
-        <activity android:name=".h_login_and_register.Register"/>
-        <activity android:name=".a_home.ShopActivity"/>
-        <activity android:name=".f_search.SearchResultActivity"/>
-        <activity android:name=".start.ClassDetailitemActivity"></activity>
-        <activity android:name=".e_mine.UserInfoActivity"/>
+        <activity android:name=".start.PlotSearchActivity" />
+        <activity android:name=".start.ClassDetailActivity" />
+        <activity android:name=".utils.BaseActivity" />
+        <activity android:name=".f_search.SearchActivity" />
+        <activity android:name=".g_location.CitiesActivity" />
+        <activity android:name=".h_login_and_register.LoginActivity" />
+        <activity android:name=".h_login_and_register.Register" />
+        <activity android:name=".a_home.ShopActivity" />
+        <activity android:name=".f_search.SearchResultActivity" />
+        <activity android:name=".start.ClassDetailitemActivity" />
+        <activity android:name=".e_mine.UserInfoActivity" />
+        <activity android:name=".d_order.OrderActivity"></activity>
     </application>
 
 </manifest>
