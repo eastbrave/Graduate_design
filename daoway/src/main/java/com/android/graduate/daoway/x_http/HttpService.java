@@ -11,6 +11,10 @@ import com.android.graduate.daoway.g_location.CitiesBean;
 import com.android.graduate.daoway.y_bean.CategoryBean;
 import com.android.graduate.daoway.y_bean.ClassDetailBean;
 import com.android.graduate.daoway.y_bean.ClassDetailBean2;
+import com.android.graduate.daoway.y_bean.PingjiaBean;
+import com.android.graduate.daoway.y_bean.ServiceIsBean;
+import com.android.graduate.daoway.y_bean.XiaoQuBean;
+import com.android.graduate.daoway.y_bean.XiaoQuSearchBean;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -66,10 +70,29 @@ public interface HttpService {
   //分类详情商家
   @GET("http://api.daoway.cn/daoway/rest/services/filter?start=0&size=20&lot=114.42472076416016&lat=30.4676456451416&&manualCity=武汉&imei=990006202677968&includeNotInScope=true&userId=9a863a39ef0444beb506780a0a6bcfa1")
   Call<ClassDetailBean2> getDatas(@Query("category")  String num);
+   //分类详情服务和详情
+    @GET("/daoway/rest/service/full/{id}")
+   Call<ServiceIsBean> getDatass(@Path("id") String id);
+    //分类详情评价
+    @GET("/daoway/rest/service/{id}/comments?start=0&size=20&filter=all&userId=9a863a39ef0444beb506780a0a6bcfa1")
+    Call<PingjiaBean> getComments(@Path("id") String id);
+    @GET("/daoway/rest/service/{id}/comments?start=0&size=20&filter=good&userId=9a863a39ef0444beb506780a0a6bcfa1")
+    Call<PingjiaBean> getComments1(@Path("id") String id);
+    @GET("/daoway/rest/service/{id}/comments?start=0&size=20&filter=average&userId=9a863a39ef0444beb506780a0a6bcfa1")
+    Call<PingjiaBean> getComments2(@Path("id") String id);
+    @GET("/daoway/rest/service/{id}/comments?start=0&size=20&filter=bad&userId=9a863a39ef0444beb506780a0a6bcfa1")
+    Call<PingjiaBean> getComments3(@Path("id") String id);
+    @GET("/daoway/rest/service/{id}/comments?start=0&size=20&filter=hasImg&userId=9a863a39ef0444beb506780a0a6bcfa1")
+    Call<PingjiaBean> getComments4(@Path("id") String id);
 
     //切换城市接口
     @GET("/district/list/allcity?session_id=000040a3fb7d64ce1737c6c7bb3c7e4e157c91")
     Call<CitiesBean> queryCitiesBean();
 
-
+  //map
+   @GET("/daoway/rest/community/autoPositionContainsBaidu?v2=v2&")
+  Call<XiaoQuBean> getCommunities(@Query("lat") double num1,@Query("lot") double num2);
+    //小区收索
+    @GET("/daoway/rest/community/search?")
+    Call<XiaoQuSearchBean> getDataXiao(@Query("manualCity") String name1, @Query("search") String name2);
 }

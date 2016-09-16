@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    >
     <RelativeLayout
         android:id="@+id/cities_top_bar"
         android:layout_width="match_parent"
@@ -24,17 +27,21 @@
             android:textColor="@color/black"
             />
     </RelativeLayout>
+
     <com.android.graduate.daoway.widget.PinnedHeaderExpandableListView
         android:id="@+id/cities_ex_list"
         android:layout_below="@id/cities_top_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginRight="35dp"
+        android:scrollbars="none"
+        />
     <com.android.graduate.daoway.widget.SlideView
         android:id="@+id/cities_slideView"
-        android:layout_width="15dp"
+        android:layout_width="35dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
+        android:padding="10dp"
         />
 </RelativeLayout>

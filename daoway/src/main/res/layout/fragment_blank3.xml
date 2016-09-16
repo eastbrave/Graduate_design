@@ -1,13 +1,71 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.android.graduate.daoway.b_category.Blank3Fragment">
-
+    android:orientation="vertical"
+    tools:context="com.android.graduate.daoway.b_category.Blank3Fragment"
+    android:background="#ffffff"
+    >
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+   <RadioGroup
+       android:id="@+id/rg_pingjia"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:checkedButton="@+id/rbt_show1"
+       >
+         <RadioButton
+             android:id="@id/rbt_show1"
+          android:layout_width="0dp"
+             android:layout_weight="1"
+          android:layout_height="wrap_content"
+          android:text="3642\n全部"
+             android:gravity="center_horizontal"
+          android:button="@null" android:textColor="@color/slt_pingjia_text"
+          />
+           <RadioButton
+               android:id="@+id/rbt_show2"
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:layout_height="wrap_content"
+               android:text="3143\n好评"
+               android:gravity="center_horizontal"
+               android:button="@null"
+               android:textColor="@color/slt_pingjia_text"
+               />
+           <RadioButton
+               android:id="@+id/rbt_show3"
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:layout_height="wrap_content"
+               android:text="181\n中评"
+               android:gravity="center_horizontal"
+               android:button="@null"
+               android:textColor="@color/slt_pingjia_text"
+               />
+           <RadioButton
+               android:id="@+id/rbt_show4"
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:layout_height="wrap_content"
+               android:text="318\n差评"
+               android:gravity="center_horizontal"
+               android:button="@null"
+               android:textColor="@color/slt_pingjia_text"
+               />
+           <RadioButton
+               android:id="@+id/rbt_show5"
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:layout_height="wrap_content"
+               android:text="6\n有图"
+               android:gravity="center_horizontal"
+               android:button="@null"
+               android:textColor="@color/slt_pingjia_text"
+               />
+   </RadioGroup>
+   <ListView
+       android:id="@+id/list_pingjia"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"></ListView>
+</LinearLayout>

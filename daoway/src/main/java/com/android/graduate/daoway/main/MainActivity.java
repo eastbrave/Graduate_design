@@ -1,12 +1,12 @@
 package com.android.graduate.daoway.main;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -23,9 +23,8 @@ import com.android.graduate.daoway.c_cart.CartFragment;
 import com.android.graduate.daoway.d_order.OrderFragment;
 import com.android.graduate.daoway.e_mine.MineFragment;
 import com.android.graduate.daoway.f_search.SearchActivity;
-import com.android.graduate.daoway.g_location.CitiesActivity;
 import com.android.graduate.daoway.h_login_and_register.LoginActivity;
-import com.android.graduate.daoway.start.StartActivity;
+import com.android.graduate.daoway.start.MapActivity;
 import com.android.graduate.daoway.utils.BaseActivity;
 import com.android.graduate.daoway.z_db.DBUtils;
 
@@ -55,11 +54,13 @@ public class MainActivity extends BaseActivity {
     private SharedPreferences sp;
     private SharedPreferences.Editor edit;
     private boolean isLogin;
+    private SharedPreferences sharedPreferences;
+    private String village;
     public static int total;
     @Override
     protected void onStart() {
         super.onStart();
-
+        initData();
 
 
             sp=getSharedPreferences("isLogin",MODE_PRIVATE);
@@ -103,6 +104,15 @@ public class MainActivity extends BaseActivity {
         initFragment();
         initRadioArray();
         initListener();
+
+    }
+
+
+
+    private void initData() {
+        sharedPreferences = getSharedPreferences("location", Context.MODE_PRIVATE);
+        village = sharedPreferences.getString("plot", "北京");
+        locationTv.setText(village);
     }
 
 
@@ -121,6 +131,7 @@ public class MainActivity extends BaseActivity {
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
                 for (int i = 0; i < radioArray.length; i++) {
                     if (checkedId == radioArray[i].getId()) {
+
                         switch (checkedId) {
                             case R.id.home_rb:
                                 locationTv.setVisibility(View.VISIBLE);
@@ -226,6 +237,11 @@ public class MainActivity extends BaseActivity {
         transaction.commit();
         cur = 0;
     }
+
+  public void onClick(View view){
+      Intent intent=new Intent(MainActivity.this, MapActivity.class);
+      startActivity(intent);
+  }
 
 
 

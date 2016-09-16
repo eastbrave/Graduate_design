@@ -33,7 +33,7 @@ public class SortAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return mSortDatas==null ? 0:10;
+        return mSortDatas==null ? 0:mSortDatas.size()-1;
     }
 
     @Override

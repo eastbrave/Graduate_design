@@ -6,9 +6,10 @@
     android:paddingLeft="10dp"
     android:paddingRight="25dp"
     android:paddingTop="10dp"
-    android:paddingBottom="50dp"
+    android:paddingBottom="30dp"
     android:numColumns="4"
     android:horizontalSpacing="6dp"
     android:verticalSpacing="10dp"
+    android:scrollbars="none"
     />
 

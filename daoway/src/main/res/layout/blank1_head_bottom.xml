@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <RelativeLayout
+        android:id="@+id/blank1_head_rl"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="#802e2d2d"
+        android:layout_alignBottom="@id/blank1_head_image"
+        android:gravity="center_vertical"
+        android:layout_alignParentBottom="true"
+        >
+        <TextView
+            android:id="@+id/blank1_head_rl_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="家庭保洁"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="10dp"
+            />
+        <TextView
+            android:id="@+id/blank1_head_rl_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已售13499"
+            android:textColor="#ffffff"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            />
+    </RelativeLayout>
+</RelativeLayout>

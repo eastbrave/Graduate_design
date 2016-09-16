@@ -1,13 +1,79 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+
     tools:context="com.android.graduate.daoway.b_category.Blank2Fragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        >
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_price_info_1"
+        />
+    <TextView
+        android:id="@+id/xiangqing_tv1"
+        android:padding="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2小时起订，不足半小时按半小时计算，阿姨上门不携带清洁设备。超时按照原价结算，可以直接付款给给阿姨。 主要服务：一次性打扫厨房、客厅、浴室、卧室等。 此服务不包括：二楼以上外窗擦拭，抽油烟机拆洗，新房开荒，地毯清洗。" />
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_price_info_3"
+        />
+    <TextView
+        android:id="@+id/xiangqing_tv2"
+        android:padding="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="北京 厦门 天津 上海 合肥 南京 苏州 无锡 成都 常州 广州 深圳 长沙 东莞 佛山 杭州 武汉 宁波 郑州 西安 德阳"
+        />
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_price_info_4"
+        />
+    <TextView
+        android:id="@+id/xiangqing_tv3"
+        android:padding="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="08:00-19:00,最近服务时间:明天 11:00"
+        />
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_price_info_6"
+        />
+    <TextView
+        android:id="@+id/xiangqing_tv4"
+        android:padding="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="【订购须知】 ● 本店需提前2小时以上预约订购服务 ● 本店服务时间为周一至周日 8：00-19：00 ● 本店阿姨上门不带清洁工具和清洁剂，需自备 ● 服务开始前2小时，不支持取消订单 ● 一次性的保洁服务，主要服务一次性打扫厨房，客厅，浴室，卧室等。2小时起订，不足半小时按半小时计算 【注意事项】 ● 如在服务时间未能及时处理订单，请随时拨打“联系商家”功能右上方客服电话直接联系我们 ● 本店所有服务明码标价，绝无任何附加费用，请放心选购"
+        />
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="~已经到底啦~"
+        android:textSize="10sp"
+        />
+    </LinearLayout>
+</ScrollView>

@@ -27,6 +27,7 @@
            android:drawableRight="@drawable/img_city_pull_down"
            android:layout_centerVertical="true"
            android:drawablePadding="3dp"
+           android:onClick="onClick"
            />
        <TextView
            android:id="@+id/title_tv"

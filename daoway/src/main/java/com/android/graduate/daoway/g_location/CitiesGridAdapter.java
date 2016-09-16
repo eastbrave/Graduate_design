@@ -1,6 +1,7 @@
 package com.android.graduate.daoway.g_location;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,8 @@ import butterknife.ButterKnife;
 public class CitiesGridAdapter extends BaseAdapter {
     private Context mContext;
     List<CitiesBean.ResultBean.CityListBean> cityListBeen;
+
+
     public CitiesGridAdapter(Context mContext,  List<CitiesBean.ResultBean.CityListBean> cityListBeen) {
         this.mContext=mContext;
         this.cityListBeen=cityListBeen;
@@ -50,7 +53,20 @@ public class CitiesGridAdapter extends BaseAdapter {
         } else {
             viewHolder= (ViewHolder) view.getTag();
         }
+
+      final String  city_name = cityListBeen.get(position).getCity_name();
         viewHolder.tvName.setText(cityListBeen.get(position).getCity_name());
+        viewHolder.tvName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.putExtra("cityName", city_name);
+                CitiesActivity  act= (CitiesActivity) mContext;
+                act.setResult(1, intent);
+                act.finish();
+            }
+        });
+
         return view;
     }
 
