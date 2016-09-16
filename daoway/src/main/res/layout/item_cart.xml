@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        >
+        <CheckBox
+            android:id="@+id/cart_item_top_shop_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/slt_item_cart"
+            android:checked="true"
+
+            />
+        <TextView
+            android:id="@+id/cart_item_top_shop_name_tv"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="极修客"
+            android:drawableLeft="@drawable/orderlist_store_icon"
+            android:drawableRight="@drawable/img_right_small_arraw"
+            android:drawablePadding="2dp"
+            />
+        <TextView
+            android:id="@+id/cart_item_top_shop_delete_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="删除"
+            />
+    </LinearLayout>
+    <com.android.graduate.daoway.widget.MyListView
+        android:id="@+id/item_cart_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        >
+
+        <TextView
+
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="合计:"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginRight="3dp"
+            />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥"
+            android:textColor="@color/color_Red"
+            android:layout_marginRight="3dp"
+            android:textSize="12sp"
+            />
+
+        <TextView
+            android:id="@+id/cart_item_bottom_shop_total_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="987"
+            android:textSize="16sp"
+            android:textColor="@color/color_Red"
+            android:layout_marginRight="3dp"
+            />
+
+        <TextView
+
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="(免费上门)"
+            android:textSize="12sp"
+            />
+        <Button
+
+            android:id="@+id/cart_item_bottom_pay_btn"
+            android:text="去结算"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/shape_login_btn"
+
+            android:textColor="@color/white"
+            android:textSize="15sp"
+
+
+            />
+    </LinearLayout>
+
+</LinearLayout>

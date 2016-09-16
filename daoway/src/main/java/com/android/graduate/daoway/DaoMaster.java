@@ -1,4 +1,4 @@
-package com.android.graduate.daoway.z_db;
+package com.android.graduate.daoway;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -22,11 +22,17 @@ public class DaoMaster extends AbstractDaoMaster {
     /** Creates underlying database table using DAOs. */
     public static void createAllTables(Database db, boolean ifNotExists) {
         SearchDao.createTable(db, ifNotExists);
+        UserDao.createTable(db, ifNotExists);
+        CartsDao.createTable(db, ifNotExists);
+        OrdersDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
     public static void dropAllTables(Database db, boolean ifExists) {
         SearchDao.dropTable(db, ifExists);
+        UserDao.dropTable(db, ifExists);
+        CartsDao.dropTable(db, ifExists);
+        OrdersDao.dropTable(db, ifExists);
     }
 
     /**
@@ -46,6 +52,9 @@ public class DaoMaster extends AbstractDaoMaster {
     public DaoMaster(Database db) {
         super(db, SCHEMA_VERSION);
         registerDaoClass(SearchDao.class);
+        registerDaoClass(UserDao.class);
+        registerDaoClass(CartsDao.class);
+        registerDaoClass(OrdersDao.class);
     }
 
     public DaoSession newSession() {

@@ -21,12 +21,18 @@ public class MyClass {
 
         Entity user = schema.addEntity("User");
         user.addIdProperty().autoincrement();
-        user.addIntProperty("phone").notNull();
+        user.addStringProperty("phone").notNull();
         user.addStringProperty("password");
 
         Entity carts = schema.addEntity("Carts");
         carts.implementsSerializable();
         carts.addIdProperty().autoincrement();
+        carts.addStringProperty("shopName");
+        carts.addStringProperty("skuName");
+        carts.addStringProperty("skuNum");
+        carts.addStringProperty("price");
+        carts.addStringProperty("imgUrl");
+
         Property userId = carts.addLongProperty("userId").getProperty();
         carts.addToOne(user,userId);
         ToMany toMany = user.addToMany(carts, userId);
@@ -35,9 +41,14 @@ public class MyClass {
         Entity orders = schema.addEntity("Orders");
         orders.implementsSerializable();
         orders.addIdProperty().autoincrement();
+        orders.addStringProperty("shopName");
+        orders.addStringProperty("skuName");
+        orders.addStringProperty("skuNum");
+        orders.addStringProperty("price");
+        orders.addStringProperty("imgUrl");
         Property userId2 = orders.addLongProperty("userId2").getProperty();
-        orders.addToOne(user,userId);
-        ToMany toMany2 = user.addToMany(orders, userId);
+        orders.addToOne(user,userId2);
+        ToMany toMany2 = user.addToMany(orders, userId2);
         toMany2.setName("Orders");
         /*
         *

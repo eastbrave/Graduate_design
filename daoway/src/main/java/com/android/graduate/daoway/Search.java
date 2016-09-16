@@ -1,4 +1,4 @@
-package com.android.graduate.daoway.z_db;
+package com.android.graduate.daoway;
 
 import org.greenrobot.greendao.annotation.*;
 
@@ -15,7 +15,7 @@ public class Search {
     @NotNull
     private String content;
 
-    @Generated(hash = 1644193961)
+    @Generated
     public Search() {
     }
 
@@ -23,8 +23,8 @@ public class Search {
         this.id = id;
     }
 
-    @Generated(hash = 559739565)
-    public Search(Long id, @NotNull String content) {
+    @Generated
+    public Search(Long id, String content) {
         this.id = id;
         this.content = content;
     }

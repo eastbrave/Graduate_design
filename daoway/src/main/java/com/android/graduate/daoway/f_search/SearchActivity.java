@@ -14,8 +14,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.graduate.daoway.R;
-import com.android.graduate.daoway.z_db.Search;
-import com.android.graduate.daoway.z_db.SearchDao;
+import com.android.graduate.daoway.Search;
+import com.android.graduate.daoway.SearchDao;
 import com.android.graduate.daoway.f_search.SearchBean.SearchBean;
 import com.android.graduate.daoway.utils.BaseActivity;
 import com.android.graduate.daoway.widget.MyGridView;
@@ -74,6 +74,7 @@ public class SearchActivity extends BaseActivity {
                     Search search=new Search();
                     search.setContent(searchText);
                     searchDao.insert(search);
+
                 }
             }
         });
@@ -84,6 +85,7 @@ public class SearchActivity extends BaseActivity {
                 String searchStr = mGridDatas.get(position);
 
                 SearchDao searchDao = DBUtils.getSearchDao(SearchActivity.this);
+
                 if(!isExist(searchStr,searchDao)){
                     Search search=new Search();
                     search.setContent(searchStr);
@@ -118,6 +120,7 @@ public class SearchActivity extends BaseActivity {
         builder.where(SearchDao.Properties.Content.eq(searchText));
         List<Search> searches = builder.list();
         if (searches.size()!=0){
+
             return true;
         }
        return false;

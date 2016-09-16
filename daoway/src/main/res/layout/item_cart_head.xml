@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:padding="10dp"
+    >
+    <CheckBox
+        android:id="@+id/cart_item_top_shop_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/slt_item_cart"
+        android:checked="true"
+
+        />
+    <TextView
+        android:id="@+id/cart_item_top_shop_name_tv"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="极修客"
+        android:drawableLeft="@drawable/orderlist_store_icon"
+        android:drawableRight="@drawable/img_right_small_arraw"
+        android:drawablePadding="2dp"
+        />
+    <TextView
+        android:id="@+id/cart_item_top_shop_delete_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="删除"
+        />
+</LinearLayout>

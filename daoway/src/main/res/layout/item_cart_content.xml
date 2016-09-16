@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:padding="10dp"
+    >
+    <CheckBox
+        android:id="@+id/cart_item_content_shop_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/slt_item_cart"
+        android:checked="true"
+        />
+    <ImageView
+        android:id="@+id/cart_item_content_shop_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:id="@+id/cart_item_content_shop_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iphone6外屏"
+            android:layout_marginBottom="25dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥"
+                android:textColor="@color/color_Red"
+                android:textSize="12sp"
+                />
+            <TextView
+                android:id="@+id/cart_item_content_shop_price_tv"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="28"
+                android:textColor="@color/color_Red"
+                android:textSize="15sp"
+                />
+            <ImageView
+                android:id="@+id/cart_item_content_shop_list_reduce_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/takeout_bg_btn_reduce"
+                />
+            <TextView
+                android:id="@+id/cart_item_content_shop_list_select_num_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="1"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                />
+            <ImageView
+                android:id="@+id/cart_item_content_shop_list_add_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/takeout_bg_btn_increase_focus"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

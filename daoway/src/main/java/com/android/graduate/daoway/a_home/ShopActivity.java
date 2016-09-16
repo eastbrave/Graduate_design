@@ -2,6 +2,7 @@ package com.android.graduate.daoway.a_home;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,18 +18,25 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.android.graduate.daoway.Carts;
+import com.android.graduate.daoway.CartsDao;
 import com.android.graduate.daoway.R;
+import com.android.graduate.daoway.User;
+import com.android.graduate.daoway.UserDao;
 import com.android.graduate.daoway.a_home.adapter.ShopListAdapter;
 import com.android.graduate.daoway.a_home.bean.ShopBean;
 import com.android.graduate.daoway.utils.BaseActivity;
 import com.android.graduate.daoway.widget.MyListView;
 import com.android.graduate.daoway.x_http.HttpUtils;
+import com.android.graduate.daoway.z_db.DBUtils;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.bigkoo.convenientbanner.holder.Holder;
 import com.ecloud.pulltozoomview.PullToZoomScrollViewEx;
 import com.ecloud.pulltozoomview.TransparentToolBar;
 import com.squareup.picasso.Picasso;
+
+import org.greenrobot.greendao.query.QueryBuilder;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -62,7 +70,7 @@ public class ShopActivity extends BaseActivity {
     @BindView(R.id.shop_bar_menu_iv)
     ImageView shopBarMenuIv;
 
-
+    public static int total=0;
 
     private String id = "05219ff82a41477e8a7c4539bad74a17";
     private String city = "武汉";
@@ -71,6 +79,7 @@ public class ShopActivity extends BaseActivity {
     private ViewHolder viewHolder;
     private int mScreenHeight;
     private int mScreenWidth;
+    private String shopName;
     private PullToZoomScrollViewEx.InternalScrollView internalScrollView;
     private List<ShopBean.DataBean.ImgsBean> imgDatas = new ArrayList<>();
     private ConvenientBanner bannerView;
@@ -78,6 +87,43 @@ public class ShopActivity extends BaseActivity {
     private ShopListAdapter shopListAdapter;
     private Map<String, List<ShopBean.DataBean.PricesBean>> mapDatas = new HashMap<>();
     private List<String> keys = new ArrayList<>();
+    private SharedPreferences sp;
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        sp=getSharedPreferences("isLogin",MODE_PRIVATE);
+        boolean login_key = sp.getBoolean("login_key", false);
+        if(!login_key){
+            return;
+        }
+      /*  String phone=sp.getString("userName",null);
+        //判断是已经登陆状态之后再操作数据库
+        UserDao userDao = DBUtils.getUserDao(this);
+        QueryBuilder<User> builder = userDao.queryBuilder();
+        //设置用户查询条件
+        builder.where(UserDao.Properties.Phone.eq(phone));
+        List<User> list = builder.list();
+        User user = list.get(0);
+        List<Carts> carts = user.getCarts();*/
+        CartsDao cartsDao = DBUtils.getCartsDao(this);
+        List<Carts> carts = cartsDao.queryBuilder().list();
+        total=0;
+        for (int i = 0; i < carts.size(); i++) {
+            String skuNum = carts.get(i).getSkuNum();
+            int num = Integer.parseInt(skuNum);
+            total+=num;
+        }
+        if(total==0){
+            cartNumTv.setVisibility(View.GONE);
+        }else {
+            cartNumTv.setVisibility(View.VISIBLE);
+            cartNumTv.setText(""+total);
+        }
+
+
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -92,8 +138,7 @@ public class ShopActivity extends BaseActivity {
     }
 
     private void setAdapter() {
-        shopListAdapter = new ShopListAdapter(this, mPriceDatas, cartNumTv);
-        viewHolder.shopMenuListLv.setAdapter(shopListAdapter);
+
     }
 
     private void setBar() {
@@ -144,10 +189,16 @@ public class ShopActivity extends BaseActivity {
 
         //设置list
         mPriceDatas.addAll(data.getPrices());
-        shopListAdapter.notifyDataSetChanged();
+
+
+        shopName=data.getTitle();
+        //刷新适配器
+        shopListAdapter = new ShopListAdapter(this, mPriceDatas, cartNumTv,shopName);
+        viewHolder.shopMenuListLv.setAdapter(shopListAdapter);
+       // shopListAdapter.notifyDataSetChanged();
         //设置店铺信息
-        shopBarTitleTv.setText(data.getTitle());
-        viewHolder.shopName.setText(data.getTitle());
+        shopBarTitleTv.setText(shopName);
+        viewHolder.shopName.setText(shopName);
 
         viewHolder.shopTimeTv.setText(data.getStartTime() + "-" + data.getEndTime());
         // TODO: 2016/9/10 计算可预约时间

@@ -13,7 +13,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.android.graduate.daoway.Carts;
 import com.android.graduate.daoway.R;
+import com.android.graduate.daoway.User;
+import com.android.graduate.daoway.UserDao;
 import com.android.graduate.daoway.a_home.HomeFragment;
 import com.android.graduate.daoway.b_category.CategoryFragment;
 import com.android.graduate.daoway.c_cart.CartFragment;
@@ -24,6 +27,9 @@ import com.android.graduate.daoway.g_location.CitiesActivity;
 import com.android.graduate.daoway.h_login_and_register.LoginActivity;
 import com.android.graduate.daoway.start.StartActivity;
 import com.android.graduate.daoway.utils.BaseActivity;
+import com.android.graduate.daoway.z_db.DBUtils;
+
+import org.greenrobot.greendao.query.QueryBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,23 +55,57 @@ public class MainActivity extends BaseActivity {
     private SharedPreferences sp;
     private SharedPreferences.Editor edit;
     private boolean isLogin;
+    public static int total;
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+
+
+            sp=getSharedPreferences("isLogin",MODE_PRIVATE);
+            isLogin = sp.getBoolean("login_key", false);
+            if(isLogin){
+                //如果是登陆状态，就查询数据库，并更新UI
+                String phone=sp.getString("userName",null);
+                //判断是已经登陆状态之后再操作数据库
+                UserDao userDao = DBUtils.getUserDao(this);
+                QueryBuilder<User> builder = userDao.queryBuilder();
+                //设置用户查询条件
+                builder.where(UserDao.Properties.Phone.eq(phone));
+                List<User> list = builder.list();
+                User user = list.get(0);
+                List<Carts> carts = user.getCarts();
+                for (int i = 0; i < carts.size(); i++) {
+                    String skuNum = carts.get(i).getSkuNum();
+                    int num = Integer.parseInt(skuNum);
+                    total+=num;
+                }
+
+
+          /*  if(total==0){
+                cartNumTv.setVisibility(View.GONE);
+            }else {
+                cartNumTv.setVisibility(View.VISIBLE);
+                cartNumTv.setText(""+total);
+            }*/
+
+            }
+
+
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        judgeLogin();//判断是否为登陆状态
         initFragment();
         initRadioArray();
         initListener();
     }
 
-    private void judgeLogin() {
-        sp=getSharedPreferences("isLogin",MODE_PRIVATE);
-        edit = sp.edit();
-       isLogin = sp.getBoolean("isLogin", false);//默认是未登录状态
-    }
+
 
     private void initRadioArray() {
         int length = switchRg.getChildCount();
@@ -104,7 +144,11 @@ public class MainActivity extends BaseActivity {
                                 if(!isLogin){
                                     Intent intent=new Intent(MainActivity.this, LoginActivity.class);
                                     startActivity(intent);
+                                    return;
                                 }
+
+
+
                                 break;
                             case R.id.order_rb:
                                 locationTv.setVisibility(View.GONE);
@@ -116,6 +160,7 @@ public class MainActivity extends BaseActivity {
                                 if(!isLogin){
                                     Intent intent=new Intent(MainActivity.this, LoginActivity.class);
                                     startActivity(intent);
+                                    return;
                                 }
                                 break;
                             case R.id.mine_rb:
@@ -141,15 +186,6 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        //城市定位
-     /*   locationTv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this, CitiesActivity.class);
-                startActivity(intent);
-            }
-        });*/
-
 
 
 
@@ -158,12 +194,18 @@ public class MainActivity extends BaseActivity {
     private void initSwitch(int i) {
         Fragment fragment = fragments.get(i);
         FragmentTransaction transaction = fragmentManager.beginTransaction();
+
         if (!fragment.isAdded()) {
             transaction.add(R.id.container_fl, fragment).hide(fragments.get(cur));
         } else {
-            transaction.hide(fragments.get(cur)).show(fragment);
+
+                transaction.hide(fragments.get(cur)).show(fragment);
         }
         transaction.commit();
+        if(i==2&&fragment.isAdded()){
+            CartFragment cartFragment= (CartFragment) fragment;
+            cartFragment.refresh();
+        }
         cur = i;
     }
 
@@ -184,6 +226,7 @@ public class MainActivity extends BaseActivity {
         transaction.commit();
         cur = 0;
     }
+
 
 
 }
