@@ -65,6 +65,7 @@ public class MapActivity extends BaseActivity {
     private PlotListAdapter mAdapter;
     private List<XiaoQuBean.DataBean.CommunitiesBean> communitie = new ArrayList<>();
     private SharedPreferences.Editor editor;
+
     private SharedPreferences sharedPreferences;
 
     @Override
