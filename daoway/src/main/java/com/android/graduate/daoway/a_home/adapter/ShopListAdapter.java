@@ -32,12 +32,14 @@ public class ShopListAdapter extends BaseAdapter {
     private List<ShopBean.DataBean.PricesBean> mPriceDatas;
     private TextView cartNumTv;
     private String shopName;
+    private TextView totalPriceTv;
     public ShopListAdapter(Context mContext, List<ShopBean.DataBean.PricesBean> mPriceDatas
-            ,TextView cartNumTv,String shopName) {
+            ,TextView cartNumTv,TextView totalPriceTv,String shopName) {
         this.mContext = mContext;
         this.mPriceDatas = mPriceDatas;
         this.cartNumTv=cartNumTv;
         this.shopName=shopName;
+        this.totalPriceTv=totalPriceTv;
     }
 
     @Override
@@ -78,6 +80,7 @@ public class ShopListAdapter extends BaseAdapter {
         //减号按钮和选中数量  初始的时候是消失状态
 
         mViewHolder.minBuyNum=Integer.parseInt(mPriceDatas.get(position).getMinBuyNum());
+        mViewHolder.price=mPriceDatas.get(position).getPrice();
         mViewHolder.selectNumTv.setVisibility(View.GONE);
         mViewHolder.reduceIv.setVisibility(View.GONE);
         mViewHolder.addIv.setOnClickListener(new View.OnClickListener() {
@@ -88,8 +91,10 @@ public class ShopListAdapter extends BaseAdapter {
                 mViewHolder.selectNumTv.setVisibility(View.VISIBLE);
                 mViewHolder.reduceIv.setVisibility(View.VISIBLE);
                 ShopActivity.total+=mViewHolder.minBuyNum;
+                ShopActivity.totalPrice+= mViewHolder.price*mViewHolder.minBuyNum;
                 cartNumTv.setVisibility(View.VISIBLE);
                 cartNumTv.setText( ShopActivity.total+"");
+                totalPriceTv.setText(ShopActivity.totalPrice+"");
                 mViewHolder.selectNumTv.setText(mViewHolder.num+"");
                 //修改数据库数据，并刷新设置,先查询是否存在，不存在就添加，存在就修改数量
                 CartsDao cartsDao = DBUtils.getCartsDao(mContext);
@@ -105,12 +110,13 @@ public class ShopListAdapter extends BaseAdapter {
                     carts.setShopName(shopName);
                     carts.setSkuName(skuName);
                     carts.setPrice(mViewHolder.priceTv.getText().toString());
+
                     cartsDao.insert(carts);
 
                 }else {
                     //如果存在就更新数量
                     Carts carts = list.get(0);
-                    int num = Integer.parseInt(carts.getSkuNum())+mViewHolder.minBuyNum;
+                    long num = Long.parseLong(carts.getSkuNum())+mViewHolder.minBuyNum;
                     carts.setSkuNum(""+ num);
                     cartsDao.update(carts);
                 }
@@ -139,11 +145,11 @@ public class ShopListAdapter extends BaseAdapter {
                     mViewHolder.selectNumTv.setVisibility(View.GONE);
                     mViewHolder.reduceIv.setVisibility(View.GONE);
 
-                }else {
-                    int num = Integer.parseInt(carts.getSkuNum())+mViewHolder.minBuyNum;
+                }
+                    Long num = Long.parseLong(carts.getSkuNum())-mViewHolder.minBuyNum;
                     carts.setSkuNum(""+num);
                     cartsDao.update(carts);
-                }
+
 
                 if(ShopActivity.total==0){
                     cartNumTv.setVisibility(View.GONE);
@@ -177,8 +183,9 @@ public class ShopListAdapter extends BaseAdapter {
         TextView saleNumTv;
         @BindView(R.id.item_shop_list_desc_tv)
         TextView itemShopListDescTv;
-        int num;//每组里面的和
+        long num;//每组里面的和
         int minBuyNum;
+        double price;
         String url;
         ViewHolder(View view) {
             ButterKnife.bind(this, view);

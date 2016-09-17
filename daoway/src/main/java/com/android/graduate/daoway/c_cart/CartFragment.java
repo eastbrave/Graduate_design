@@ -39,7 +39,7 @@ public class CartFragment extends Fragment {
     private Context mContext;
     private SharedPreferences sp;
     List<String> keys=new ArrayList<>();
-    Map<String,List<ItemInfo>> mapDatas=new HashMap<>();
+    Map<String,List<Carts>> mapDatas=new HashMap<>();
     private CartAdapter cartAdapter;
 
     public static CartFragment newInstance(Bundle bundle) {
@@ -101,37 +101,41 @@ public class CartFragment extends Fragment {
         User user = list.get(0);
         List<Carts> carts = user.getCarts();*/
         CartsDao cartsDao = DBUtils.getCartsDao(mContext);
-        List<Carts> carts = cartsDao.queryBuilder().list();
+        QueryBuilder<Carts> builder = cartsDao.queryBuilder();
+        List<Carts> carts =builder .list();
         //整理购物车信息
         Log.i("east","购物车信息有多少条："+carts.size());
-        List<ItemInfo> itemList=new ArrayList<>();
+
         for (int i = 0; i <carts.size() ; i++) {
             String shopName = carts.get(i).getShopName();
 
-            if(!mapDatas.containsKey(shopName)){
+            if(!mapDatas.containsKey(shopName)) {
                 //不存在的店铺名
                 keys.add(shopName);
-                ItemInfo itemInfo=new ItemInfo();
-                itemInfo.setSkuNum(Integer.parseInt(carts.get(i).getSkuNum()));
-                itemInfo.setPrice(Integer.parseInt(carts.get(i).getPrice()));
-                itemInfo.setSkuName(carts.get(i).getSkuName());
-                itemInfo.setImgUrl(carts.get(i).getImgUrl());
-                itemList.add(itemInfo);
-                mapDatas.put(shopName,itemList);
-            }else {
-                //已经存在的店铺名，增加list内容就行
-                ItemInfo itemInfo=new ItemInfo();
-                itemInfo.setSkuNum(Integer.parseInt(carts.get(i).getSkuNum()));
-                itemInfo.setPrice(Integer.parseInt(carts.get(i).getPrice()));
-                itemInfo.setSkuName(carts.get(i).getSkuName());
-                itemInfo.setImgUrl(carts.get(i).getImgUrl());
-                itemList.add(itemInfo);
+                CartsDao cartsDao2 = DBUtils.getCartsDao(mContext);
+                QueryBuilder<Carts> builder2 = cartsDao2.queryBuilder();
+                builder2.where(CartsDao.Properties.ShopName.eq(shopName));
+                List<Carts> list = builder2.list();
+                mapDatas.put(shopName, list);
             }
         }
 
 
 
-
+              /*  ItemInfo itemInfo=new ItemInfo();
+                itemInfo.setSkuNum(Integer.parseInt(carts.get(i).getSkuNum()));
+                itemInfo.setPrice(Integer.parseInt(carts.get(i).getPrice()));
+                itemInfo.setSkuName(carts.get(i).getSkuName());
+                itemInfo.setImgUrl(carts.get(i).getImgUrl());
+                itemList.add(itemInfo);
+            else
+            //已经存在的店铺名，增加list内容就行
+                ItemInfo itemInfo=new ItemInfo();
+                itemInfo.setSkuNum(Integer.parseInt(carts.get(i).getSkuNum()));
+                itemInfo.setPrice(Integer.parseInt(carts.get(i).getPrice()));
+                itemInfo.setSkuName(carts.get(i).getSkuName());
+                itemInfo.setImgUrl(carts.get(i).getImgUrl());
+                itemList.add(itemInfo);*/
 
 
 

@@ -28,12 +28,14 @@ public class OrdersDao extends AbstractDao<Orders, Long> {
      */
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
-        public final static Property ShopName = new Property(1, String.class, "shopName", false, "SHOP_NAME");
-        public final static Property SkuName = new Property(2, String.class, "skuName", false, "SKU_NAME");
-        public final static Property SkuNum = new Property(3, String.class, "skuNum", false, "SKU_NUM");
-        public final static Property Price = new Property(4, String.class, "price", false, "PRICE");
-        public final static Property ImgUrl = new Property(5, String.class, "imgUrl", false, "IMG_URL");
-        public final static Property UserId2 = new Property(6, Long.class, "userId2", false, "USER_ID2");
+        public final static Property OrderTime = new Property(1, String.class, "orderTime", false, "ORDER_TIME");
+        public final static Property OrderNum = new Property(2, String.class, "orderNum", false, "ORDER_NUM");
+        public final static Property ShopName = new Property(3, String.class, "shopName", false, "SHOP_NAME");
+        public final static Property SkuName = new Property(4, String.class, "skuName", false, "SKU_NAME");
+        public final static Property SkuNum = new Property(5, String.class, "skuNum", false, "SKU_NUM");
+        public final static Property Price = new Property(6, String.class, "price", false, "PRICE");
+        public final static Property ImgUrl = new Property(7, String.class, "imgUrl", false, "IMG_URL");
+        public final static Property UserId2 = new Property(8, Long.class, "userId2", false, "USER_ID2");
     }
 
     private DaoSession daoSession;
@@ -54,12 +56,14 @@ public class OrdersDao extends AbstractDao<Orders, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"ORDERS\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
-                "\"SHOP_NAME\" TEXT," + // 1: shopName
-                "\"SKU_NAME\" TEXT," + // 2: skuName
-                "\"SKU_NUM\" TEXT," + // 3: skuNum
-                "\"PRICE\" TEXT," + // 4: price
-                "\"IMG_URL\" TEXT," + // 5: imgUrl
-                "\"USER_ID2\" INTEGER);"); // 6: userId2
+                "\"ORDER_TIME\" TEXT NOT NULL ," + // 1: orderTime
+                "\"ORDER_NUM\" TEXT," + // 2: orderNum
+                "\"SHOP_NAME\" TEXT," + // 3: shopName
+                "\"SKU_NAME\" TEXT," + // 4: skuName
+                "\"SKU_NUM\" TEXT," + // 5: skuNum
+                "\"PRICE\" TEXT," + // 6: price
+                "\"IMG_URL\" TEXT," + // 7: imgUrl
+                "\"USER_ID2\" INTEGER);"); // 8: userId2
     }
 
     /** Drops the underlying database table. */
@@ -76,35 +80,41 @@ public class OrdersDao extends AbstractDao<Orders, Long> {
         if (id != null) {
             stmt.bindLong(1, id);
         }
+        stmt.bindString(2, entity.getOrderTime());
+ 
+        String orderNum = entity.getOrderNum();
+        if (orderNum != null) {
+            stmt.bindString(3, orderNum);
+        }
  
         String shopName = entity.getShopName();
         if (shopName != null) {
-            stmt.bindString(2, shopName);
+            stmt.bindString(4, shopName);
         }
  
         String skuName = entity.getSkuName();
         if (skuName != null) {
-            stmt.bindString(3, skuName);
+            stmt.bindString(5, skuName);
         }
  
         String skuNum = entity.getSkuNum();
         if (skuNum != null) {
-            stmt.bindString(4, skuNum);
+            stmt.bindString(6, skuNum);
         }
  
         String price = entity.getPrice();
         if (price != null) {
-            stmt.bindString(5, price);
+            stmt.bindString(7, price);
         }
  
         String imgUrl = entity.getImgUrl();
         if (imgUrl != null) {
-            stmt.bindString(6, imgUrl);
+            stmt.bindString(8, imgUrl);
         }
  
         Long userId2 = entity.getUserId2();
         if (userId2 != null) {
-            stmt.bindLong(7, userId2);
+            stmt.bindLong(9, userId2);
         }
     }
 
@@ -116,35 +126,41 @@ public class OrdersDao extends AbstractDao<Orders, Long> {
         if (id != null) {
             stmt.bindLong(1, id);
         }
+        stmt.bindString(2, entity.getOrderTime());
+ 
+        String orderNum = entity.getOrderNum();
+        if (orderNum != null) {
+            stmt.bindString(3, orderNum);
+        }
  
         String shopName = entity.getShopName();
         if (shopName != null) {
-            stmt.bindString(2, shopName);
+            stmt.bindString(4, shopName);
         }
  
         String skuName = entity.getSkuName();
         if (skuName != null) {
-            stmt.bindString(3, skuName);
+            stmt.bindString(5, skuName);
         }
  
         String skuNum = entity.getSkuNum();
         if (skuNum != null) {
-            stmt.bindString(4, skuNum);
+            stmt.bindString(6, skuNum);
         }
  
         String price = entity.getPrice();
         if (price != null) {
-            stmt.bindString(5, price);
+            stmt.bindString(7, price);
         }
  
         String imgUrl = entity.getImgUrl();
         if (imgUrl != null) {
-            stmt.bindString(6, imgUrl);
+            stmt.bindString(8, imgUrl);
         }
  
         Long userId2 = entity.getUserId2();
         if (userId2 != null) {
-            stmt.bindLong(7, userId2);
+            stmt.bindLong(9, userId2);
         }
     }
 
@@ -163,12 +179,14 @@ public class OrdersDao extends AbstractDao<Orders, Long> {
     public Orders readEntity(Cursor cursor, int offset) {
         Orders entity = new Orders( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // shopName
-            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // skuName
-            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // skuNum
-            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // price
-            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // imgUrl
-            cursor.isNull(offset + 6) ? null : cursor.getLong(offset + 6) // userId2
+            cursor.getString(offset + 1), // orderTime
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // orderNum
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // shopName
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // skuName
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // skuNum
+            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // price
+            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // imgUrl
+            cursor.isNull(offset + 8) ? null : cursor.getLong(offset + 8) // userId2
         );
         return entity;
     }
@@ -176,12 +194,14 @@ public class OrdersDao extends AbstractDao<Orders, Long> {
     @Override
     public void readEntity(Cursor cursor, Orders entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setShopName(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
-        entity.setSkuName(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
-        entity.setSkuNum(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
-        entity.setPrice(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
-        entity.setImgUrl(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
-        entity.setUserId2(cursor.isNull(offset + 6) ? null : cursor.getLong(offset + 6));
+        entity.setOrderTime(cursor.getString(offset + 1));
+        entity.setOrderNum(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setShopName(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
+        entity.setSkuName(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setSkuNum(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
+        entity.setPrice(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
+        entity.setImgUrl(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
+        entity.setUserId2(cursor.isNull(offset + 8) ? null : cursor.getLong(offset + 8));
      }
     
     @Override

@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.graduate.daoway.R;
 import com.android.graduate.daoway.Search;
@@ -61,6 +62,12 @@ public class SearchActivity extends BaseActivity {
         ButterKnife.bind(this);
         intView();
         initListener();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         initData();
     }
 
@@ -71,11 +78,17 @@ public class SearchActivity extends BaseActivity {
                 String searchText = searchEdit.getText().toString();
                 SearchDao searchDao = DBUtils.getSearchDao(SearchActivity.this);
                 if(!TextUtils.isEmpty(searchText)&&!isExist(searchText,searchDao)){
+                    //不为空且数据库中不存在，需要新添加数据
                     Search search=new Search();
                     search.setContent(searchText);
                     searchDao.insert(search);
-
+                    clearTv.setVisibility(View.VISIBLE);
+                }else if(TextUtils.isEmpty(searchText)){
+                    Toast.makeText(SearchActivity.this, "搜索内容不能为空，请重新输入", Toast.LENGTH_SHORT).show();
+                    return;
                 }
+                Intent intent=new Intent(SearchActivity.this,SearchResultActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -90,6 +103,7 @@ public class SearchActivity extends BaseActivity {
                     Search search=new Search();
                     search.setContent(searchStr);
                     searchDao.insert(search);
+                    clearTv.setVisibility(View.VISIBLE);
                 }
                 Intent intent=new Intent(SearchActivity.this,SearchResultActivity.class);
                 startActivity(intent);
@@ -99,6 +113,7 @@ public class SearchActivity extends BaseActivity {
         clearTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                clearTv.setVisibility(View.GONE);
                 DBUtils.getSearchDao(SearchActivity.this).deleteAll();
                 refreshDb();
             }
@@ -108,7 +123,8 @@ public class SearchActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 String content = searchList.get(position-1).getContent();
-
+                Intent intent=new Intent(SearchActivity.this,SearchResultActivity.class);
+                startActivity(intent);
             }
         });
 

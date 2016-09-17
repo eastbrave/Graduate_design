@@ -7,13 +7,20 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.android.graduate.daoway.Carts;
+import com.android.graduate.daoway.CartsDao;
 import com.android.graduate.daoway.R;
+import com.android.graduate.daoway.a_home.ShopActivity;
 import com.android.graduate.daoway.b_category.Blank1Fragment;
 import com.android.graduate.daoway.b_category.Blank2Fragment;
 import com.android.graduate.daoway.b_category.Blank3Fragment;
 import com.android.graduate.daoway.utils.BaseActivity;
+import com.android.graduate.daoway.z_db.DBUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +31,7 @@ import butterknife.OnClick;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 
-public class ClassDetailitemActivity extends BaseActivity {
+public class ClassDetailitemActivity extends BaseActivity  {
 
     @BindView(R.id.tab_classDetail_item)
     TabLayout tabClassDetailItem;
@@ -34,10 +41,20 @@ public class ClassDetailitemActivity extends BaseActivity {
     List<Fragment> fragments = new ArrayList<>();
     @BindView(R.id.fenxiang_image)
     ImageView fenxiangImage;
+    @BindView(R.id.tv_one)
+    TextView shopTv;
+    @BindView(R.id.tv_two)
+    TextView telTv;
+    @BindView(R.id.tv_three)
+    TextView carTv;
+    @BindView(R.id.tv_four)
+    Button payBtn;
+    @BindView(R.id.shop_cart_num_tv)
+    TextView cartNumTv;
     private VpAdapter vpAdapter;
     String id;
     private String serviceId;
-
+    public static long  totalNum;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +66,60 @@ public class ClassDetailitemActivity extends BaseActivity {
         initVP();
         setVp();
         tabClassDetailItem.setupWithViewPager(vpClassDetailItem);
+        initListener();
+    }
+
+    public TextView getCarNumTv(){
+        return  cartNumTv;
+    }
+
+    public TextView getCarTv(){
+        return carTv;
+    }
+
+    private void initListener() {
+        shopTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ClassDetailitemActivity.this, ShopActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        payBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              /*  Intent intent=new Intent(ClassDetailitemActivity.this, OrderActivity.class);
+                startActivity(intent);*/
+            }
+        });
+
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        totalNum=0;
+        CartsDao cartsDao = DBUtils.getCartsDao(this);
+        List<Carts> carts = cartsDao.queryBuilder().list();
+
+        //计算购物车总数量
+        for (int i = 0; i < carts.size(); i++) {
+            String skuNum = carts.get(i).getSkuNum();
+
+            long num = Long.parseLong(skuNum);
+            totalNum += num;
+
+        }
+        if (totalNum == 0) {
+            cartNumTv.setVisibility(View.GONE);
+        } else {
+            cartNumTv.setVisibility(View.VISIBLE);
+            cartNumTv.setText("" + totalNum);
+        }
+        cartNumTv.setText(totalNum+"");
     }
 
     private void initID() {
@@ -65,6 +136,7 @@ public class ClassDetailitemActivity extends BaseActivity {
     private void initVP() {
         Bundle bundle = new Bundle();
         bundle.putString("id", id);
+
         Bundle bundle1 = new Bundle();
         bundle1.putString("serviceId", serviceId);
         Blank1Fragment blank1Fragment = Blank1Fragment.newInstance(bundle);
@@ -87,6 +159,7 @@ public class ClassDetailitemActivity extends BaseActivity {
         showShare();
 
     }
+
     private void showShare() {
         ShareSDK.initSDK(this);
         OnekeyShare oks = new OnekeyShare();

@@ -9,13 +9,20 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.android.graduate.daoway.Carts;
 import com.android.graduate.daoway.CartsDao;
+import com.android.graduate.daoway.Orders;
+import com.android.graduate.daoway.OrdersDao;
 import com.android.graduate.daoway.R;
 import com.android.graduate.daoway.a_home.adapter.ItemGridAdapter;
 import com.android.graduate.daoway.widget.MyListView;
 import com.android.graduate.daoway.z_db.DBUtils;
 
+import org.greenrobot.greendao.query.QueryBuilder;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,9 +38,9 @@ public class CartAdapter extends BaseAdapter {
 
     private Context mContext;
     private List<String> keys = new ArrayList<>();
-    Map<String, List<ItemInfo>> mapDatas = new HashMap<>();
+    Map<String, List<Carts>> mapDatas = new HashMap<>();
 
-    public CartAdapter(Context mContext, List<String> keys, Map<String, List<ItemInfo>> mapDatas) {
+    public CartAdapter(Context mContext, List<String> keys, Map<String, List<Carts>> mapDatas) {
         this.mContext = mContext;
         this.mapDatas = mapDatas;
         this.keys = keys;
@@ -69,16 +76,16 @@ public class CartAdapter extends BaseAdapter {
         final String key=keys.get(position);
         viewHolder.shopNameTv.setText(key);
         //设置内部list
-        List<ItemInfo> itemInfos = mapDatas.get(keys.get(position));
+        List<Carts> itemInfos = mapDatas.get(keys.get(position));
         ItemCartAdapter itemCartAdapter = new ItemCartAdapter(mContext,itemInfos);
         viewHolder.itemCartLv.setAdapter(itemCartAdapter);
 
 
         //设置总金额
-        int total=0;
+        double total=0;
         for (int i = 0; i < itemInfos.size(); i++) {
-            int skuNum = itemInfos.get(i).getSkuNum();
-            int price = itemInfos.get(i).getPrice();
+            long skuNum = Long.parseLong(itemInfos.get(i).getSkuNum());
+            double price = Double.parseDouble( itemInfos.get(i).getPrice());
             total+=skuNum*price;
         }
         viewHolder.shopTotalTv.setText(total+"");
@@ -89,6 +96,30 @@ public class CartAdapter extends BaseAdapter {
             public void onClick(View view) {
                 //跳转到表单页面
                 // TODO: 2016/9/14  跳转到表单页面
+                SimpleDateFormat formatter = new SimpleDateFormat ("yyyy年MM月dd日 HH:mm:ss ");
+                Date curDate = new Date(System.currentTimeMillis());//获取当前时间
+                String orderTime = formatter.format(curDate);
+
+                CartsDao cartsDao = DBUtils.getCartsDao(mContext);
+                QueryBuilder<Carts> builder = cartsDao.queryBuilder();
+                builder.where(CartsDao.Properties.ShopName.eq(key));
+                List<Carts> list = builder.list();
+                OrdersDao ordersDao = DBUtils.getOrdersDao(mContext);
+                for (int i = 0; i < list.size(); i++) {
+                    String skuName = list.get(i).getSkuName();
+                    String price = list.get(i).getPrice();
+                    String skuNum = list.get(i).getSkuNum();
+                    String imgUrl = list.get(i).getImgUrl();
+                    Orders orders=new Orders();
+                    orders.setSkuName(skuName);
+                    orders.setSkuNum(skuNum);
+                    orders.setPrice(price);
+                    orders.setShopName(key);
+                    orders.setOrderTime(orderTime);
+                    orders.setImgUrl(imgUrl);
+
+                    ordersDao.insert(orders);
+                }
             }
         });
         //删除

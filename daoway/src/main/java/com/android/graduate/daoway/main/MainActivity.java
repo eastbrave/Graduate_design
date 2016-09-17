@@ -118,7 +118,7 @@ public class MainActivity extends BaseActivity {
         initFragment();
         initRadioArray();
         initListener();
-        initLocation();
+      //  initLocation();
 
     }
 
@@ -325,6 +325,10 @@ public class MainActivity extends BaseActivity {
         if(i==2&&fragment.isAdded()){
             CartFragment cartFragment= (CartFragment) fragment;
             cartFragment.refresh();
+        }
+        if(i==3&&fragment.isAdded()){
+            OrderFragment orderFragment= (OrderFragment) fragment;
+          //  OrderFragment.refresh();
         }
         cur = i;
     }

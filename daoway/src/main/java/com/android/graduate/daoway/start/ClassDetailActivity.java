@@ -49,6 +49,8 @@ public class ClassDetailActivity extends BaseActivity {
         initListen();
     }
 
+
+
     private void initListen() {
         ClassDetailRg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override

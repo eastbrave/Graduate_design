@@ -1,4 +1,4 @@
-package com.android.graduate.daoway.c_cart;
+package com.android.graduate.daoway.d_order;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,8 +9,9 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.graduate.daoway.Carts;
+import com.android.graduate.daoway.Orders;
 import com.android.graduate.daoway.R;
+import com.android.graduate.daoway.c_cart.ItemInfo;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -22,12 +23,12 @@ import butterknife.ButterKnife;
  * Created by Administrator on 2016/9/6.
  * mList里面嵌套的GridView的适配器
  */
-public class ItemCartAdapter extends BaseAdapter {
+public class ItemOrderAdapter extends BaseAdapter {
 
     private Context mContext;
-    private List<Carts> itemInfos;
+    private List<Orders> itemInfos;
 
-    public ItemCartAdapter(Context mContext, List<Carts> itemInfos) {
+    public ItemOrderAdapter(Context mContext, List<Orders> itemInfos) {
         this.mContext = mContext;
         this.itemInfos = itemInfos;
     }

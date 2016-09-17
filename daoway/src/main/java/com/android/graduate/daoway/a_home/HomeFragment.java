@@ -49,7 +49,7 @@ public class HomeFragment extends Fragment {
     private String city = "武汉";
     private double lat = 30.4676456451416;
     private double lot = 114.42472076416016;
-    @BindView(R.id.home_lv)
+    @BindView(R.id.order_lv)
     ListView mList;
     private Context mContext;
     private List<BannerBean.DataBean> mBannerDatas = new ArrayList<>();

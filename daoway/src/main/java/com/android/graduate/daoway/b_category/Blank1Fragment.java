@@ -1,6 +1,8 @@
 package com.android.graduate.daoway.b_category;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -10,14 +12,21 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.graduate.daoway.Carts;
+import com.android.graduate.daoway.CartsDao;
 import com.android.graduate.daoway.R;
+import com.android.graduate.daoway.start.ClassDetailitemActivity;
 import com.android.graduate.daoway.x_http.HttpUtils;
 import com.android.graduate.daoway.y_bean.ServiceIsBean;
+import com.android.graduate.daoway.z_db.DBUtils;
 import com.ecloud.pulltozoomview.PullToZoomScrollViewEx;
 import com.squareup.picasso.Picasso;
 
+import org.greenrobot.greendao.query.QueryBuilder;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,12 +41,23 @@ public class Blank1Fragment extends Fragment {
     @BindView(R.id.shop_scroll_view1)
     PullToZoomScrollViewEx shopScrollView1;
 
+
     private int mScreenHeight;
     private int mScreenWidth;
     ServiceIsBean.DataBean data;
     private View zoomView;
     private View inflate;
     private View scrollView;
+    private ViewHolder2 viewHolder2;
+    private long num=0;
+    private Context mContext;
+    private CartsDao cartsDao;
+    private double price;
+    private String shopName;
+    private String picUrl;
+    private String skuName;
+    private TextView cartNumTv;//购物车对象
+    private TextView carTv;
 
     public static Blank1Fragment newInstance(Bundle args) {
         Blank1Fragment fragment = new Blank1Fragment();
@@ -45,6 +65,16 @@ public class Blank1Fragment extends Fragment {
         return fragment;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mContext = getContext();
+        //获取购物车对象 和购物车数量对象
+        ClassDetailitemActivity classDetailitemActivity = (ClassDetailitemActivity) mContext;
+        cartNumTv = classDetailitemActivity.getCarNumTv();
+        carTv = classDetailitemActivity.getCarTv();
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,7 +85,69 @@ public class Blank1Fragment extends Fragment {
         initID();
         initView();
         initData();
+
         return view;
+    }
+
+    private void initListener() {
+        //先置空
+        num=0;
+        viewHolder2.productAddIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewHolder2. productReduceIv.setVisibility(View.VISIBLE);
+                viewHolder2.productNumTv.setVisibility(View.VISIBLE);
+                cartNumTv.setVisibility(View.VISIBLE);
+                num++;
+                ClassDetailitemActivity.totalNum++;
+                cartNumTv.setText( ClassDetailitemActivity.totalNum+"");
+                viewHolder2.productNumTv.setText(num+"");
+                //修改数据库
+               cartsDao = DBUtils.getCartsDao(mContext);
+                QueryBuilder<Carts> builder = cartsDao.queryBuilder();
+                builder.where(CartsDao.Properties.SkuName.eq(skuName));
+                List<Carts> list =builder.list();
+                if(list.size()==0){
+                    //还没添加
+                    Carts carts=new Carts();
+                    carts.setShopName(shopName);
+                    carts.setImgUrl(picUrl);
+                    carts.setSkuNum(""+ 1);
+                    carts.setSkuName(skuName);
+                    carts.setPrice(price+"");
+                    cartsDao.insert(carts);
+                }else {
+                    Carts carts = list.get(0);
+                    long number = Long.parseLong(carts.getSkuNum())+1;
+                    carts.setSkuNum(""+ number);
+                    cartsDao.update(carts);
+                }
+            }
+        });
+
+        viewHolder2.productReduceIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num--;
+                ClassDetailitemActivity.totalNum--;
+                cartNumTv.setText( ClassDetailitemActivity.totalNum+"");
+                viewHolder2.productNumTv.setText(num+"");
+                //修改数据库
+                QueryBuilder<Carts> builder = cartsDao.queryBuilder();
+                builder.where(CartsDao.Properties.SkuName.eq(skuName));
+                List<Carts> list =builder.list();
+                Carts carts = list.get(0);
+                long number = Long.parseLong(carts.getSkuNum())-1;
+                carts.setSkuNum(""+ number);
+                cartsDao.update(carts);
+                if(num==0){
+                    viewHolder2.productReduceIv.setVisibility(View.GONE);
+                    viewHolder2.productNumTv.setVisibility(View.GONE);
+                }
+            }
+        });
+
+
     }
 
     private void initID() {
@@ -66,27 +158,36 @@ public class Blank1Fragment extends Fragment {
 
     private void initData() {
         HttpUtils.init().getDatass(id).enqueue(new Callback<ServiceIsBean>() {
+
+
+
+
             @Override
             public void onResponse(Call<ServiceIsBean> call, Response<ServiceIsBean> response) {
                 data = response.body().getData();
+                shopName = data.getService().getTitle();
+                skuName=data.getSericePrice().getName();
+                price = data.getSericePrice().getPrice();
+                picUrl = data.getSericePrice().getPicUrl();
                 ViewHolder viewHolder = new ViewHolder(zoomView);
                 Picasso.with(getContext()).load(data.getSericePrice().getPicUrl()).placeholder(R.drawable.img_pic_default).into(viewHolder.blank1HeadImage);
                 ViewHolder1 viewHolder1 = new ViewHolder1(inflate);
                 viewHolder1.blank1HeadRlTv1.setText(data.getSericePrice().getName());
                 viewHolder1.blank1HeadRlTv2.setText("已售" + data.getSericePrice().getSalesNum());
-                ViewHolder2 viewHolder2 = new ViewHolder2(scrollView);
-                viewHolder2.tvServiceShow1.setText(data.getSericePrice().getPrice()+data.getSericePrice().getPriceUnit());
-                viewHolder2.tvServiceShow2.setText("原价"+data.getSericePrice().getOriginalPrice()+"元");
-                viewHolder2.tvServiceShow3.setText(data.getService().getStartTime()+"-"+data.getService().getEndTime());
+                viewHolder2 = new ViewHolder2(scrollView);
+                viewHolder2.tvServiceShow1.setText(data.getSericePrice().getPrice() + data.getSericePrice().getPriceUnit());
+                viewHolder2.tvServiceShow2.setText("原价" + data.getSericePrice().getOriginalPrice() + "元");
+                viewHolder2.tvServiceShow3.setText(data.getService().getStartTime() + "-" + data.getService().getEndTime());
                 long nextAppointTime = data.getService().getNextAppointTime();
                 String time = returnDate(nextAppointTime);
 
-                viewHolder2.tvServiceShow4.setText("明天"+time);
+                viewHolder2.tvServiceShow4.setText("明天" + time);
                 viewHolder2.tvServiceShow5.setText(data.getSericePrice().getDescription());
                 viewHolder2.tvServiceShow6.setText(data.getService().getTitle());
-                viewHolder2.tvServiceShow7.setText("接单率"+data.getSericePrice().getOrderTakingRate());
-                viewHolder2.tvServiceShow8.setText("好评率"+data.getSericePrice().getPositiveCommentRate());
+                viewHolder2.tvServiceShow7.setText("接单率" + data.getSericePrice().getOrderTakingRate());
+                viewHolder2.tvServiceShow8.setText("好评率" + data.getSericePrice().getPositiveCommentRate());
                 viewHolder2.tvServiceShow9.setText(data.getService().getDescription());
+                initListener();
             }
 
             @Override
@@ -95,11 +196,13 @@ public class Blank1Fragment extends Fragment {
             }
         });
     }
-    public String returnDate(long time)  {
+
+    public String returnDate(long time) {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         String now = sdf.format(new Date(time));
         return now;
     }
+
     private void initView() {
         zoomView = LayoutInflater.from(getContext()).inflate(R.layout.blank1_head, null);
 
@@ -158,6 +261,12 @@ public class Blank1Fragment extends Fragment {
         @BindView(R.id.tv_Service_show9)
         TextView tvServiceShow9;
 
+        @BindView(R.id.product_reduce_iv)
+        ImageView productReduceIv;
+        @BindView(R.id.product_reduce_num_tv)
+        TextView productNumTv;
+        @BindView(R.id.product_add_iv)
+        ImageView productAddIv;
         ViewHolder2(View view) {
             ButterKnife.bind(this, view);
         }

@@ -41,6 +41,8 @@ public class MyClass {
         Entity orders = schema.addEntity("Orders");
         orders.implementsSerializable();
         orders.addIdProperty().autoincrement();
+        orders.addStringProperty("orderTime").notNull();//订单时间
+        orders.addStringProperty("orderNum");//订单号
         orders.addStringProperty("shopName");
         orders.addStringProperty("skuName");
         orders.addStringProperty("skuNum");

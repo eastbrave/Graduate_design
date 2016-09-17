@@ -14,6 +14,10 @@ public class Orders implements java.io.Serializable {
 
     @Id(autoincrement = true)
     private Long id;
+
+    @NotNull
+    private String orderTime;
+    private String orderNum;//这个属性没用，就是skuNum
     private String shopName;
     private String skuName;
     private String skuNum;
@@ -44,8 +48,10 @@ public class Orders implements java.io.Serializable {
     }
 
     @Generated
-    public Orders(Long id, String shopName, String skuName, String skuNum, String price, String imgUrl, Long userId2) {
+    public Orders(Long id, String orderTime, String orderNum, String shopName, String skuName, String skuNum, String price, String imgUrl, Long userId2) {
         this.id = id;
+        this.orderTime = orderTime;
+        this.orderNum = orderNum;
         this.shopName = shopName;
         this.skuName = skuName;
         this.skuNum = skuNum;
@@ -67,6 +73,24 @@ public class Orders implements java.io.Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    @NotNull
+    public String getOrderTime() {
+        return orderTime;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setOrderTime(@NotNull String orderTime) {
+        this.orderTime = orderTime;
+    }
+
+    public String getOrderNum() {
+        return orderNum;
+    }
+
+    public void setOrderNum(String orderNum) {
+        this.orderNum = orderNum;
     }
 
     public String getShopName() {

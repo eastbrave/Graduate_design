@@ -10,6 +10,7 @@ import android.support.design.widget.TabLayout;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -21,10 +22,9 @@ import android.widget.TextView;
 import com.android.graduate.daoway.Carts;
 import com.android.graduate.daoway.CartsDao;
 import com.android.graduate.daoway.R;
-import com.android.graduate.daoway.User;
-import com.android.graduate.daoway.UserDao;
 import com.android.graduate.daoway.a_home.adapter.ShopListAdapter;
 import com.android.graduate.daoway.a_home.bean.ShopBean;
+import com.android.graduate.daoway.d_order.OrderActivity;
 import com.android.graduate.daoway.utils.BaseActivity;
 import com.android.graduate.daoway.widget.MyListView;
 import com.android.graduate.daoway.x_http.HttpUtils;
@@ -35,8 +35,6 @@ import com.bigkoo.convenientbanner.holder.Holder;
 import com.ecloud.pulltozoomview.PullToZoomScrollViewEx;
 import com.ecloud.pulltozoomview.TransparentToolBar;
 import com.squareup.picasso.Picasso;
-
-import org.greenrobot.greendao.query.QueryBuilder;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -70,8 +68,10 @@ public class ShopActivity extends BaseActivity {
     @BindView(R.id.shop_bar_menu_iv)
     ImageView shopBarMenuIv;
 
-    public static int total=0;
-
+    public static long total ;
+    public static double totalPrice ;
+    @BindView(R.id.shop_click_to_pay_btn)
+    Button payBtn;
     private String id = "05219ff82a41477e8a7c4539bad74a17";
     private String city = "武汉";
     private double lot, lat;
@@ -93,9 +93,9 @@ public class ShopActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        sp=getSharedPreferences("isLogin",MODE_PRIVATE);
+        sp = getSharedPreferences("isLogin", MODE_PRIVATE);
         boolean login_key = sp.getBoolean("login_key", false);
-        if(!login_key){
+        if (!login_key) {
             return;
         }
       /*  String phone=sp.getString("userName",null);
@@ -109,18 +109,24 @@ public class ShopActivity extends BaseActivity {
         List<Carts> carts = user.getCarts();*/
         CartsDao cartsDao = DBUtils.getCartsDao(this);
         List<Carts> carts = cartsDao.queryBuilder().list();
-        total=0;
+        total = 0;
+        totalPrice = 0;
+        //计算购物车总数量和总金额
         for (int i = 0; i < carts.size(); i++) {
             String skuNum = carts.get(i).getSkuNum();
-            int num = Integer.parseInt(skuNum);
-            total+=num;
+            double price = Double.parseDouble(carts.get(0).getPrice());
+            long num = Long.parseLong(skuNum);
+            total += num;
+            totalPrice += price * num;
         }
-        if(total==0){
+        if (total == 0) {
             cartNumTv.setVisibility(View.GONE);
-        }else {
+        } else {
             cartNumTv.setVisibility(View.VISIBLE);
-            cartNumTv.setText(""+total);
+            cartNumTv.setText("" + total);
         }
+
+        totalPriceTv.setText(totalPrice + "");
 
 
     }
@@ -135,6 +141,29 @@ public class ShopActivity extends BaseActivity {
         setBar();
         setAdapter();
         initData();
+        initListener();
+    }
+
+    private void initListener() {
+
+        payBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //跳转到订单支付页面
+               Intent intent=new Intent(ShopActivity.this,OrderActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //返回键，结束当前页面
+        shopBarBackIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
     }
 
     private void setAdapter() {
@@ -191,11 +220,11 @@ public class ShopActivity extends BaseActivity {
         mPriceDatas.addAll(data.getPrices());
 
 
-        shopName=data.getTitle();
+        shopName = data.getTitle();
         //刷新适配器
-        shopListAdapter = new ShopListAdapter(this, mPriceDatas, cartNumTv,shopName);
+        shopListAdapter = new ShopListAdapter(this, mPriceDatas, cartNumTv, totalPriceTv, shopName);
         viewHolder.shopMenuListLv.setAdapter(shopListAdapter);
-       // shopListAdapter.notifyDataSetChanged();
+        // shopListAdapter.notifyDataSetChanged();
         //设置店铺信息
         shopBarTitleTv.setText(shopName);
         viewHolder.shopName.setText(shopName);
