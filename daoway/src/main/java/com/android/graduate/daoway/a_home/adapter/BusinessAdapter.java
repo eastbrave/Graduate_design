@@ -1,6 +1,7 @@
 package com.android.graduate.daoway.a_home.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.graduate.daoway.R;
+import com.android.graduate.daoway.a_home.ShopActivity;
 import com.android.graduate.daoway.a_home.bean.BusinessBean;
 import com.squareup.picasso.Picasso;
 
@@ -58,6 +60,8 @@ public class BusinessAdapter extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
+
+      final   String serviceId = businessDatas.get(position).getServiceId();
         viewHolder.tvName.setText(businessDatas.get(position).getTitle());
         viewHolder.tvNum.setText("已接" + businessDatas.get(position).getCompleteOrderNum() + "单");
         double star = businessDatas.get(position).getStar();
@@ -72,6 +76,16 @@ public class BusinessAdapter extends BaseAdapter {
         }catch (Exception e){
             e.printStackTrace();
         }
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(mContext, ShopActivity.class);
+                intent.putExtra("serviceId",serviceId);
+                mContext.startActivity(intent);
+            }
+        });
+
 
 
 

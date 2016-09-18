@@ -92,12 +92,22 @@ public class MapActivity extends BaseActivity {
         HttpUtils.init().getCommunities(latNum, lotNum).enqueue(new Callback<XiaoQuBean>() {
             @Override
             public void onResponse(Call<XiaoQuBean> call, Response<XiaoQuBean> response) {
-                XiaoQuBean.DataBean data = response.body().getData();
-                cityName = data.getParent().getCity();
-                communitie = data.getCommunities();
-                int cityID = data.getParent().getId();
-                List<XiaoQuBean.DataBean.BaiduCommunitiesBean> baiduCommunities =
-                        data.getBaiduCommunities();
+                XiaoQuBean.DataBean data=null;
+                List<XiaoQuBean.DataBean.BaiduCommunitiesBean> baiduCommunities=null;
+                int cityID=0;
+                try{
+                    data= response.body().getData();
+                    cityName = data.getParent().getCity();
+                    communitie = data.getCommunities();
+                    cityID= data.getParent().getId();
+                    baiduCommunities =
+                            data.getBaiduCommunities();
+                }catch (Exception e){
+                    e.printStackTrace();
+                    return;
+                }
+
+
                 //将baiduCommunitiesBean转换成communitiesBean,并加入数据列表
                 for (int i = 0; i < baiduCommunities.size(); i++) {
                     XiaoQuBean.DataBean.BaiduCommunitiesBean baiduCommunitiesBean = baiduCommunities.get(i);

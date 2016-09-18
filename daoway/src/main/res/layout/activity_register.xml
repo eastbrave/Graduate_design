@@ -135,7 +135,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:hint="请重新输入密码"
-            android:inputType="text"
+            android:inputType="numberPassword"
             android:singleLine="true"
             android:background="@null"
             android:textColorHint="#c0c0c0"

@@ -28,6 +28,7 @@ import com.android.graduate.daoway.a_home.bean.SortBean;
 import com.android.graduate.daoway.start.ClassDetailActivity;
 import com.android.graduate.daoway.widget.MyGridView;
 import com.android.graduate.daoway.x_http.HttpUtils;
+import com.android.graduate.daoway.y_bean.CategoryBean;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.bigkoo.convenientbanner.holder.Holder;
@@ -179,6 +180,34 @@ public class HomeFragment extends Fragment {
         });
 
 
+        //dantent
+        HttpUtils.init().getData("武汉").enqueue(new Callback<CategoryBean>() {
+            @Override
+            public void onResponse(Call<CategoryBean> call, Response<CategoryBean> response) {
+                final List<CategoryBean.DataBean> data = response.body().getData();
+                viewHolder.sortGV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                        Intent intent=new Intent(mContext,ClassDetailActivity.class);
+                        CategoryBean.DataBean dataBean = data.get( 1);
+                        List<CategoryBean.DataBean.TagsBean> tags = dataBean.getTags();
+                        CategoryBean.DataBean.TagsBean tagsBean = tags.get( 1);
+                        intent.putExtra("tags",tagsBean);
+                        intent.putExtra("bean",dataBean);
+                        startActivity(intent);
+                    }
+                });
+
+            }
+
+            @Override
+            public void onFailure(Call<CategoryBean> call, Throwable t) {
+
+            }
+        });
+
+
+
     }
 
     private void formatBusinessResult(BusinessBean businessBean) {
@@ -196,6 +225,7 @@ public class HomeFragment extends Fragment {
         acDatas.addAll(recomBean.getData().getActivity());
         rcAdapter.notifyDataSetChanged();
         // 设置今日推荐头部数据
+
         Picasso.with(mContext).load(acDatas.get(0).getImg()).into(viewHolder.itemImage1);
         Picasso.with(mContext).load(acDatas.get(1).getImg()).into(viewHolder.itemImage2);
         Picasso.with(mContext).load(acDatas.get(2).getImg()).into(viewHolder.itemImage3);
@@ -209,6 +239,10 @@ public class HomeFragment extends Fragment {
         viewHolder.itemName1.setTextColor(getResources().getColor(R.color.color_recommend_text_one));
         viewHolder.itemName2.setTextColor(getResources().getColor(R.color.color_recommend_text_two));
         viewHolder.itemName3.setTextColor(getResources().getColor(R.color.color_recommend_text_three));
+
+
+
+
     }
 
     private void formatSortResult(SortBean sortBean) {

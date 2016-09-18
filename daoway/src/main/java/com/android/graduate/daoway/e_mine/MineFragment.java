@@ -2,6 +2,7 @@ package com.android.graduate.daoway.e_mine;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.graduate.daoway.R;
+import com.android.graduate.daoway.h_login_and_register.LoginActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,6 +31,8 @@ public class MineFragment extends Fragment {
     @BindView(R.id.mine_click_to_user_info)
     RelativeLayout clickToUserInfo;
     private Context mContext;
+    private SharedPreferences sp;
+    private boolean login_key;
 
     public static MineFragment newInstance(Bundle bundle) {
         MineFragment fragment = new MineFragment();
@@ -48,6 +52,13 @@ public class MineFragment extends Fragment {
         // TODO: 2016/9/5
         View view = inflater.inflate(R.layout.fragment_mine, container, false);
         ButterKnife.bind(this, view);
+         sp=mContext.getSharedPreferences("isLogin",Context.MODE_PRIVATE);
+        login_key = sp.getBoolean("login_key", false);
+        if(!login_key){
+            userName.setText("未登录");
+        }else {
+            userName.setText("皮蛋君");
+        }
         initListener();
         return view;
     }
@@ -56,6 +67,13 @@ public class MineFragment extends Fragment {
         clickToUserInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if(!login_key){
+                    Intent intent=new Intent(mContext, LoginActivity.class);
+                    mContext.startActivity(intent);
+                    return;
+                }
+
                 Intent intent=new Intent(mContext,UserInfoActivity.class);
                 startActivity(intent);
             }

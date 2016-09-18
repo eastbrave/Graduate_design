@@ -1,6 +1,7 @@
 package com.android.graduate.daoway.a_home.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.android.graduate.daoway.R;
 import com.android.graduate.daoway.a_home.bean.HomeBean;
+import com.android.graduate.daoway.start.ClassDetailitemActivity;
 import com.android.graduate.daoway.widget.MyGridView;
 import com.squareup.picasso.Picasso;
 
@@ -57,6 +59,7 @@ public class HomeAdapter extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
+
         viewHolder.tvName.setText(homeDatas.get(position).getCategoryName());
         if(position==0){
             viewHolder.labelView.setBackgroundColor(mContext.getResources().getColor(R.color.color_home_label_first));
@@ -66,6 +69,7 @@ public class HomeAdapter extends BaseAdapter {
 
         ItemGridAdapter itemGridAdapter = new ItemGridAdapter(mContext,homeDatas.get(position).getItems());
         viewHolder.gridView.setAdapter(itemGridAdapter);
+
         return view;
     }
 

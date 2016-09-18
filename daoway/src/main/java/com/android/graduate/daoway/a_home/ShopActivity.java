@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -83,7 +84,7 @@ public class ShopActivity extends BaseActivity {
     private String id ;//= "05219ff82a41477e8a7c4539bad74a17";
 
     private String city = "武汉";
-    private double lot, lat;
+    private String lot, lat;
     // private ZoomViewHolder zoomViewHolder;
     private ViewHolder viewHolder;
     private int mScreenHeight;
@@ -97,6 +98,7 @@ public class ShopActivity extends BaseActivity {
     private Map<String, List<ShopBean.DataBean.PricesBean>> mapDatas = new HashMap<>();
     private List<String> keys = new ArrayList<>();
     private SharedPreferences sp;
+    private SharedPreferences sharedPreferences;
 
 
     @Override
@@ -137,8 +139,6 @@ public class ShopActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
         ButterKnife.bind(this);
-        initID();
-
         getIntentInfo();
         initView();
         setBar();
@@ -148,11 +148,7 @@ public class ShopActivity extends BaseActivity {
         initListener();
     }
 
-    private void initID() {
-        Intent intent = getIntent();
-        id = intent.getStringExtra("id");
 
-    }
 
     private void initListener() {
         shopCartIv.setOnClickListener(new View.OnClickListener() {
@@ -196,7 +192,11 @@ public class ShopActivity extends BaseActivity {
 
     private void initData() {
         //id,city,lot,lat
-
+        //= "05219ff82a41477e8a7c4539bad74a17";
+        //= "80999f240bac4e309a28ebf03a7fd34b"
+         Intent intent = getIntent();
+        id = intent.getStringExtra("serviceId");
+        id="80999f240bac4e309a28ebf03a7fd34b";
         HttpUtils.init().queryShopBean(id, city, lot, lat).enqueue(new Callback<ShopBean>() {
             @Override
             public void onResponse(Call<ShopBean> call, Response<ShopBean> response) {
@@ -211,6 +211,7 @@ public class ShopActivity extends BaseActivity {
     }
 
     private void formatResult(ShopBean shopBean) {
+        Log.i("east", "formatResult: "+shopBean);
         ShopBean.DataBean data = shopBean.getData();
         //设置banner
         imgDatas.addAll(data.getImgs());
@@ -296,7 +297,7 @@ public class ShopActivity extends BaseActivity {
         });
         //评价专区
 
-        viewHolder.ratingBar.setStepSize(data.getStar());//几星
+       // viewHolder.ratingBar.setStepSize(data.getStar());//几星
         viewHolder.shopCommentNumTv.setText("(" + data.getCommentCount() + "条)");//条数
         viewHolder.commentAreaItemFirstTv.setText(data.getLastComment().getComment());//内容
         //      viewHolder.commentAreaTimeTv.setText(getTime(data.getLastComment().getCreatetime()));//时间
@@ -371,11 +372,14 @@ public class ShopActivity extends BaseActivity {
     }
 
     private void getIntentInfo() {
-        Intent intent = getIntent();
+
+        sharedPreferences = getSharedPreferences("location", Context.MODE_PRIVATE);
+        lot = sharedPreferences.getString("lot","114.40240478515625");
+        lat = sharedPreferences.getString("lat","30.513362884521484");
+
         // id = intent.getStringExtra("target");
         // "lot":114.40240478515625,"lat":30.513362884521484,
-        lot = 114.40240478515625;
-        lat = 30.513362884521484;
+
     }
 
   /*  class ZoomViewHolder {

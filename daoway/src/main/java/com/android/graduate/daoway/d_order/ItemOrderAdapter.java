@@ -71,8 +71,7 @@ public class ItemOrderAdapter extends BaseAdapter {
 
 
     class ViewHolder {
-        @BindView(R.id.cart_item_content_shop_check)
-        CheckBox itemCheck;
+
         @BindView(R.id.cart_item_content_shop_icon)
         ImageView icon;
         @BindView(R.id.cart_item_content_shop_name_tv)

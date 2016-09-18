@@ -7,57 +7,69 @@ import java.util.List;
  */
 public class ShopBean {
 
+
     /**
      * status : ok
-     * data : {"id":"05219ff82a41477e8a7c4539bad74a17","categoryId":"36","categoryName":"维修","catIconUrl":"http://img.daoway.cn/img/icon/weixiu3.png","distance":5521,"imgs":[{"id":"06386d1939044eff8458db26c2a25ecd","url":"http://img.daoway.cn/img/2016/06/27/601eff98-df48-4496-8e38-861009e3b3da.jpg","width":640,"height":640},{"id":"cffa20cf93144bf3b61786feb67fe759","url":"http://img.daoway.cn/img/2016/06/27/8b9f6b35-a489-4c90-b906-b1f0e143c94e.jpg","width":640,"height":640},{"id":"e2b10895f15d47d8b06f2300af3778dc","url":"http://img.daoway.cn/img/2016/06/27/8d5fcd48-2c37-406c-b044-89e20a91c568.jpg","width":640,"height":640},{"id":"fc820e60628f459db57d02922ecf6442","url":"http://img.daoway.cn/img/2016/06/27/915aef54-b23f-451d-88d5-a64fc59199ed.jpg","width":640,"height":640}],"title":"逸修哥","summary":"","description":"逸修哥是一家以O2O经营模式提供手机上门维修服务的平台。通过整合配件、技术、运营等线上线下资源，采用线上下单，线下维修的O2O模式。解决用户维修手机过程经历的维修时间长、价格不透明、配件无保障、服务不放心等痛点问题，率先实现上门维修、到店维修、寄修相结合的方式满足大众需求，为智能终端产业链提供立体化的综合服务。","note":null,"isvip":0,"attitudeScore":5,"responseScore":5,"matchScore":5,"commentCount":1,"star":5,"lastComment":{"iconUrl":null,"nick":"静静088","star":5,"comment":"方便，快捷，下雨也来，很不错哦","createtime":1467353517000,"hasOrder":true,"id":"d3af4429ff414bd0bdb1ebbbb3a906dc","replyComment":null,"replyTime":null,"imgPath":null,"myComment":false},"owner":{"id":"62d651834b184afa8604b31830ff7378","easeMobId":"system","iconUrl":"http://img.daoway.cn/img/2016/06/27/25af1a31-909f-481d-afa5-351ba5f6303d.jpg","nick":"逸修哥客服","signature":null,"level":1,"age":0,"sex":1,"isCompany":1,"phoneCertified":1},"state":1,"tags":"bao","startTime":"09:00","endTime":"18:00","availableDays":"0,1,2,3,4,5,6","location":{"lot":114.40240478515625,"lat":30.513362884521484,"detailAddress":"武汉","province":"湖北省","city":"武汉","district":"洪山区","areaByIp":"武汉","displayAddress":"武汉"},"showDistance":true,"statusId":"1","statusTitle":"ON_LINE","statusDesc":"上线","statusNote":null,"prices":[{"id":"2425434","name":"iphone6P换外屏","price":236,"price_unit":"元/项","isMain":1,"pic_url":"http://img.daoway.cn/img/2016/06/27/58097864-0ca8-41cb-9bcd-dc5c42b4ed89_thumb.jpg","description":"iphone6P换外屏236（手机没有在其它地方换屏的经历）；\n质保：更换屏幕后质保90天；\n注：如有其他故障或内屏故障需补足差价！（旧屏需进行回收）","minBuyNum":"1","inService":"1","categoryId":"ab64d645ee7b4c7db70a1ad0fc20e19a","categoryName":"iphone6 plus","eventId":null,"salesNum":1,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"ab64d645ee7b4c7db70a1ad0fc20e19a","subName":"iphone6 plus","originalPrice":680,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/06/27/58097864-0ca8-41cb-9bcd-dc5c42b4ed89.jpg"},{"id":"2425441","name":"iphone6换外屏","price":206,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/06/27/fc029c74-3431-4d38-96d6-115a0f1691d3_thumb.jpg","description":"iphone6换外屏206（手机没有在其它地方换屏的经历）；\n质保：更换屏幕后质保90天；\n注：如有其他故障或内屏故障需补足差价！（旧屏需进行回收）","minBuyNum":"1","inService":"1","categoryId":"ae104bc9b4fa43eab1b3339ba362786d","categoryName":"iphone6","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"ae104bc9b4fa43eab1b3339ba362786d","subName":"iphone6","originalPrice":680,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/06/27/fc029c74-3431-4d38-96d6-115a0f1691d3.jpg"},{"id":"2425801","name":"iphone6内存升级","price":430,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/08/09/ee1519e5-0afa-4432-baf4-06735e9575eb_thumb.jpg","description":"此项目只能到店或邮寄。\niphone6、iphone 6 plus（16G升级到64G:430元）\n注：手机有过进水、主板维修、摔过经历的请下单前与客服咨询。","minBuyNum":"1","inService":"1","categoryId":"ae104bc9b4fa43eab1b3339ba362786d","categoryName":"iphone6","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"ae104bc9b4fa43eab1b3339ba362786d","subName":"iphone6","originalPrice":430,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/08/09/ee1519e5-0afa-4432-baf4-06735e9575eb.jpg"},{"id":"2425815","name":"苹果5s换电池","price":100,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/06/29/37b7faa6-bd64-408c-ba1c-c9766aff1dcd_thumb.jpg","description":"服务内容：iphone5、iphone5S换电池\n质保：更换部件享受90天质保\n注：维修工程师会带着相关配件上门进行维修处理，如果手机不是电池故障，需根据故障情况，按照官方标准进行报价，现场无法维修的故障需经用户同意，带回维修中心，进一步检测维修。","minBuyNum":"1","inService":"1","categoryId":"c814b8b1b49c42ba99e8431e1d13c038","categoryName":"iphone5S","eventId":null,"salesNum":2,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"c814b8b1b49c42ba99e8431e1d13c038","subName":"iphone5S","originalPrice":200,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/06/29/37b7faa6-bd64-408c-ba1c-c9766aff1dcd.jpg"},{"id":"2425822","name":"iphone6换内外屏","price":550,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/06/29/47e76e51-d0e8-4d7c-b1ba-29a3bbfa28e1_thumb.jpg","description":"服务内容：iphone6换内外屏总成\n质保：更换部件享受90天质保。\n注：维修工程师会带着相关配件上门进行维修处理，如果手机还有其他故障，需根据故障情况，按照官方标准进行报价，现场无法维修的故障需经用户同意，带回维修中心，进一步检测维修。","minBuyNum":"1","inService":"1","categoryId":"ae104bc9b4fa43eab1b3339ba362786d","categoryName":"iphone6","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"ae104bc9b4fa43eab1b3339ba362786d","subName":"iphone6","originalPrice":950,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/06/29/47e76e51-d0e8-4d7c-b1ba-29a3bbfa28e1.jpg"},{"id":"2425823","name":"iphone6P换内外屏","price":640,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/06/29/01265c74-f695-496e-b99e-583f2cb4f97a_thumb.jpg","description":"服务内容：iphone6P换内外屏总成\n质保：更换部件享受90天质保。\n注：维修工程师会带着相关配件上门进行维修处理，如果手机还有其他故障，需根据故障情况，按照官方标准进行报价，现场无法维修的故障需经用户同意，带回维修中心，进一步检测维修。","minBuyNum":"1","inService":"1","categoryId":"ab64d645ee7b4c7db70a1ad0fc20e19a","categoryName":"iphone6 plus","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"ab64d645ee7b4c7db70a1ad0fc20e19a","subName":"iphone6 plus","originalPrice":950,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/06/29/01265c74-f695-496e-b99e-583f2cb4f97a.jpg"},{"id":"2425848","name":"iphone6S换外屏","price":430,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/06/29/369f5b14-0241-4633-a9c7-15a1709a8e75_thumb.jpg","description":"iphone6S换外屏430；\n质保：更换屏幕后质保90天；\n注：如有其他故障或内屏故障需补足差价！（旧屏需进行回收）","minBuyNum":"1","inService":"1","categoryId":"3ba44fb978054b57a51a593a8c704756","categoryName":"iphone 6S","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"3ba44fb978054b57a51a593a8c704756","subName":"iphone 6S","originalPrice":1250,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/06/29/369f5b14-0241-4633-a9c7-15a1709a8e75.jpg"},{"id":"2425850","name":"iPhone6S P换外屏","price":550,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/06/29/13d9e26f-c339-467e-9c5d-75a570a179a7_thumb.jpg","description":"phone6S Plus换外屏550；\n质保：更换屏幕后质保90天；\n注：如有其他故障或内屏故障需补足差价！（旧屏需进行回收）","minBuyNum":"1","inService":"1","categoryId":"c78caf33e9864b2592d273e22ab93212","categoryName":"iphone 6Splus","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"c78caf33e9864b2592d273e22ab93212","subName":"iphone 6Splus","originalPrice":1250,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/06/29/13d9e26f-c339-467e-9c5d-75a570a179a7.jpg"},{"id":"2425861","name":"iphone5S换内外屏","price":310,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/06/29/88660f4e-3022-4ff8-ad58-55c6b1f39f53_thumb.jpg","description":"服务内容：iphone5S换内外屏（屏幕总成）\n质保：更换部件享受90天质保。\n注：维修工程师会带着相关配件上门进行维修处理，如果手机还有其他故障，需根据故障情况，按照官方标准进行报价，现场无法维修的故障需经用户同意，带回维修中心，进一步检测维修。","minBuyNum":"1","inService":"1","categoryId":"c814b8b1b49c42ba99e8431e1d13c038","categoryName":"iphone5S","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"c814b8b1b49c42ba99e8431e1d13c038","subName":"iphone5S","originalPrice":550,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/06/29/88660f4e-3022-4ff8-ad58-55c6b1f39f53.jpg"},{"id":"2425864","name":"iphone5S换外屏","price":170,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/06/29/38dc8133-cc97-484c-9572-144bf4ae60f9_thumb.jpg","description":"iphone5S换外屏\n质保：更换部件享受90天质保\n注：如有其它故障或内屏故障需补足差价（旧屏需回收）","minBuyNum":"1","inService":"1","categoryId":"c814b8b1b49c42ba99e8431e1d13c038","categoryName":"iphone5S","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"c814b8b1b49c42ba99e8431e1d13c038","subName":"iphone5S","originalPrice":550,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/06/29/38dc8133-cc97-484c-9572-144bf4ae60f9.jpg"}],"createtime":1466998780000,"modifytime":1472539179000,"phone":"4008601316","allowDirectCall":false,"fixFee":0,"noFixFeePrice":0,"coverArea":"武汉","level":70,"ext":null,"scope":null,"allowClone":0,"parentService":null,"aheadHours":1.3,"nextAppointTime":1473393600000,"reserveMoneyPercent":100,"onlinePay":1,"isCompany":1,"tagIcons":[],"h5url":null,"h5enable":0,"beforPayCreateOrder":0,"isManyItems":1,"onlineTime":1467184995000,"commissionTime":1451577600000,"commissionRate":0.08,"isHasLicense":0,"supplierInfo":{"supplier_id":"62d651834b184afa8604b31830ff7378","supplier_name":"","supplier_address":"","supplier_phone":"","sendService":"0","sendCategory":"5","scene":null,"supplier_tel":"284778292922","supplier_lat":"","supplier_lng":"","appKey":null},"subCategories":[{"id":"c814b8b1b49c42ba99e8431e1d13c038","name":"iphone5S"},{"id":"ae104bc9b4fa43eab1b3339ba362786d","name":"iphone6"},{"id":"ab64d645ee7b4c7db70a1ad0fc20e19a","name":"iphone6 plus"},{"id":"3ba44fb978054b57a51a593a8c704756","name":"iphone 6S"},{"id":"c78caf33e9864b2592d273e22ab93212","name":"iphone 6Splus"}],"guarantee":{"url":"http://www.daoway.cn/activity/security.html","items":[{"iconUrl":"http://img.daoway.cn/img/icon/price.png","label":"无额外收费"},{"iconUrl":"http://img.daoway.cn/img/icon/pay.png","label":"未服务随时退款"},{"iconUrl":"http://img.daoway.cn/img/icon/quality.png","label":"不满意重做"}]},"guaranteeStr":"price,pay,quality","dwOwner":"张润宇","minBuyPrice":"0.0","startVacationTime":1466956800000,"endVacationTime":null,"greeting":null,"contractNum":"N80000720160623","orderTakingRate":"100%","positiveCommentRate":"100%","orderTakingCount":3,"repeatPurchaseRate":"33%","returnedRate":"0%","completeOrderNum":3,"totalOrderCount":5,"notice":null,"isCanBuchajia":"1","promotion":{"total_reduce":null,"first_reduce":null},"companyName":null,"hasCompanyImgs":false,"orderingNotice":null,"favorite":false,"canCd":true,"cancelOrder":false,"canChooseTechnician":false,"draft":false,"admin":false}
+     * data : {"id":"80999f240bac4e309a28ebf03a7fd34b","categoryId":"36","categoryName":"维修","catIconUrl":"http://img.daoway.cn/img/icon/weixiu3.png","distance":6121028,"imgs":[{"id":"c25124b32a6f43b0884ee761fc21c4ca","url":"http://img.daoway.cn/img/2015/12/28/d53343ce-5818-4ebf-9948-d13aa100ef72.jpg","width":640,"height":640},{"id":"debd6b79a37c4a9fb76df1be3641b1c0","url":"http://img.daoway.cn/img/2016/02/24/80fa2b4c-74e6-4517-961e-badf8500d6bd.jpg","width":640,"height":640},{"id":"6e56dce4bc8d4e63be48e301b62a3720","url":"http://img.daoway.cn/img/2016/02/29/8581bb55-190e-49af-9526-0f9649245f77.jpg","width":640,"height":640},{"id":"637efe5bc2e34d5b90d4d2bb47f71b9d","url":"http://img.daoway.cn/img/2016/02/24/c5a33a3b-6c6d-44da-87d6-59d6c223f83f.jpg","width":640,"height":640},{"id":"775d09b07a3749df90442aae53a85a40","url":"http://img.daoway.cn/img/2016/02/24/1f13b4bf-f9a6-4c65-9337-d4389869be2d.jpg","width":640,"height":640}],"title":"e修鸽","summary":null,"description":"互联网家修开创者，专注家庭维修18年，从未放鸽子\n\n【订购须知】\n● 本店需提前1小时预约订购服务\n● 本店服务时间为周一至周日9:00-20:00\n● 本店周末正常营业，但是温馨提醒周末服务提前一天预约\n● G20期间杭州需要提前咨询客服\n【服务范围】\n本店提供北京、上海、广州、深圳、杭州、天津、成都、重庆、南京、宁波、西安、武汉 \n\n【注意事项】\n● 如在服务时间未能及时处理订单，请随时拨打\u201c联系商家\u201d功能右上方客服电话直接联系我们","note":null,"isvip":0,"attitudeScore":5,"responseScore":5,"matchScore":5,"commentCount":175,"star":4.7714285711,"lastComment":{"iconUrl":"http://wx.qlogo.cn/mmopen/URtmSYmokyXHrkAAI6NEjRtsk7LQicU4SolRU7yOI0qQgIUjAiceLIeuNJ0A5vsINQqP1G0bIjIQgz8HW8FfOLPB4S8jg824YM/0","nick":" 魏丹 ","star":5,"comment":"师父特别认真、耐心地工作。很敬业。非常感谢！","createtime":1474115070000,"hasOrder":true,"id":"22f3e4a2406f4851a0039c44ed68d307","replyComment":null,"replyTime":null,"imgPath":null,"myComment":false},"owner":{"id":"910da3040f444a82859cbe472aa779be","easeMobId":"system","iconUrl":"http://img.daoway.cn/img/2015/10/21/dae67e6f-a74b-4f78-9719-2069f0722d13.jpg","nick":"e修鸽客服","signature":"专注家修18年，从未放鸽子","level":1,"age":0,"sex":1,"isCompany":1,"phoneCertified":1},"state":1,"tags":"recommend,bao","startTime":"09:00","endTime":"20:00","availableDays":"0,1,2,3,4,5,6","location":{"lot":116.44811248779297,"lat":39.903568267822266,"detailAddress":"北京","province":"北京市","city":"北京","district":"东城区","areaByIp":"金华","displayAddress":"北京"},"showDistance":false,"statusId":"1","statusTitle":"ON_LINE","statusDesc":"上线","statusNote":null,"prices":[{"id":"107731","name":"管道疏通","price":120,"price_unit":"元/个","isMain":1,"pic_url":"http://img.daoway.cn/img/2015/12/28/d53343ce-5818-4ebf-9948-d13aa100ef72_thumb.jpg","description":"马桶疏通，地漏疏通，厨房下水道疏通，阳台洗衣机下手道疏通等\n按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n备注：此项服务只是维修费用，材料费不提供可成本价带买，业主也可自购，二次上门不额外收费！","minBuyNum":"1","inService":"1","categoryId":"53cb93cae2384a65ac04e72e995ef5a9","categoryName":"家修类其他小项目","eventId":null,"salesNum":125,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"53cb93cae2384a65ac04e72e995ef5a9","subName":"家修类其他小项目","originalPrice":150,"coverArea":null,"tags":"管道疏通,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/28/d53343ce-5818-4ebf-9948-d13aa100ef72.jpg"},{"id":"107713","name":"马桶维修","price":100,"price_unit":"元/个","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/29/351d926e-7d31-44f5-ad0d-289234228501_thumb.jpg","description":"马桶维修，马桶配件失灵等故障！专注家庭维修18年，从不放鸽子！\n家修品牌领导者值得信赖！","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":72,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":120,"coverArea":null,"tags":"家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/29/351d926e-7d31-44f5-ad0d-289234228501.jpg"},{"id":"2365908","name":"灯具维修 专业维修","price":90,"price_unit":"元/个","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/29/20ffd3ff-f3b2-43be-a834-f6bc58e4fbda_thumb.jpg","description":"本服务不包含配件费用，不包含水晶灯维修。","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":25,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":90,"coverArea":null,"tags":"家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/29/20ffd3ff-f3b2-43be-a834-f6bc58e4fbda.jpg"},{"id":"110858","name":"空调加氟(定金)","price":50,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/28/9ee98283-44d7-4ca5-9db2-bdefca605c85_thumb.jpg","description":"具体费用请联系客服 （不参与代金券使用）\n不含变频空调抽真空费，3层及3层以上收取高空作业费30元/台，每增加一层加收10元，同一地址多台安装/维修，高空费最多收取200元。","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":150,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":80,"coverArea":null,"tags":"家电维修,空调加氟,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/28/9ee98283-44d7-4ca5-9db2-bdefca605c85.jpg"},{"id":"107732","name":"直筒洗衣机清洗","price":158,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/30/d37fd297-5e3a-4282-82b1-19f645c92f54_thumb.jpg","description":"【温馨提醒】 \n1. 为预防清洗过程中设备意外损坏，不提供拆机服务； \n2. 如机器存在老化或损坏情况，不建议进行清洗服务； \n3. 洗衣机每天清洗大量的衣服，每次当它转动的时候非常容易将细菌和衣物纤维挂在桶壁上，【长期不清洗的危害】 \n1.对洗涤衣物造成二次污染; \n2.导致妇科病、皮炎、皮肤过敏等多种疾病; \n3.缩短家电寿命； \n【清洗的好处】 \n1.去除异味; \n2.防止各种有害细菌传播; \n3.避免衣物二次污染; \n4.延长洗衣机使用寿命;\n建议3个月作一次清洗！","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":7,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":188,"coverArea":null,"tags":"家电清洗,洗衣机清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/30/d37fd297-5e3a-4282-82b1-19f645c92f54.jpg"},{"id":"107729","name":"洗衣机维修","price":120,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/30/1e056644-542b-4001-a289-0323cc2723fc_thumb.jpg","description":"解决洗衣机不工作，噪声很大，洗衣机抖动厉害，不脱水，转动异常等问题\n按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n备注：此项服务只是维修费用，材料费不提供可成本价带买，业主也可自购，二次上门不额外收费！","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":26,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":140,"coverArea":null,"tags":"家电维修,洗衣机维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/30/1e056644-542b-4001-a289-0323cc2723fc.jpg"},{"id":"110859","name":"油烟机清洗 （非整机拆洗）","price":158,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/28/1f0f6fcf-498c-4cfa-bf6a-61ea0fe8b1e2_thumb.jpg","description":"整机拆洗请备注（另收80元拆装费）\n按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n下单后，务必保持电话畅通以便服务人员及时为您服务。","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":22,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":158,"coverArea":null,"tags":"家电清洗,油烟机清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/28/1f0f6fcf-498c-4cfa-bf6a-61ea0fe8b1e2.jpg"},{"id":"107733","name":"普通双门冰箱清洗","price":120,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/28/0e937bd7-4e0d-4d9b-8020-8a2be4b3292f_thumb.jpg","description":"1. 如机器存在老化或损坏情况，不建议进行清洗服务\n2. 建议换季来一次清洗！\n3. 【清洗的好处】 \n     1.消除致病菌 \n     2.清新冰箱内空气 \n     3.保持冰箱保鲜效果  \n     4.降低能源开支 \n     5延长冰箱使用寿命","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":14,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":150,"coverArea":null,"tags":"家电清洗,冰箱清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/28/0e937bd7-4e0d-4d9b-8020-8a2be4b3292f.jpg"},{"id":"110940","name":"空调挂机清洗","price":120,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/29/d288e17f-8062-4142-83e2-6c209b4202ed_thumb.jpg","description":"按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n服务范围：室内挂机清洗\n备注：此项服务只是清洗费用！","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":5,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":150,"coverArea":null,"tags":"家电清洗,空调清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/29/d288e17f-8062-4142-83e2-6c209b4202ed.jpg"},{"id":"2365907","name":"挂机空调清洗 深度清洗","price":120,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/08/18/bc2525ab-cd08-42a1-939b-ecfa4e72ed40_thumb.jpg","description":"本次清洗不包含外机清洗","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":1,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":150,"coverArea":null,"tags":"家电清洗,空调清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/08/18/bc2525ab-cd08-42a1-939b-ecfa4e72ed40.jpg"},{"id":"107730","name":"淋浴房维修安装","price":180,"price_unit":"元/个","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/28/5a3c1bfa-195a-43b9-8256-f718633d2d1b_thumb.jpg","description":"全新淋浴房安装，淋浴房维修等\n按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n备注：此项服务只是维修费用，材料费不提供可成本价带买，业主也可自购，二次上门不额外收费！","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":3,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":220,"coverArea":null,"tags":"家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/28/5a3c1bfa-195a-43b9-8256-f718633d2d1b.jpg"},{"id":"110030","name":"卫浴花洒维修","price":90,"price_unit":"元/个","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/26/cc39b6cc-c9f5-4666-a914-12e99e47f4e3_thumb.jpg","description":"全新花洒安装，淋浴房维修等\n按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n备注：此项服务只是纯费用，服务过程中材料费不提供可成本价带买，业主也可自购，二次上门不额外收费！","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":17,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":150,"coverArea":null,"tags":"家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/26/cc39b6cc-c9f5-4666-a914-12e99e47f4e3.jpg"},{"id":"2350871","name":"其他小家电维修","price":100,"price_unit":"元/个","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/28/63a467e4-0fd2-4ca6-af09-f7e0c8302f75_thumb.jpg","description":"家修其他一些问题，按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n服务范围：压缩机不制冷，门关上，灯不亮，噪音很大，电冰箱不工作等\n备注：此项服务只是维修费用，材料费不提供可成本价带买，业主也可自购，二次上门不额外收费！具体不了解可以咨询。","minBuyNum":"1","inService":"1","categoryId":"53cb93cae2384a65ac04e72e995ef5a9","categoryName":"家修类其他小项目","eventId":null,"salesNum":14,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"53cb93cae2384a65ac04e72e995ef5a9","subName":"家修类其他小项目","originalPrice":100,"coverArea":null,"tags":"家电维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/28/63a467e4-0fd2-4ca6-af09-f7e0c8302f75.jpg"},{"id":"110025","name":"燃气灶清洗  专业  正规","price":100,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/28/a43bdd7f-f2c4-4d63-b1ef-44107e3680ee_thumb.jpg","description":"专业清洗燃气灶\n按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n备注：此项服务只是清洗费用！","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":2,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":150,"coverArea":null,"tags":"家电清洗,燃气灶清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/28/a43bdd7f-f2c4-4d63-b1ef-44107e3680ee.jpg"},{"id":"2426391","name":"油烟机清洗（整机拆洗）","price":238,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/07/03/c66e2974-365b-4a5f-8313-0d44994caa7d_thumb.jpg","description":"整机拆洗请备注（另收80元拆装费）\n按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n下单后，务必保持电话畅通以便服务人员及时为您服务。","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":1,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":260,"coverArea":null,"tags":"家电清洗,油烟机清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/07/03/c66e2974-365b-4a5f-8313-0d44994caa7d.jpg"},{"id":"2365909","name":"水管维修 专业维修","price":120,"price_unit":"元/次","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/29/36d87766-6109-4abc-ab51-d8ff3a36590a_thumb.jpg","description":"普通水管维修，不包含任何更换配件费用。","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":23,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":120,"coverArea":null,"tags":"家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/29/36d87766-6109-4abc-ab51-d8ff3a36590a.jpg"},{"id":"2432657","name":"墙面翻新上门测量","price":100,"price_unit":"元/次","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/08/18/94c4d878-73db-4f0b-9285-c4e846443d61_thumb.jpg","description":"1、本产品为墙面翻新上门测量费，实际费用根据现场墙面面积及破损情况及采用施工工艺不同现场确认\n2、下单前可以先与店家进行咨询，确认需求后，专业人员再上门测量","minBuyNum":"1","inService":"1","categoryId":"5217f31d7c2740af8f9d4349764a5481","categoryName":"局部翻新","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"5217f31d7c2740af8f9d4349764a5481","subName":"局部翻新","originalPrice":150,"coverArea":null,"tags":"装修换新,家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/08/18/94c4d878-73db-4f0b-9285-c4e846443d61.jpg"},{"id":"110857","name":"锁具维修  锁具更换","price":130,"price_unit":"元/个","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/28/6e41727a-6bf3-401c-9edf-b0f37a39fb13_thumb.jpg","description":"按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n本项服务仅为人工技能费，不包含零配件及其他服务费，下单后请保持电话畅通，以便能及时联系到您","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":37,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":180,"coverArea":null,"tags":"开锁换锁,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/28/6e41727a-6bf3-401c-9edf-b0f37a39fb13.jpg"},{"id":"2365910","name":"差价专拍","price":10,"price_unit":"元/次","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/29/c90edf98-b5f9-4ddc-8b7e-5538218a8677_thumb.jpg","description":"差价专用链接，单独购买无效  不参与代金券使用","minBuyNum":"1","inService":"1","categoryId":"53cb93cae2384a65ac04e72e995ef5a9","categoryName":"家修类其他小项目","eventId":null,"salesNum":5,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"53cb93cae2384a65ac04e72e995ef5a9","subName":"家修类其他小项目","originalPrice":10,"coverArea":null,"tags":",中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/29/c90edf98-b5f9-4ddc-8b7e-5538218a8677.jpg"},{"id":"2432678","name":"墙面快速翻新","price":40,"price_unit":"元/平米","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/08/18/2ccf8797-4608-4180-adca-2945f49a2540_thumb.jpg","description":"1. 墙面快速翻新40元/㎡，面积30㎡起，实际费用根据现场墙面面积及破损情况及采用施工工艺不同现场确认，包工包料\n2. 以上价格适合墙面完好，无需修补，可直接涂刷的墙面\n3. 快速翻新(包工包料)【涂刷人工费+油漆+辅材+涂刷工具+工人保险+质保】\n4. 下单前可以先与客服进行咨询，确认需求后，专业人员上门测量","minBuyNum":"1","inService":"1","categoryId":"5217f31d7c2740af8f9d4349764a5481","categoryName":"局部翻新","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"5217f31d7c2740af8f9d4349764a5481","subName":"局部翻新","originalPrice":60,"coverArea":null,"tags":"装修换新,家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/08/18/2ccf8797-4608-4180-adca-2945f49a2540.jpg"},{"id":"2432680","name":"墙面满批型（毛坯房）刷新","price":80,"price_unit":"元/平米","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/08/18/75c11728-d15b-4fb6-a631-92849d0341e3_thumb.jpg","description":"1.墙面满批型（毛坯房）刷新80元/㎡起，面积30㎡起，实际费用根据现场墙面面积及破损情况及采用施工工艺不同现场确认，包工包料\n2. 以上价格适用毛坯房及新墙翻新服务\n3.墙面满批型（毛坯房）刷新(含涂料)【涂刷人工费+油漆+辅材+涂刷工具+工人保险+质保】\n4. 下单前可以先与客服进行咨询，确认需求后，专业人员上门测量","minBuyNum":"1","inService":"1","categoryId":"5217f31d7c2740af8f9d4349764a5481","categoryName":"局部翻新","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"5217f31d7c2740af8f9d4349764a5481","subName":"局部翻新","originalPrice":100,"coverArea":null,"tags":"装修换新,家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/08/18/75c11728-d15b-4fb6-a631-92849d0341e3.jpg"},{"id":"2432681","name":"墙面全铲型翻新","price":120,"price_unit":"元/平米","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/08/18/911b9ab0-cda1-4625-b661-ee5c1878160d_thumb.jpg","description":"1.墙面全铲型翻新120元/㎡起，面积30㎡起，实际费用根据现场墙面面积及破损情况及采用施工工艺不同现场确认，包工包料\n2. 以上价格适合墙体基层松动或出现漆膜脱落、起皮、霉斑等严重问题墙面翻新\n3.墙面全铲型翻新(含涂料)【涂刷人工费+油漆+辅材+涂刷工具+工人保险+质保】\n4. 下单前可以先与客服进行咨询，确认需求后，专业人员上门测量","minBuyNum":"1","inService":"1","categoryId":"5217f31d7c2740af8f9d4349764a5481","categoryName":"局部翻新","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"5217f31d7c2740af8f9d4349764a5481","subName":"局部翻新","originalPrice":150,"coverArea":null,"tags":"装修换新,家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/08/18/911b9ab0-cda1-4625-b661-ee5c1878160d.jpg"},{"id":"2432679","name":"墙面修补型翻新","price":50,"price_unit":"元/平米","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/08/18/714930a5-3942-491c-a9db-6bcfb9f8bf7d_thumb.jpg","description":"1. 墙面快速翻新50元/㎡起，面积30㎡起，实际费用根据现场墙面面积及破损情况及采用施工工艺不同现场确认，包工包料\n2. 以上价格适合墙体基层牢靠，局部有污渍、磕碰、细小裂缝的墙面\n3.修补型翻新(含涂料)【涂刷人工费+油漆+辅材+涂刷工具+工人保险+质保】\n4. 下单前可以先与客服进行咨询，确认需求后，专业人员上门测量","minBuyNum":"1","inService":"1","categoryId":"5217f31d7c2740af8f9d4349764a5481","categoryName":"局部翻新","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"5217f31d7c2740af8f9d4349764a5481","subName":"局部翻新","originalPrice":80,"coverArea":null,"tags":"装修换新,家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/08/18/714930a5-3942-491c-a9db-6bcfb9f8bf7d.jpg"},{"id":"2432725","name":"三开门冰箱清洗","price":180,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/08/18/86677503-dc1e-4cf0-9a6b-ece2aa091102_thumb.jpg","description":"1. 如机器存在老化或损坏情况，不建议进行清洗服务\n2. 建议换季来一次清洗！\n3. 【清洗的好处】 \n     1.消除致病菌 \n     2.清新冰箱内空气 \n     3.保持冰箱保鲜效果  \n     4.降低能源开支 \n     5延长冰箱使用寿命","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":220,"coverArea":null,"tags":"家电清洗,冰箱清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/08/18/86677503-dc1e-4cf0-9a6b-ece2aa091102.jpg"},{"id":"2432726","name":"对开门冰箱清洗","price":240,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/08/18/58b7241f-5839-4aa8-934d-8b9e3f3ebf9e_thumb.jpg","description":"1. 如机器存在老化或损坏情况，不建议进行清洗服务\n2. 建议换季来一次清洗！\n3. 【清洗的好处】 \n     1.消除致病菌 \n     2.清新冰箱内空气 \n     3.保持冰箱保鲜效果  \n     4.降低能源开支 \n     5延长冰箱使用寿命","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":280,"coverArea":null,"tags":"家电清洗,冰箱清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/08/18/58b7241f-5839-4aa8-934d-8b9e3f3ebf9e.jpg"},{"id":"2436593","name":"家庭上门检测","price":30,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/09/11/d0ec2b78-8e2f-4cb2-8746-4efa04c155a8_thumb.jpg","description":"此费用仅为上门检测费，实际费用=维修费+材料费，具体费用根据现场工程量报价。\n\n一．服务说明：\n　　1、21点以后订单请预约在次日12点以后时间段，e修鸽工作人员会在次日上班后第一时间为您安排师傅；\n　　2、现场若发现相同产品需多项维修，在客户同意报价的情况下，e修鸽工程师才会进行维修。差价可再下单\u201c差价专拍\u201d或由师傅现场收取;\n　　3、师傅上门业主如选择不维修，需支付30元上门检测费，由师傅现场收取，支付费用将全额退还；\n　　4、因特殊原因需增加费用如：现场增加服务项目等，最终报价由e修鸽师傅和用户双方协商确定;\n      5、若客观原因市场无法购买到配件，导致师傅无法修理，师傅已上门检修，客户需支付30元的上门检测费。\n\n三．注意事项：\n　　1、服务范围以网点具体情况为主；\n　　2、服务时间以师傅和客户预约时间为准。客户如需调整服务时间，或取消服务，请至少提前6个小时告知客服;\n　　3、如有疑问，请致电客服电话：4008827781;\n　　4、投诉电话：15381109308","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":50,"coverArea":"","tags":"家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/09/11/d0ec2b78-8e2f-4cb2-8746-4efa04c155a8.jpg"},{"id":"2436597","name":"挂机空调维修","price":120,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/09/11/5bb1fae0-de46-4ca3-9089-41c1f02f6a30_thumb.jpg","description":"空调维修 ：专业维修空调不制冷、不制热、风机不转、压缩机不工作、遥控器失灵、程序错乱、漏氟、漏水、电气系统短路、断路、机器工作时有异响、异味等故障。 \n一．服务说明：\n1、 配件费：实际付费=人工费+配件费；此次付费仅为人工费，不包含任何配件，如需配件，可与维修师傅沟通代买，具体价格可参考配件价目表；\n2、 检修费：师傅已上门检修，若业主选择不维修或因客观原因如市场无法购买到配件或维修环境问题导致师傅无法修理等情况，需支付30元上门检测费，由师傅现场收取，已支付费用将全额退还；\n3、 热线预约时间：9:00-18:00    上门服务时间：8:00-20:00\n在工作时间段内预约维修后，e修鸽工作人员会在30分钟内联系您，与客户就需要维修、安装的物品情况进行电话沟通，以确定是否需要携带零配件，上门服务时间等相关信息。\n非工作时间下单请预约在12点以后时间段，e修鸽工作人员会在值班后第一时间为您安排师傅；\n因为每日申请维修的客户较多，如有排队等待现象，请予以谅解。","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":180,"coverArea":"","tags":"家电维修,空调维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":true,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/09/11/5bb1fae0-de46-4ca3-9089-41c1f02f6a30.jpg"},{"id":"2436601","name":"柜式空调清洗","price":150,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/09/11/085490d8-2671-40eb-b964-68192c4fb407_thumb.jpg","description":"空调内机机壳、风板、顶部擦拭清洁、消毒，空气过滤网、接水盘、换热器等蒸汽深度消毒清洁。本产品不包含柜式空调清洗和外机清洗。\n一、服务说明: \n【温馨提示】\n1. 不清洗外机；\n2. 如机器存在老化或损坏情况，不建议进行清洗服务；\n3.清洗保修3天，请当场验机，有问题请及时联系。\n【时间】 热线预约时间：9:00-18:00    上门服务时间：8:00-20:00\n1. 在工作时间段内预约维修后，e修鸽工作人员会在30分钟内联系您\n2. 非工作时间下单e修鸽工作人员会在值班后第一时间为您安排师傅，但考虑师傅上门时间，请预约在12点以后时间段；\n3. 因为每日申请清洗的客户较多，如有排队等待现象，请予以谅解。\n【长期不清洗的危害】\n1. 降低空调制冷、制热效果；\n2. 污染室内空气，传播疾病；\n3. 堵塞过滤网、散热片、蒸发器，引发火灾；\n4. 损坏压缩机，增加耗电。\n【清洗的好处】\n1. 增强空调制冷、制热效果；\n2. 去除空调异味，减少疾病传染；\n3. 节能省电30%；\n4. 延长空调使用寿命。","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":200,"coverArea":"","tags":"家电清洗,空调清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/09/11/085490d8-2671-40eb-b964-68192c4fb407.jpg"},{"id":"2436610","name":"中央空调清洗 /风口","price":99,"price_unit":"元/个","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/09/11/f52f0978-7c5f-4a67-b42d-c542c28ec5ca_thumb.jpg","description":"一、服务说明: \n【温馨提示】\n1. 不清洗外机；\n2. 如机器存在老化或损坏情况，不建议进行清洗服务；\n【时间】 热线预约时间：9:00-18:00    上门服务时间：8:00-20:00\n1. 在工作时间段内预约维修后，e修鸽工作人员会在30分钟内联系您\n2. 非工作时间下单e修鸽工作人员会在值班后第一时间为您安排师傅，但考虑师傅上门时间，请预约在12点以后时间段；\n3. 因为每日申请清洗的客户较多，如有排队等待现象，请予以谅解。\n【清洗流程】\n空调：入户卫生-检验机器-准备工作-拆卸机器-安防护罩-清洁杀菌-清洗-装机还原-试机、清理现场\n【长期不清洗的危害】\n1. 降低空调制冷、制热效果；\n2. 污染室内空气，传播疾病；\n3. 堵塞过滤网、散热片、蒸发器，引发火灾；\n4. 损坏压缩机，增加耗电。\n【清洗的好处】\n1. 增强空调制冷、制热效果；\n2. 去除空调异味，减少疾病传染；\n3. 节能省电30%；\n4. 延长空调使用寿命。","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":180,"coverArea":"","tags":"家电清洗,空调清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/09/11/f52f0978-7c5f-4a67-b42d-c542c28ec5ca.jpg"},{"id":"2436611","name":"开锁解锁","price":160,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/09/11/d9ccd47a-00e5-4ccb-a151-ec37262ea829_thumb.jpg","description":"本项服务仅为人工技能费，不包含零配件及其他服务费用及电子密码锁。下单后请保持电话畅通\n[友情提醒：开锁时请您出示有效证件]　\n经营范围：\n　　1、 承接安装、维护各类安全锁具工程；\n　　2、 开、修各式保险柜、金库、保管箱；\n　　3、 开、修各式办公锁具（老板台锁、档案柜锁、办公桌锁等）\n　　4、 开、修各式民用锁具（各类普通房门、防盗门、密码箱等）\n　　5、 开、修各式车用锁具（车门锁、点火器锁、摩托车锁等）\n　　6、专业解决锁类疑难杂症（配各种民用钥匙、异型钥匙、定做同开锁、单位上门批量配钥匙）\n　　7、公司配套销售各种高、中档防盗门、木门、室内门、指纹门、锁具、锁芯、及开锁工具等\n　　开锁：专业技术开启，不破坏锁具。\n　　换锁：专业更换超B级锁芯，防盗门专用锁芯，五星级防盗。\n　　修锁：专业维护各类安全锁具。\n　　装锁：专业工作人员安装各类锁。\n　　客服热线：400-882-7781","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":230,"coverArea":"","tags":"开锁,中秋返场特惠","serviceTime":null,"hasPriceImgs":true,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/09/11/d9ccd47a-00e5-4ccb-a151-ec37262ea829.jpg"}],"createtime":1445273894000,"modifytime":1474180462000,"phone":"15356653568","allowDirectCall":false,"fixFee":0,"noFixFeePrice":0,"coverArea":"北京 上海 广州 深圳 杭州 天津 成都 重庆 南京 宁波 西安 武汉","level":43,"ext":null,"scope":null,"allowClone":0,"parentService":null,"aheadHours":13.8,"nextAppointTime":1474246800000,"reserveMoneyPercent":100,"onlinePay":1,"isCompany":1,"tagIcons":[],"h5url":null,"h5enable":0,"beforPayCreateOrder":0,"isManyItems":1,"onlineTime":1445497485000,"commissionTime":1451577600000,"commissionRate":0.065,"isHasLicense":0,"supplierInfo":{"supplier_id":"910da3040f444a82859cbe472aa779be","supplier_name":"","supplier_address":"","supplier_phone":"","sendService":"0","sendCategory":"5","scene":null,"supplier_tel":"4008827781","supplier_lat":"","supplier_lng":"","appKey":null},"subCategories":[{"id":"53cb93cae2384a65ac04e72e995ef5a9","name":"家修类其他小项目"},{"id":"4ba7ddc0336c4ce6aa99d61a595a5c9c","name":"家庭维修类"},{"id":"842cfc7a2b9149f29b8279ba3d8fe87a","name":"家电清洗类"},{"id":"5217f31d7c2740af8f9d4349764a5481","name":"局部翻新"}],"guarantee":{"url":"http://www.daoway.cn/activity/security.html","items":[{"iconUrl":"http://img.daoway.cn/img/icon/price.png","label":"无额外收费"},{"iconUrl":"http://img.daoway.cn/img/icon/pay.png","label":"未服务随时退款"},{"iconUrl":"http://img.daoway.cn/img/icon/quality.png","label":"不满意重做"}]},"guaranteeStr":"price,pay,quality","dwOwner":"张润宇","minBuyPrice":"0.0","startVacationTime":1454256000000,"endVacationTime":1455465540000,"greeting":"","contractNum":"N80001320151021","orderTakingRate":"93%","positiveCommentRate":"94%","orderTakingCount":542,"repeatPurchaseRate":"10%","returnedRate":"14%","completeOrderNum":528,"totalOrderCount":746,"notice":null,"isCanBuchajia":"1","promotion":{"total_reduce":[{"total":80,"reduce":15}],"first_reduce":5},"companyName":null,"hasCompanyImgs":false,"orderingNotice":null,"favorite":false,"admin":false,"canCd":true,"cancelOrder":false,"canChooseTechnician":false,"draft":false}
      */
 
     private String status;
     /**
-     * id : 05219ff82a41477e8a7c4539bad74a17
+     * id : 80999f240bac4e309a28ebf03a7fd34b
      * categoryId : 36
      * categoryName : 维修
      * catIconUrl : http://img.daoway.cn/img/icon/weixiu3.png
-     * distance : 5521
-     * imgs : [{"id":"06386d1939044eff8458db26c2a25ecd","url":"http://img.daoway.cn/img/2016/06/27/601eff98-df48-4496-8e38-861009e3b3da.jpg","width":640,"height":640},{"id":"cffa20cf93144bf3b61786feb67fe759","url":"http://img.daoway.cn/img/2016/06/27/8b9f6b35-a489-4c90-b906-b1f0e143c94e.jpg","width":640,"height":640},{"id":"e2b10895f15d47d8b06f2300af3778dc","url":"http://img.daoway.cn/img/2016/06/27/8d5fcd48-2c37-406c-b044-89e20a91c568.jpg","width":640,"height":640},{"id":"fc820e60628f459db57d02922ecf6442","url":"http://img.daoway.cn/img/2016/06/27/915aef54-b23f-451d-88d5-a64fc59199ed.jpg","width":640,"height":640}]
-     * title : 逸修哥
-     * summary :
-     * description : 逸修哥是一家以O2O经营模式提供手机上门维修服务的平台。通过整合配件、技术、运营等线上线下资源，采用线上下单，线下维修的O2O模式。解决用户维修手机过程经历的维修时间长、价格不透明、配件无保障、服务不放心等痛点问题，率先实现上门维修、到店维修、寄修相结合的方式满足大众需求，为智能终端产业链提供立体化的综合服务。
+     * distance : 6121028
+     * imgs : [{"id":"c25124b32a6f43b0884ee761fc21c4ca","url":"http://img.daoway.cn/img/2015/12/28/d53343ce-5818-4ebf-9948-d13aa100ef72.jpg","width":640,"height":640},{"id":"debd6b79a37c4a9fb76df1be3641b1c0","url":"http://img.daoway.cn/img/2016/02/24/80fa2b4c-74e6-4517-961e-badf8500d6bd.jpg","width":640,"height":640},{"id":"6e56dce4bc8d4e63be48e301b62a3720","url":"http://img.daoway.cn/img/2016/02/29/8581bb55-190e-49af-9526-0f9649245f77.jpg","width":640,"height":640},{"id":"637efe5bc2e34d5b90d4d2bb47f71b9d","url":"http://img.daoway.cn/img/2016/02/24/c5a33a3b-6c6d-44da-87d6-59d6c223f83f.jpg","width":640,"height":640},{"id":"775d09b07a3749df90442aae53a85a40","url":"http://img.daoway.cn/img/2016/02/24/1f13b4bf-f9a6-4c65-9337-d4389869be2d.jpg","width":640,"height":640}]
+     * title : e修鸽
+     * summary : null
+     * description : 互联网家修开创者，专注家庭维修18年，从未放鸽子
+
+     【订购须知】
+     ● 本店需提前1小时预约订购服务
+     ● 本店服务时间为周一至周日9:00-20:00
+     ● 本店周末正常营业，但是温馨提醒周末服务提前一天预约
+     ● G20期间杭州需要提前咨询客服
+     【服务范围】
+     本店提供北京、上海、广州、深圳、杭州、天津、成都、重庆、南京、宁波、西安、武汉
+
+     【注意事项】
+     ● 如在服务时间未能及时处理订单，请随时拨打“联系商家”功能右上方客服电话直接联系我们
      * note : null
      * isvip : 0
      * attitudeScore : 5
      * responseScore : 5
      * matchScore : 5
-     * commentCount : 1
-     * star : 5
-     * lastComment : {"iconUrl":null,"nick":"静静088","star":5,"comment":"方便，快捷，下雨也来，很不错哦","createtime":1467353517000,"hasOrder":true,"id":"d3af4429ff414bd0bdb1ebbbb3a906dc","replyComment":null,"replyTime":null,"imgPath":null,"myComment":false}
-     * owner : {"id":"62d651834b184afa8604b31830ff7378","easeMobId":"system","iconUrl":"http://img.daoway.cn/img/2016/06/27/25af1a31-909f-481d-afa5-351ba5f6303d.jpg","nick":"逸修哥客服","signature":null,"level":1,"age":0,"sex":1,"isCompany":1,"phoneCertified":1}
+     * commentCount : 175
+     * star : 4.7714285711
+     * lastComment : {"iconUrl":"http://wx.qlogo.cn/mmopen/URtmSYmokyXHrkAAI6NEjRtsk7LQicU4SolRU7yOI0qQgIUjAiceLIeuNJ0A5vsINQqP1G0bIjIQgz8HW8FfOLPB4S8jg824YM/0","nick":" 魏丹 ","star":5,"comment":"师父特别认真、耐心地工作。很敬业。非常感谢！","createtime":1474115070000,"hasOrder":true,"id":"22f3e4a2406f4851a0039c44ed68d307","replyComment":null,"replyTime":null,"imgPath":null,"myComment":false}
+     * owner : {"id":"910da3040f444a82859cbe472aa779be","easeMobId":"system","iconUrl":"http://img.daoway.cn/img/2015/10/21/dae67e6f-a74b-4f78-9719-2069f0722d13.jpg","nick":"e修鸽客服","signature":"专注家修18年，从未放鸽子","level":1,"age":0,"sex":1,"isCompany":1,"phoneCertified":1}
      * state : 1
-     * tags : bao
+     * tags : recommend,bao
      * startTime : 09:00
-     * endTime : 18:00
+     * endTime : 20:00
      * availableDays : 0,1,2,3,4,5,6
-     * location : {"lot":114.40240478515625,"lat":30.513362884521484,"detailAddress":"武汉","province":"湖北省","city":"武汉","district":"洪山区","areaByIp":"武汉","displayAddress":"武汉"}
-     * showDistance : true
+     * location : {"lot":116.44811248779297,"lat":39.903568267822266,"detailAddress":"北京","province":"北京市","city":"北京","district":"东城区","areaByIp":"金华","displayAddress":"北京"}
+     * showDistance : false
      * statusId : 1
      * statusTitle : ON_LINE
      * statusDesc : 上线
      * statusNote : null
-     * prices : [{"id":"2425434","name":"iphone6P换外屏","price":236,"price_unit":"元/项","isMain":1,"pic_url":"http://img.daoway.cn/img/2016/06/27/58097864-0ca8-41cb-9bcd-dc5c42b4ed89_thumb.jpg","description":"iphone6P换外屏236（手机没有在其它地方换屏的经历）；\n质保：更换屏幕后质保90天；\n注：如有其他故障或内屏故障需补足差价！（旧屏需进行回收）","minBuyNum":"1","inService":"1","categoryId":"ab64d645ee7b4c7db70a1ad0fc20e19a","categoryName":"iphone6 plus","eventId":null,"salesNum":1,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"ab64d645ee7b4c7db70a1ad0fc20e19a","subName":"iphone6 plus","originalPrice":680,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/06/27/58097864-0ca8-41cb-9bcd-dc5c42b4ed89.jpg"},{"id":"2425441","name":"iphone6换外屏","price":206,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/06/27/fc029c74-3431-4d38-96d6-115a0f1691d3_thumb.jpg","description":"iphone6换外屏206（手机没有在其它地方换屏的经历）；\n质保：更换屏幕后质保90天；\n注：如有其他故障或内屏故障需补足差价！（旧屏需进行回收）","minBuyNum":"1","inService":"1","categoryId":"ae104bc9b4fa43eab1b3339ba362786d","categoryName":"iphone6","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"ae104bc9b4fa43eab1b3339ba362786d","subName":"iphone6","originalPrice":680,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/06/27/fc029c74-3431-4d38-96d6-115a0f1691d3.jpg"},{"id":"2425801","name":"iphone6内存升级","price":430,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/08/09/ee1519e5-0afa-4432-baf4-06735e9575eb_thumb.jpg","description":"此项目只能到店或邮寄。\niphone6、iphone 6 plus（16G升级到64G:430元）\n注：手机有过进水、主板维修、摔过经历的请下单前与客服咨询。","minBuyNum":"1","inService":"1","categoryId":"ae104bc9b4fa43eab1b3339ba362786d","categoryName":"iphone6","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"ae104bc9b4fa43eab1b3339ba362786d","subName":"iphone6","originalPrice":430,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/08/09/ee1519e5-0afa-4432-baf4-06735e9575eb.jpg"},{"id":"2425815","name":"苹果5s换电池","price":100,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/06/29/37b7faa6-bd64-408c-ba1c-c9766aff1dcd_thumb.jpg","description":"服务内容：iphone5、iphone5S换电池\n质保：更换部件享受90天质保\n注：维修工程师会带着相关配件上门进行维修处理，如果手机不是电池故障，需根据故障情况，按照官方标准进行报价，现场无法维修的故障需经用户同意，带回维修中心，进一步检测维修。","minBuyNum":"1","inService":"1","categoryId":"c814b8b1b49c42ba99e8431e1d13c038","categoryName":"iphone5S","eventId":null,"salesNum":2,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"c814b8b1b49c42ba99e8431e1d13c038","subName":"iphone5S","originalPrice":200,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/06/29/37b7faa6-bd64-408c-ba1c-c9766aff1dcd.jpg"},{"id":"2425822","name":"iphone6换内外屏","price":550,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/06/29/47e76e51-d0e8-4d7c-b1ba-29a3bbfa28e1_thumb.jpg","description":"服务内容：iphone6换内外屏总成\n质保：更换部件享受90天质保。\n注：维修工程师会带着相关配件上门进行维修处理，如果手机还有其他故障，需根据故障情况，按照官方标准进行报价，现场无法维修的故障需经用户同意，带回维修中心，进一步检测维修。","minBuyNum":"1","inService":"1","categoryId":"ae104bc9b4fa43eab1b3339ba362786d","categoryName":"iphone6","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"ae104bc9b4fa43eab1b3339ba362786d","subName":"iphone6","originalPrice":950,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/06/29/47e76e51-d0e8-4d7c-b1ba-29a3bbfa28e1.jpg"},{"id":"2425823","name":"iphone6P换内外屏","price":640,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/06/29/01265c74-f695-496e-b99e-583f2cb4f97a_thumb.jpg","description":"服务内容：iphone6P换内外屏总成\n质保：更换部件享受90天质保。\n注：维修工程师会带着相关配件上门进行维修处理，如果手机还有其他故障，需根据故障情况，按照官方标准进行报价，现场无法维修的故障需经用户同意，带回维修中心，进一步检测维修。","minBuyNum":"1","inService":"1","categoryId":"ab64d645ee7b4c7db70a1ad0fc20e19a","categoryName":"iphone6 plus","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"ab64d645ee7b4c7db70a1ad0fc20e19a","subName":"iphone6 plus","originalPrice":950,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/06/29/01265c74-f695-496e-b99e-583f2cb4f97a.jpg"},{"id":"2425848","name":"iphone6S换外屏","price":430,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/06/29/369f5b14-0241-4633-a9c7-15a1709a8e75_thumb.jpg","description":"iphone6S换外屏430；\n质保：更换屏幕后质保90天；\n注：如有其他故障或内屏故障需补足差价！（旧屏需进行回收）","minBuyNum":"1","inService":"1","categoryId":"3ba44fb978054b57a51a593a8c704756","categoryName":"iphone 6S","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"3ba44fb978054b57a51a593a8c704756","subName":"iphone 6S","originalPrice":1250,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/06/29/369f5b14-0241-4633-a9c7-15a1709a8e75.jpg"},{"id":"2425850","name":"iPhone6S P换外屏","price":550,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/06/29/13d9e26f-c339-467e-9c5d-75a570a179a7_thumb.jpg","description":"phone6S Plus换外屏550；\n质保：更换屏幕后质保90天；\n注：如有其他故障或内屏故障需补足差价！（旧屏需进行回收）","minBuyNum":"1","inService":"1","categoryId":"c78caf33e9864b2592d273e22ab93212","categoryName":"iphone 6Splus","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"c78caf33e9864b2592d273e22ab93212","subName":"iphone 6Splus","originalPrice":1250,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/06/29/13d9e26f-c339-467e-9c5d-75a570a179a7.jpg"},{"id":"2425861","name":"iphone5S换内外屏","price":310,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/06/29/88660f4e-3022-4ff8-ad58-55c6b1f39f53_thumb.jpg","description":"服务内容：iphone5S换内外屏（屏幕总成）\n质保：更换部件享受90天质保。\n注：维修工程师会带着相关配件上门进行维修处理，如果手机还有其他故障，需根据故障情况，按照官方标准进行报价，现场无法维修的故障需经用户同意，带回维修中心，进一步检测维修。","minBuyNum":"1","inService":"1","categoryId":"c814b8b1b49c42ba99e8431e1d13c038","categoryName":"iphone5S","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"c814b8b1b49c42ba99e8431e1d13c038","subName":"iphone5S","originalPrice":550,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/06/29/88660f4e-3022-4ff8-ad58-55c6b1f39f53.jpg"},{"id":"2425864","name":"iphone5S换外屏","price":170,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/06/29/38dc8133-cc97-484c-9572-144bf4ae60f9_thumb.jpg","description":"iphone5S换外屏\n质保：更换部件享受90天质保\n注：如有其它故障或内屏故障需补足差价（旧屏需回收）","minBuyNum":"1","inService":"1","categoryId":"c814b8b1b49c42ba99e8431e1d13c038","categoryName":"iphone5S","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"c814b8b1b49c42ba99e8431e1d13c038","subName":"iphone5S","originalPrice":550,"coverArea":"武汉","tags":"手机维修","serviceTime":null,"hasPriceImgs":false,"oriPic_url":"http://img.daoway.cn/img/2016/06/29/38dc8133-cc97-484c-9572-144bf4ae60f9.jpg"}]
-     * createtime : 1466998780000
-     * modifytime : 1472539179000
-     * phone : 4008601316
+     * prices : [{"id":"107731","name":"管道疏通","price":120,"price_unit":"元/个","isMain":1,"pic_url":"http://img.daoway.cn/img/2015/12/28/d53343ce-5818-4ebf-9948-d13aa100ef72_thumb.jpg","description":"马桶疏通，地漏疏通，厨房下水道疏通，阳台洗衣机下手道疏通等\n按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n备注：此项服务只是维修费用，材料费不提供可成本价带买，业主也可自购，二次上门不额外收费！","minBuyNum":"1","inService":"1","categoryId":"53cb93cae2384a65ac04e72e995ef5a9","categoryName":"家修类其他小项目","eventId":null,"salesNum":125,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"53cb93cae2384a65ac04e72e995ef5a9","subName":"家修类其他小项目","originalPrice":150,"coverArea":null,"tags":"管道疏通,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/28/d53343ce-5818-4ebf-9948-d13aa100ef72.jpg"},{"id":"107713","name":"马桶维修","price":100,"price_unit":"元/个","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/29/351d926e-7d31-44f5-ad0d-289234228501_thumb.jpg","description":"马桶维修，马桶配件失灵等故障！专注家庭维修18年，从不放鸽子！\n家修品牌领导者值得信赖！","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":72,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":120,"coverArea":null,"tags":"家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/29/351d926e-7d31-44f5-ad0d-289234228501.jpg"},{"id":"2365908","name":"灯具维修 专业维修","price":90,"price_unit":"元/个","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/29/20ffd3ff-f3b2-43be-a834-f6bc58e4fbda_thumb.jpg","description":"本服务不包含配件费用，不包含水晶灯维修。","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":25,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":90,"coverArea":null,"tags":"家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/29/20ffd3ff-f3b2-43be-a834-f6bc58e4fbda.jpg"},{"id":"110858","name":"空调加氟(定金)","price":50,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/28/9ee98283-44d7-4ca5-9db2-bdefca605c85_thumb.jpg","description":"具体费用请联系客服 （不参与代金券使用）\n不含变频空调抽真空费，3层及3层以上收取高空作业费30元/台，每增加一层加收10元，同一地址多台安装/维修，高空费最多收取200元。","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":150,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":80,"coverArea":null,"tags":"家电维修,空调加氟,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/28/9ee98283-44d7-4ca5-9db2-bdefca605c85.jpg"},{"id":"107732","name":"直筒洗衣机清洗","price":158,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/30/d37fd297-5e3a-4282-82b1-19f645c92f54_thumb.jpg","description":"【温馨提醒】 \n1. 为预防清洗过程中设备意外损坏，不提供拆机服务； \n2. 如机器存在老化或损坏情况，不建议进行清洗服务； \n3. 洗衣机每天清洗大量的衣服，每次当它转动的时候非常容易将细菌和衣物纤维挂在桶壁上，【长期不清洗的危害】 \n1.对洗涤衣物造成二次污染; \n2.导致妇科病、皮炎、皮肤过敏等多种疾病; \n3.缩短家电寿命； \n【清洗的好处】 \n1.去除异味; \n2.防止各种有害细菌传播; \n3.避免衣物二次污染; \n4.延长洗衣机使用寿命;\n建议3个月作一次清洗！","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":7,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":188,"coverArea":null,"tags":"家电清洗,洗衣机清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/30/d37fd297-5e3a-4282-82b1-19f645c92f54.jpg"},{"id":"107729","name":"洗衣机维修","price":120,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/30/1e056644-542b-4001-a289-0323cc2723fc_thumb.jpg","description":"解决洗衣机不工作，噪声很大，洗衣机抖动厉害，不脱水，转动异常等问题\n按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n备注：此项服务只是维修费用，材料费不提供可成本价带买，业主也可自购，二次上门不额外收费！","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":26,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":140,"coverArea":null,"tags":"家电维修,洗衣机维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/30/1e056644-542b-4001-a289-0323cc2723fc.jpg"},{"id":"110859","name":"油烟机清洗 （非整机拆洗）","price":158,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/28/1f0f6fcf-498c-4cfa-bf6a-61ea0fe8b1e2_thumb.jpg","description":"整机拆洗请备注（另收80元拆装费）\n按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n下单后，务必保持电话畅通以便服务人员及时为您服务。","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":22,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":158,"coverArea":null,"tags":"家电清洗,油烟机清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/28/1f0f6fcf-498c-4cfa-bf6a-61ea0fe8b1e2.jpg"},{"id":"107733","name":"普通双门冰箱清洗","price":120,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/28/0e937bd7-4e0d-4d9b-8020-8a2be4b3292f_thumb.jpg","description":"1. 如机器存在老化或损坏情况，不建议进行清洗服务\n2. 建议换季来一次清洗！\n3. 【清洗的好处】 \n     1.消除致病菌 \n     2.清新冰箱内空气 \n     3.保持冰箱保鲜效果  \n     4.降低能源开支 \n     5延长冰箱使用寿命","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":14,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":150,"coverArea":null,"tags":"家电清洗,冰箱清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/28/0e937bd7-4e0d-4d9b-8020-8a2be4b3292f.jpg"},{"id":"110940","name":"空调挂机清洗","price":120,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/29/d288e17f-8062-4142-83e2-6c209b4202ed_thumb.jpg","description":"按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n服务范围：室内挂机清洗\n备注：此项服务只是清洗费用！","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":5,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":150,"coverArea":null,"tags":"家电清洗,空调清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/29/d288e17f-8062-4142-83e2-6c209b4202ed.jpg"},{"id":"2365907","name":"挂机空调清洗 深度清洗","price":120,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/08/18/bc2525ab-cd08-42a1-939b-ecfa4e72ed40_thumb.jpg","description":"本次清洗不包含外机清洗","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":1,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":150,"coverArea":null,"tags":"家电清洗,空调清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/08/18/bc2525ab-cd08-42a1-939b-ecfa4e72ed40.jpg"},{"id":"107730","name":"淋浴房维修安装","price":180,"price_unit":"元/个","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/28/5a3c1bfa-195a-43b9-8256-f718633d2d1b_thumb.jpg","description":"全新淋浴房安装，淋浴房维修等\n按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n备注：此项服务只是维修费用，材料费不提供可成本价带买，业主也可自购，二次上门不额外收费！","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":3,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":220,"coverArea":null,"tags":"家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/28/5a3c1bfa-195a-43b9-8256-f718633d2d1b.jpg"},{"id":"110030","name":"卫浴花洒维修","price":90,"price_unit":"元/个","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/26/cc39b6cc-c9f5-4666-a914-12e99e47f4e3_thumb.jpg","description":"全新花洒安装，淋浴房维修等\n按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n备注：此项服务只是纯费用，服务过程中材料费不提供可成本价带买，业主也可自购，二次上门不额外收费！","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":17,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":150,"coverArea":null,"tags":"家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/26/cc39b6cc-c9f5-4666-a914-12e99e47f4e3.jpg"},{"id":"2350871","name":"其他小家电维修","price":100,"price_unit":"元/个","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/28/63a467e4-0fd2-4ca6-af09-f7e0c8302f75_thumb.jpg","description":"家修其他一些问题，按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n服务范围：压缩机不制冷，门关上，灯不亮，噪音很大，电冰箱不工作等\n备注：此项服务只是维修费用，材料费不提供可成本价带买，业主也可自购，二次上门不额外收费！具体不了解可以咨询。","minBuyNum":"1","inService":"1","categoryId":"53cb93cae2384a65ac04e72e995ef5a9","categoryName":"家修类其他小项目","eventId":null,"salesNum":14,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"53cb93cae2384a65ac04e72e995ef5a9","subName":"家修类其他小项目","originalPrice":100,"coverArea":null,"tags":"家电维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/28/63a467e4-0fd2-4ca6-af09-f7e0c8302f75.jpg"},{"id":"110025","name":"燃气灶清洗  专业  正规","price":100,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/28/a43bdd7f-f2c4-4d63-b1ef-44107e3680ee_thumb.jpg","description":"专业清洗燃气灶\n按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n备注：此项服务只是清洗费用！","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":2,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":150,"coverArea":null,"tags":"家电清洗,燃气灶清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/28/a43bdd7f-f2c4-4d63-b1ef-44107e3680ee.jpg"},{"id":"2426391","name":"油烟机清洗（整机拆洗）","price":238,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/07/03/c66e2974-365b-4a5f-8313-0d44994caa7d_thumb.jpg","description":"整机拆洗请备注（另收80元拆装费）\n按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n下单后，务必保持电话畅通以便服务人员及时为您服务。","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":1,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":260,"coverArea":null,"tags":"家电清洗,油烟机清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/07/03/c66e2974-365b-4a5f-8313-0d44994caa7d.jpg"},{"id":"2365909","name":"水管维修 专业维修","price":120,"price_unit":"元/次","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/29/36d87766-6109-4abc-ab51-d8ff3a36590a_thumb.jpg","description":"普通水管维修，不包含任何更换配件费用。","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":23,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":120,"coverArea":null,"tags":"家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/29/36d87766-6109-4abc-ab51-d8ff3a36590a.jpg"},{"id":"2432657","name":"墙面翻新上门测量","price":100,"price_unit":"元/次","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/08/18/94c4d878-73db-4f0b-9285-c4e846443d61_thumb.jpg","description":"1、本产品为墙面翻新上门测量费，实际费用根据现场墙面面积及破损情况及采用施工工艺不同现场确认\n2、下单前可以先与店家进行咨询，确认需求后，专业人员再上门测量","minBuyNum":"1","inService":"1","categoryId":"5217f31d7c2740af8f9d4349764a5481","categoryName":"局部翻新","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"5217f31d7c2740af8f9d4349764a5481","subName":"局部翻新","originalPrice":150,"coverArea":null,"tags":"装修换新,家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/08/18/94c4d878-73db-4f0b-9285-c4e846443d61.jpg"},{"id":"110857","name":"锁具维修  锁具更换","price":130,"price_unit":"元/个","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/28/6e41727a-6bf3-401c-9edf-b0f37a39fb13_thumb.jpg","description":"按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！\n本项服务仅为人工技能费，不包含零配件及其他服务费，下单后请保持电话畅通，以便能及时联系到您","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":37,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":180,"coverArea":null,"tags":"开锁换锁,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/28/6e41727a-6bf3-401c-9edf-b0f37a39fb13.jpg"},{"id":"2365910","name":"差价专拍","price":10,"price_unit":"元/次","isMain":0,"pic_url":"http://img.daoway.cn/img/2015/12/29/c90edf98-b5f9-4ddc-8b7e-5538218a8677_thumb.jpg","description":"差价专用链接，单独购买无效  不参与代金券使用","minBuyNum":"1","inService":"1","categoryId":"53cb93cae2384a65ac04e72e995ef5a9","categoryName":"家修类其他小项目","eventId":null,"salesNum":5,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"53cb93cae2384a65ac04e72e995ef5a9","subName":"家修类其他小项目","originalPrice":10,"coverArea":null,"tags":",中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2015/12/29/c90edf98-b5f9-4ddc-8b7e-5538218a8677.jpg"},{"id":"2432678","name":"墙面快速翻新","price":40,"price_unit":"元/平米","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/08/18/2ccf8797-4608-4180-adca-2945f49a2540_thumb.jpg","description":"1. 墙面快速翻新40元/㎡，面积30㎡起，实际费用根据现场墙面面积及破损情况及采用施工工艺不同现场确认，包工包料\n2. 以上价格适合墙面完好，无需修补，可直接涂刷的墙面\n3. 快速翻新(包工包料)【涂刷人工费+油漆+辅材+涂刷工具+工人保险+质保】\n4. 下单前可以先与客服进行咨询，确认需求后，专业人员上门测量","minBuyNum":"1","inService":"1","categoryId":"5217f31d7c2740af8f9d4349764a5481","categoryName":"局部翻新","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"5217f31d7c2740af8f9d4349764a5481","subName":"局部翻新","originalPrice":60,"coverArea":null,"tags":"装修换新,家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/08/18/2ccf8797-4608-4180-adca-2945f49a2540.jpg"},{"id":"2432680","name":"墙面满批型（毛坯房）刷新","price":80,"price_unit":"元/平米","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/08/18/75c11728-d15b-4fb6-a631-92849d0341e3_thumb.jpg","description":"1.墙面满批型（毛坯房）刷新80元/㎡起，面积30㎡起，实际费用根据现场墙面面积及破损情况及采用施工工艺不同现场确认，包工包料\n2. 以上价格适用毛坯房及新墙翻新服务\n3.墙面满批型（毛坯房）刷新(含涂料)【涂刷人工费+油漆+辅材+涂刷工具+工人保险+质保】\n4. 下单前可以先与客服进行咨询，确认需求后，专业人员上门测量","minBuyNum":"1","inService":"1","categoryId":"5217f31d7c2740af8f9d4349764a5481","categoryName":"局部翻新","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"5217f31d7c2740af8f9d4349764a5481","subName":"局部翻新","originalPrice":100,"coverArea":null,"tags":"装修换新,家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/08/18/75c11728-d15b-4fb6-a631-92849d0341e3.jpg"},{"id":"2432681","name":"墙面全铲型翻新","price":120,"price_unit":"元/平米","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/08/18/911b9ab0-cda1-4625-b661-ee5c1878160d_thumb.jpg","description":"1.墙面全铲型翻新120元/㎡起，面积30㎡起，实际费用根据现场墙面面积及破损情况及采用施工工艺不同现场确认，包工包料\n2. 以上价格适合墙体基层松动或出现漆膜脱落、起皮、霉斑等严重问题墙面翻新\n3.墙面全铲型翻新(含涂料)【涂刷人工费+油漆+辅材+涂刷工具+工人保险+质保】\n4. 下单前可以先与客服进行咨询，确认需求后，专业人员上门测量","minBuyNum":"1","inService":"1","categoryId":"5217f31d7c2740af8f9d4349764a5481","categoryName":"局部翻新","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"5217f31d7c2740af8f9d4349764a5481","subName":"局部翻新","originalPrice":150,"coverArea":null,"tags":"装修换新,家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/08/18/911b9ab0-cda1-4625-b661-ee5c1878160d.jpg"},{"id":"2432679","name":"墙面修补型翻新","price":50,"price_unit":"元/平米","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/08/18/714930a5-3942-491c-a9db-6bcfb9f8bf7d_thumb.jpg","description":"1. 墙面快速翻新50元/㎡起，面积30㎡起，实际费用根据现场墙面面积及破损情况及采用施工工艺不同现场确认，包工包料\n2. 以上价格适合墙体基层牢靠，局部有污渍、磕碰、细小裂缝的墙面\n3.修补型翻新(含涂料)【涂刷人工费+油漆+辅材+涂刷工具+工人保险+质保】\n4. 下单前可以先与客服进行咨询，确认需求后，专业人员上门测量","minBuyNum":"1","inService":"1","categoryId":"5217f31d7c2740af8f9d4349764a5481","categoryName":"局部翻新","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"5217f31d7c2740af8f9d4349764a5481","subName":"局部翻新","originalPrice":80,"coverArea":null,"tags":"装修换新,家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/08/18/714930a5-3942-491c-a9db-6bcfb9f8bf7d.jpg"},{"id":"2432725","name":"三开门冰箱清洗","price":180,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/08/18/86677503-dc1e-4cf0-9a6b-ece2aa091102_thumb.jpg","description":"1. 如机器存在老化或损坏情况，不建议进行清洗服务\n2. 建议换季来一次清洗！\n3. 【清洗的好处】 \n     1.消除致病菌 \n     2.清新冰箱内空气 \n     3.保持冰箱保鲜效果  \n     4.降低能源开支 \n     5延长冰箱使用寿命","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":220,"coverArea":null,"tags":"家电清洗,冰箱清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/08/18/86677503-dc1e-4cf0-9a6b-ece2aa091102.jpg"},{"id":"2432726","name":"对开门冰箱清洗","price":240,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/08/18/58b7241f-5839-4aa8-934d-8b9e3f3ebf9e_thumb.jpg","description":"1. 如机器存在老化或损坏情况，不建议进行清洗服务\n2. 建议换季来一次清洗！\n3. 【清洗的好处】 \n     1.消除致病菌 \n     2.清新冰箱内空气 \n     3.保持冰箱保鲜效果  \n     4.降低能源开支 \n     5延长冰箱使用寿命","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":280,"coverArea":null,"tags":"家电清洗,冰箱清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/08/18/58b7241f-5839-4aa8-934d-8b9e3f3ebf9e.jpg"},{"id":"2436593","name":"家庭上门检测","price":30,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/09/11/d0ec2b78-8e2f-4cb2-8746-4efa04c155a8_thumb.jpg","description":"此费用仅为上门检测费，实际费用=维修费+材料费，具体费用根据现场工程量报价。\n\n一．服务说明：\n　　1、21点以后订单请预约在次日12点以后时间段，e修鸽工作人员会在次日上班后第一时间为您安排师傅；\n　　2、现场若发现相同产品需多项维修，在客户同意报价的情况下，e修鸽工程师才会进行维修。差价可再下单\u201c差价专拍\u201d或由师傅现场收取;\n　　3、师傅上门业主如选择不维修，需支付30元上门检测费，由师傅现场收取，支付费用将全额退还；\n　　4、因特殊原因需增加费用如：现场增加服务项目等，最终报价由e修鸽师傅和用户双方协商确定;\n      5、若客观原因市场无法购买到配件，导致师傅无法修理，师傅已上门检修，客户需支付30元的上门检测费。\n\n三．注意事项：\n　　1、服务范围以网点具体情况为主；\n　　2、服务时间以师傅和客户预约时间为准。客户如需调整服务时间，或取消服务，请至少提前6个小时告知客服;\n　　3、如有疑问，请致电客服电话：4008827781;\n　　4、投诉电话：15381109308","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":50,"coverArea":"","tags":"家庭维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/09/11/d0ec2b78-8e2f-4cb2-8746-4efa04c155a8.jpg"},{"id":"2436597","name":"挂机空调维修","price":120,"price_unit":"元/台","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/09/11/5bb1fae0-de46-4ca3-9089-41c1f02f6a30_thumb.jpg","description":"空调维修 ：专业维修空调不制冷、不制热、风机不转、压缩机不工作、遥控器失灵、程序错乱、漏氟、漏水、电气系统短路、断路、机器工作时有异响、异味等故障。 \n一．服务说明：\n1、 配件费：实际付费=人工费+配件费；此次付费仅为人工费，不包含任何配件，如需配件，可与维修师傅沟通代买，具体价格可参考配件价目表；\n2、 检修费：师傅已上门检修，若业主选择不维修或因客观原因如市场无法购买到配件或维修环境问题导致师傅无法修理等情况，需支付30元上门检测费，由师傅现场收取，已支付费用将全额退还；\n3、 热线预约时间：9:00-18:00    上门服务时间：8:00-20:00\n在工作时间段内预约维修后，e修鸽工作人员会在30分钟内联系您，与客户就需要维修、安装的物品情况进行电话沟通，以确定是否需要携带零配件，上门服务时间等相关信息。\n非工作时间下单请预约在12点以后时间段，e修鸽工作人员会在值班后第一时间为您安排师傅；\n因为每日申请维修的客户较多，如有排队等待现象，请予以谅解。","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":180,"coverArea":"","tags":"家电维修,空调维修,中秋返场特惠","serviceTime":null,"hasPriceImgs":true,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/09/11/5bb1fae0-de46-4ca3-9089-41c1f02f6a30.jpg"},{"id":"2436601","name":"柜式空调清洗","price":150,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/09/11/085490d8-2671-40eb-b964-68192c4fb407_thumb.jpg","description":"空调内机机壳、风板、顶部擦拭清洁、消毒，空气过滤网、接水盘、换热器等蒸汽深度消毒清洁。本产品不包含柜式空调清洗和外机清洗。\n一、服务说明: \n【温馨提示】\n1. 不清洗外机；\n2. 如机器存在老化或损坏情况，不建议进行清洗服务；\n3.清洗保修3天，请当场验机，有问题请及时联系。\n【时间】 热线预约时间：9:00-18:00    上门服务时间：8:00-20:00\n1. 在工作时间段内预约维修后，e修鸽工作人员会在30分钟内联系您\n2. 非工作时间下单e修鸽工作人员会在值班后第一时间为您安排师傅，但考虑师傅上门时间，请预约在12点以后时间段；\n3. 因为每日申请清洗的客户较多，如有排队等待现象，请予以谅解。\n【长期不清洗的危害】\n1. 降低空调制冷、制热效果；\n2. 污染室内空气，传播疾病；\n3. 堵塞过滤网、散热片、蒸发器，引发火灾；\n4. 损坏压缩机，增加耗电。\n【清洗的好处】\n1. 增强空调制冷、制热效果；\n2. 去除空调异味，减少疾病传染；\n3. 节能省电30%；\n4. 延长空调使用寿命。","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":200,"coverArea":"","tags":"家电清洗,空调清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/09/11/085490d8-2671-40eb-b964-68192c4fb407.jpg"},{"id":"2436610","name":"中央空调清洗 /风口","price":99,"price_unit":"元/个","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/09/11/f52f0978-7c5f-4a67-b42d-c542c28ec5ca_thumb.jpg","description":"一、服务说明: \n【温馨提示】\n1. 不清洗外机；\n2. 如机器存在老化或损坏情况，不建议进行清洗服务；\n【时间】 热线预约时间：9:00-18:00    上门服务时间：8:00-20:00\n1. 在工作时间段内预约维修后，e修鸽工作人员会在30分钟内联系您\n2. 非工作时间下单e修鸽工作人员会在值班后第一时间为您安排师傅，但考虑师傅上门时间，请预约在12点以后时间段；\n3. 因为每日申请清洗的客户较多，如有排队等待现象，请予以谅解。\n【清洗流程】\n空调：入户卫生-检验机器-准备工作-拆卸机器-安防护罩-清洁杀菌-清洗-装机还原-试机、清理现场\n【长期不清洗的危害】\n1. 降低空调制冷、制热效果；\n2. 污染室内空气，传播疾病；\n3. 堵塞过滤网、散热片、蒸发器，引发火灾；\n4. 损坏压缩机，增加耗电。\n【清洗的好处】\n1. 增强空调制冷、制热效果；\n2. 去除空调异味，减少疾病传染；\n3. 节能省电30%；\n4. 延长空调使用寿命。","minBuyNum":"1","inService":"1","categoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","categoryName":"家电清洗类","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"842cfc7a2b9149f29b8279ba3d8fe87a","subName":"家电清洗类","originalPrice":180,"coverArea":"","tags":"家电清洗,空调清洗,中秋返场特惠","serviceTime":null,"hasPriceImgs":false,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/09/11/f52f0978-7c5f-4a67-b42d-c542c28ec5ca.jpg"},{"id":"2436611","name":"开锁解锁","price":160,"price_unit":"元/项","isMain":0,"pic_url":"http://img.daoway.cn/img/2016/09/11/d9ccd47a-00e5-4ccb-a151-ec37262ea829_thumb.jpg","description":"本项服务仅为人工技能费，不包含零配件及其他服务费用及电子密码锁。下单后请保持电话畅通\n[友情提醒：开锁时请您出示有效证件]　\n经营范围：\n　　1、 承接安装、维护各类安全锁具工程；\n　　2、 开、修各式保险柜、金库、保管箱；\n　　3、 开、修各式办公锁具（老板台锁、档案柜锁、办公桌锁等）\n　　4、 开、修各式民用锁具（各类普通房门、防盗门、密码箱等）\n　　5、 开、修各式车用锁具（车门锁、点火器锁、摩托车锁等）\n　　6、专业解决锁类疑难杂症（配各种民用钥匙、异型钥匙、定做同开锁、单位上门批量配钥匙）\n　　7、公司配套销售各种高、中档防盗门、木门、室内门、指纹门、锁具、锁芯、及开锁工具等\n　　开锁：专业技术开启，不破坏锁具。\n　　换锁：专业更换超B级锁芯，防盗门专用锁芯，五星级防盗。\n　　修锁：专业维护各类安全锁具。\n　　装锁：专业工作人员安装各类锁。\n　　客服热线：400-882-7781","minBuyNum":"1","inService":"1","categoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","categoryName":"家庭维修类","eventId":null,"salesNum":0,"isDiscount":0,"limit":0,"stockNum":-1,"libId":null,"rootCategoryId":null,"rootName":null,"subCategoryId":"4ba7ddc0336c4ce6aa99d61a595a5c9c","subName":"家庭维修类","originalPrice":230,"coverArea":"","tags":"开锁,中秋返场特惠","serviceTime":null,"hasPriceImgs":true,"firstPromotion":null,"oriPic_url":"http://img.daoway.cn/img/2016/09/11/d9ccd47a-00e5-4ccb-a151-ec37262ea829.jpg"}]
+     * createtime : 1445273894000
+     * modifytime : 1474180462000
+     * phone : 15356653568
      * allowDirectCall : false
      * fixFee : 0
      * noFixFeePrice : 0
-     * coverArea : 武汉
-     * level : 70
+     * coverArea : 北京 上海 广州 深圳 杭州 天津 成都 重庆 南京 宁波 西安 武汉
+     * level : 43
      * ext : null
      * scope : null
      * allowClone : 0
      * parentService : null
-     * aheadHours : 1.3
-     * nextAppointTime : 1473393600000
+     * aheadHours : 13.8
+     * nextAppointTime : 1474246800000
      * reserveMoneyPercent : 100
      * onlinePay : 1
      * isCompany : 1
@@ -66,39 +78,39 @@ public class ShopBean {
      * h5enable : 0
      * beforPayCreateOrder : 0
      * isManyItems : 1
-     * onlineTime : 1467184995000
+     * onlineTime : 1445497485000
      * commissionTime : 1451577600000
-     * commissionRate : 0.08
+     * commissionRate : 0.065
      * isHasLicense : 0
-     * supplierInfo : {"supplier_id":"62d651834b184afa8604b31830ff7378","supplier_name":"","supplier_address":"","supplier_phone":"","sendService":"0","sendCategory":"5","scene":null,"supplier_tel":"284778292922","supplier_lat":"","supplier_lng":"","appKey":null}
-     * subCategories : [{"id":"c814b8b1b49c42ba99e8431e1d13c038","name":"iphone5S"},{"id":"ae104bc9b4fa43eab1b3339ba362786d","name":"iphone6"},{"id":"ab64d645ee7b4c7db70a1ad0fc20e19a","name":"iphone6 plus"},{"id":"3ba44fb978054b57a51a593a8c704756","name":"iphone 6S"},{"id":"c78caf33e9864b2592d273e22ab93212","name":"iphone 6Splus"}]
+     * supplierInfo : {"supplier_id":"910da3040f444a82859cbe472aa779be","supplier_name":"","supplier_address":"","supplier_phone":"","sendService":"0","sendCategory":"5","scene":null,"supplier_tel":"4008827781","supplier_lat":"","supplier_lng":"","appKey":null}
+     * subCategories : [{"id":"53cb93cae2384a65ac04e72e995ef5a9","name":"家修类其他小项目"},{"id":"4ba7ddc0336c4ce6aa99d61a595a5c9c","name":"家庭维修类"},{"id":"842cfc7a2b9149f29b8279ba3d8fe87a","name":"家电清洗类"},{"id":"5217f31d7c2740af8f9d4349764a5481","name":"局部翻新"}]
      * guarantee : {"url":"http://www.daoway.cn/activity/security.html","items":[{"iconUrl":"http://img.daoway.cn/img/icon/price.png","label":"无额外收费"},{"iconUrl":"http://img.daoway.cn/img/icon/pay.png","label":"未服务随时退款"},{"iconUrl":"http://img.daoway.cn/img/icon/quality.png","label":"不满意重做"}]}
      * guaranteeStr : price,pay,quality
      * dwOwner : 张润宇
      * minBuyPrice : 0.0
-     * startVacationTime : 1466956800000
-     * endVacationTime : null
-     * greeting : null
-     * contractNum : N80000720160623
-     * orderTakingRate : 100%
-     * positiveCommentRate : 100%
-     * orderTakingCount : 3
-     * repeatPurchaseRate : 33%
-     * returnedRate : 0%
-     * completeOrderNum : 3
-     * totalOrderCount : 5
+     * startVacationTime : 1454256000000
+     * endVacationTime : 1455465540000
+     * greeting :
+     * contractNum : N80001320151021
+     * orderTakingRate : 93%
+     * positiveCommentRate : 94%
+     * orderTakingCount : 542
+     * repeatPurchaseRate : 10%
+     * returnedRate : 14%
+     * completeOrderNum : 528
+     * totalOrderCount : 746
      * notice : null
      * isCanBuchajia : 1
-     * promotion : {"total_reduce":null,"first_reduce":null}
+     * promotion : {"total_reduce":[{"total":80,"reduce":15}],"first_reduce":5}
      * companyName : null
      * hasCompanyImgs : false
      * orderingNotice : null
      * favorite : false
+     * admin : false
      * canCd : true
      * cancelOrder : false
      * canChooseTechnician : false
      * draft : false
-     * admin : false
      */
 
     private DataBean data;
@@ -126,7 +138,7 @@ public class ShopBean {
         private String catIconUrl;
         private int distance;
         private String title;
-        private String summary;
+        private Object summary;
         private String description;
         private Object note;
         private int isvip;
@@ -134,15 +146,15 @@ public class ShopBean {
         private int responseScore;
         private int matchScore;
         private int commentCount;
-        private int star;
+        private double star;
         /**
-         * iconUrl : null
-         * nick : 静静088
+         * iconUrl : http://wx.qlogo.cn/mmopen/URtmSYmokyXHrkAAI6NEjRtsk7LQicU4SolRU7yOI0qQgIUjAiceLIeuNJ0A5vsINQqP1G0bIjIQgz8HW8FfOLPB4S8jg824YM/0
+         * nick :  魏丹
          * star : 5
-         * comment : 方便，快捷，下雨也来，很不错哦
-         * createtime : 1467353517000
+         * comment : 师父特别认真、耐心地工作。很敬业。非常感谢！
+         * createtime : 1474115070000
          * hasOrder : true
-         * id : d3af4429ff414bd0bdb1ebbbb3a906dc
+         * id : 22f3e4a2406f4851a0039c44ed68d307
          * replyComment : null
          * replyTime : null
          * imgPath : null
@@ -151,11 +163,11 @@ public class ShopBean {
 
         private LastCommentBean lastComment;
         /**
-         * id : 62d651834b184afa8604b31830ff7378
+         * id : 910da3040f444a82859cbe472aa779be
          * easeMobId : system
-         * iconUrl : http://img.daoway.cn/img/2016/06/27/25af1a31-909f-481d-afa5-351ba5f6303d.jpg
-         * nick : 逸修哥客服
-         * signature : null
+         * iconUrl : http://img.daoway.cn/img/2015/10/21/dae67e6f-a74b-4f78-9719-2069f0722d13.jpg
+         * nick : e修鸽客服
+         * signature : 专注家修18年，从未放鸽子
          * level : 1
          * age : 0
          * sex : 1
@@ -170,14 +182,14 @@ public class ShopBean {
         private String endTime;
         private String availableDays;
         /**
-         * lot : 114.40240478515625
-         * lat : 30.513362884521484
-         * detailAddress : 武汉
-         * province : 湖北省
-         * city : 武汉
-         * district : 洪山区
-         * areaByIp : 武汉
-         * displayAddress : 武汉
+         * lot : 116.44811248779297
+         * lat : 39.903568267822266
+         * detailAddress : 北京
+         * province : 北京市
+         * city : 北京
+         * district : 东城区
+         * areaByIp : 金华
+         * displayAddress : 北京
          */
 
         private LocationBean location;
@@ -212,14 +224,14 @@ public class ShopBean {
         private double commissionRate;
         private int isHasLicense;
         /**
-         * supplier_id : 62d651834b184afa8604b31830ff7378
+         * supplier_id : 910da3040f444a82859cbe472aa779be
          * supplier_name :
          * supplier_address :
          * supplier_phone :
          * sendService : 0
          * sendCategory : 5
          * scene : null
-         * supplier_tel : 284778292922
+         * supplier_tel : 4008827781
          * supplier_lat :
          * supplier_lng :
          * appKey : null
@@ -236,8 +248,8 @@ public class ShopBean {
         private String dwOwner;
         private String minBuyPrice;
         private long startVacationTime;
-        private Object endVacationTime;
-        private Object greeting;
+        private long endVacationTime;
+        private String greeting;
         private String contractNum;
         private String orderTakingRate;
         private String positiveCommentRate;
@@ -249,8 +261,8 @@ public class ShopBean {
         private Object notice;
         private String isCanBuchajia;
         /**
-         * total_reduce : null
-         * first_reduce : null
+         * total_reduce : [{"total":80,"reduce":15}]
+         * first_reduce : 5
          */
 
         private PromotionBean promotion;
@@ -258,56 +270,57 @@ public class ShopBean {
         private boolean hasCompanyImgs;
         private Object orderingNotice;
         private boolean favorite;
+        private boolean admin;
         private boolean canCd;
         private boolean cancelOrder;
         private boolean canChooseTechnician;
         private boolean draft;
-        private boolean admin;
         /**
-         * id : 06386d1939044eff8458db26c2a25ecd
-         * url : http://img.daoway.cn/img/2016/06/27/601eff98-df48-4496-8e38-861009e3b3da.jpg
+         * id : c25124b32a6f43b0884ee761fc21c4ca
+         * url : http://img.daoway.cn/img/2015/12/28/d53343ce-5818-4ebf-9948-d13aa100ef72.jpg
          * width : 640
          * height : 640
          */
 
         private List<ImgsBean> imgs;
         /**
-         * id : 2425434
-         * name : iphone6P换外屏
-         * price : 236
-         * price_unit : 元/项
+         * id : 107731
+         * name : 管道疏通
+         * price : 120
+         * price_unit : 元/个
          * isMain : 1
-         * pic_url : http://img.daoway.cn/img/2016/06/27/58097864-0ca8-41cb-9bcd-dc5c42b4ed89_thumb.jpg
-         * description : iphone6P换外屏236（手机没有在其它地方换屏的经历）；
-         质保：更换屏幕后质保90天；
-         注：如有其他故障或内屏故障需补足差价！（旧屏需进行回收）
+         * pic_url : http://img.daoway.cn/img/2015/12/28/d53343ce-5818-4ebf-9948-d13aa100ef72_thumb.jpg
+         * description : 马桶疏通，地漏疏通，厨房下水道疏通，阳台洗衣机下手道疏通等
+         按地址就近上门服务，专业师傅，精心选用，只为您更好更快享受服务！
+         备注：此项服务只是维修费用，材料费不提供可成本价带买，业主也可自购，二次上门不额外收费！
          * minBuyNum : 1
          * inService : 1
-         * categoryId : ab64d645ee7b4c7db70a1ad0fc20e19a
-         * categoryName : iphone6 plus
+         * categoryId : 53cb93cae2384a65ac04e72e995ef5a9
+         * categoryName : 家修类其他小项目
          * eventId : null
-         * salesNum : 1
+         * salesNum : 125
          * isDiscount : 0
          * limit : 0
          * stockNum : -1
          * libId : null
          * rootCategoryId : null
          * rootName : null
-         * subCategoryId : ab64d645ee7b4c7db70a1ad0fc20e19a
-         * subName : iphone6 plus
-         * originalPrice : 680
-         * coverArea : 武汉
-         * tags : 手机维修
+         * subCategoryId : 53cb93cae2384a65ac04e72e995ef5a9
+         * subName : 家修类其他小项目
+         * originalPrice : 150
+         * coverArea : null
+         * tags : 管道疏通,中秋返场特惠
          * serviceTime : null
          * hasPriceImgs : false
-         * oriPic_url : http://img.daoway.cn/img/2016/06/27/58097864-0ca8-41cb-9bcd-dc5c42b4ed89.jpg
+         * firstPromotion : null
+         * oriPic_url : http://img.daoway.cn/img/2015/12/28/d53343ce-5818-4ebf-9948-d13aa100ef72.jpg
          */
 
         private List<PricesBean> prices;
         private List<?> tagIcons;
         /**
-         * id : c814b8b1b49c42ba99e8431e1d13c038
-         * name : iphone5S
+         * id : 53cb93cae2384a65ac04e72e995ef5a9
+         * name : 家修类其他小项目
          */
 
         private List<SubCategoriesBean> subCategories;
@@ -360,11 +373,11 @@ public class ShopBean {
             this.title = title;
         }
 
-        public String getSummary() {
+        public Object getSummary() {
             return summary;
         }
 
-        public void setSummary(String summary) {
+        public void setSummary(Object summary) {
             this.summary = summary;
         }
 
@@ -424,11 +437,11 @@ public class ShopBean {
             this.commentCount = commentCount;
         }
 
-        public int getStar() {
+        public double getStar() {
             return star;
         }
 
-        public void setStar(int star) {
+        public void setStar(double star) {
             this.star = star;
         }
 
@@ -784,19 +797,19 @@ public class ShopBean {
             this.startVacationTime = startVacationTime;
         }
 
-        public Object getEndVacationTime() {
+        public long getEndVacationTime() {
             return endVacationTime;
         }
 
-        public void setEndVacationTime(Object endVacationTime) {
+        public void setEndVacationTime(long endVacationTime) {
             this.endVacationTime = endVacationTime;
         }
 
-        public Object getGreeting() {
+        public String getGreeting() {
             return greeting;
         }
 
-        public void setGreeting(Object greeting) {
+        public void setGreeting(String greeting) {
             this.greeting = greeting;
         }
 
@@ -920,6 +933,14 @@ public class ShopBean {
             this.favorite = favorite;
         }
 
+        public boolean isAdmin() {
+            return admin;
+        }
+
+        public void setAdmin(boolean admin) {
+            this.admin = admin;
+        }
+
         public boolean isCanCd() {
             return canCd;
         }
@@ -950,14 +971,6 @@ public class ShopBean {
 
         public void setDraft(boolean draft) {
             this.draft = draft;
-        }
-
-        public boolean isAdmin() {
-            return admin;
-        }
-
-        public void setAdmin(boolean admin) {
-            this.admin = admin;
         }
 
         public List<ImgsBean> getImgs() {
@@ -993,7 +1006,7 @@ public class ShopBean {
         }
 
         public static class LastCommentBean {
-            private Object iconUrl;
+            private String iconUrl;
             private String nick;
             private int star;
             private String comment;
@@ -1005,11 +1018,11 @@ public class ShopBean {
             private Object imgPath;
             private boolean myComment;
 
-            public Object getIconUrl() {
+            public String getIconUrl() {
                 return iconUrl;
             }
 
-            public void setIconUrl(Object iconUrl) {
+            public void setIconUrl(String iconUrl) {
                 this.iconUrl = iconUrl;
             }
 
@@ -1099,7 +1112,7 @@ public class ShopBean {
             private String easeMobId;
             private String iconUrl;
             private String nick;
-            private Object signature;
+            private String signature;
             private int level;
             private int age;
             private int sex;
@@ -1138,11 +1151,11 @@ public class ShopBean {
                 this.nick = nick;
             }
 
-            public Object getSignature() {
+            public String getSignature() {
                 return signature;
             }
 
-            public void setSignature(Object signature) {
+            public void setSignature(String signature) {
                 this.signature = signature;
             }
 
@@ -1412,23 +1425,49 @@ public class ShopBean {
         }
 
         public static class PromotionBean {
-            private Object total_reduce;
-            private Object first_reduce;
+            private int first_reduce;
+            /**
+             * total : 80
+             * reduce : 15
+             */
 
-            public Object getTotal_reduce() {
-                return total_reduce;
-            }
+            private List<TotalReduceBean> total_reduce;
 
-            public void setTotal_reduce(Object total_reduce) {
-                this.total_reduce = total_reduce;
-            }
-
-            public Object getFirst_reduce() {
+            public int getFirst_reduce() {
                 return first_reduce;
             }
 
-            public void setFirst_reduce(Object first_reduce) {
+            public void setFirst_reduce(int first_reduce) {
                 this.first_reduce = first_reduce;
+            }
+
+            public List<TotalReduceBean> getTotal_reduce() {
+                return total_reduce;
+            }
+
+            public void setTotal_reduce(List<TotalReduceBean> total_reduce) {
+                this.total_reduce = total_reduce;
+            }
+
+            public static class TotalReduceBean {
+                private int total;
+                private int reduce;
+
+                public int getTotal() {
+                    return total;
+                }
+
+                public void setTotal(int total) {
+                    this.total = total;
+                }
+
+                public int getReduce() {
+                    return reduce;
+                }
+
+                public void setReduce(int reduce) {
+                    this.reduce = reduce;
+                }
             }
         }
 
@@ -1494,10 +1533,11 @@ public class ShopBean {
             private String subCategoryId;
             private String subName;
             private int originalPrice;
-            private String coverArea;
+            private Object coverArea;
             private String tags;
             private Object serviceTime;
             private boolean hasPriceImgs;
+            private Object firstPromotion;
             private String oriPic_url;
 
             public String getId() {
@@ -1676,11 +1716,11 @@ public class ShopBean {
                 this.originalPrice = originalPrice;
             }
 
-            public String getCoverArea() {
+            public Object getCoverArea() {
                 return coverArea;
             }
 
-            public void setCoverArea(String coverArea) {
+            public void setCoverArea(Object coverArea) {
                 this.coverArea = coverArea;
             }
 
@@ -1706,6 +1746,14 @@ public class ShopBean {
 
             public void setHasPriceImgs(boolean hasPriceImgs) {
                 this.hasPriceImgs = hasPriceImgs;
+            }
+
+            public Object getFirstPromotion() {
+                return firstPromotion;
+            }
+
+            public void setFirstPromotion(Object firstPromotion) {
+                this.firstPromotion = firstPromotion;
             }
 
             public String getOriPic_url() {

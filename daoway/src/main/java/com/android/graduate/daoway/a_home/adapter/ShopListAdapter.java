@@ -58,7 +58,7 @@ public class ShopListAdapter extends BaseAdapter {
         this.totalPriceTv = totalPriceTv;
         this.shopCartIv = shopCartIv;
         this.ballShape = ballShape;
-        setupAnimator();
+        //setupAnimator();
     }
     private void setupAnimator() {
         animatorSet = new AnimatorSet();
@@ -128,7 +128,7 @@ public class ShopListAdapter extends BaseAdapter {
         mViewHolder.selectNumTv.setVisibility(View.GONE);
         mViewHolder.reduceIv.setVisibility(View.GONE);
 
-        ballShape.setVisibility(View.GONE);
+      /*  ballShape.setVisibility(View.GONE);
        mViewHolder.addIv.setOnTouchListener(new View.OnTouchListener() {
            @Override
            public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -140,7 +140,7 @@ public class ShopListAdapter extends BaseAdapter {
                }
                return false;
            }
-       });
+       });*/
 
 
         mViewHolder.addIv.setOnClickListener(new View.OnClickListener() {
@@ -156,7 +156,7 @@ public class ShopListAdapter extends BaseAdapter {
                 }
 
 
-
+/*
                 if (endX == 0) {
                     endX = shopCartIv.getX();
                     endY = shopCartIv.getY();
@@ -169,7 +169,7 @@ public class ShopListAdapter extends BaseAdapter {
                 yAnimator.setDuration(500);
                 yAnimator.setInterpolator(new AccelerateInterpolator());
                 animatorSet.play(xAnimator).with(yAnimator);
-                animatorSet.start();
+                animatorSet.start();*/
 
 
                 mViewHolder.num += mViewHolder.minBuyNum;

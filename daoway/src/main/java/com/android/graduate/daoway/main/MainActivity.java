@@ -69,6 +69,8 @@ public class MainActivity extends BaseActivity {
     private String village;
     public static int total;
     private LocationClient mLocationClient;
+    private String city;
+    private String cityName;
 
 
     @Override
@@ -118,7 +120,7 @@ public class MainActivity extends BaseActivity {
         initFragment();
         initRadioArray();
         initListener();
-      //  initLocation();
+       initLocation();
 
     }
 
@@ -127,7 +129,7 @@ public class MainActivity extends BaseActivity {
         mLocationClient.registerLocationListener(new BDLocationListener() {
             @Override
             public void onReceiveLocation(BDLocation bdLocation) {
-                String city = bdLocation.getCity();
+                city = bdLocation.getCity();
                 double latNum = bdLocation.getLatitude();
                 double lotNum = bdLocation.getLongitude();
                 String lat = String.valueOf(latNum);
@@ -142,8 +144,14 @@ public class MainActivity extends BaseActivity {
 
                         List<XiaoQuBean.DataBean.CommunitiesBean> communitie = new ArrayList<>();
                         communitie.addAll(communities);
+                        int cityID=0;
+                        try{
+                            cityID= data.getParent().getId();
+                        }catch (Exception e){
+                            e.printStackTrace();
+                            return;
+                        }
 
-                        int cityID = data.getParent().getId();
                         List<XiaoQuBean.DataBean.BaiduCommunitiesBean> baiduCommunities =
                                 data.getBaiduCommunities();
                         //将baiduCommunitiesBean转换成communitiesBean,并加入数据列表
@@ -165,24 +173,27 @@ public class MainActivity extends BaseActivity {
                             if (plot.equals(communitie.get(i).getName())) {
                                 return;
                             }
-                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                            builder.setMessage("当前小区不在您的位置附近 ,是否重新选择小区?")
-                                    .setPositiveButton("取消", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-
-                                        }
-                                    })
-                                    .setNegativeButton("确认", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            Intent intent = new Intent();
-                                            intent.setClass(MainActivity.this, MapActivity.class);
-                                            startActivityForResult(intent, 3);
-                                        }
-                                    });
-                            builder.show();
                         }
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        builder.setMessage("当前小区不在您的位置附近 ,是否重新选择小区?")
+                                .setPositiveButton("取消", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .setNegativeButton("确认", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent intent = new Intent();
+                                        intent.setClass(MainActivity.this, MapActivity.class);
+                                        startActivityForResult(intent, 3);
+                                        dialog.dismiss();
+                                    }
+                                });
+                        AlertDialog dialog = builder.create();
+                        dialog.setCanceledOnTouchOutside(true);
+                        dialog.show();
                     }
 
                     @Override
@@ -209,13 +220,15 @@ public class MainActivity extends BaseActivity {
         mLocationClient.setLocOption(option);
         mLocationClient.start();
 
-
+        
     }
 
 
     private void initData() {
+
+
         sharedPreferences = getSharedPreferences("location", Context.MODE_PRIVATE);
-        village = sharedPreferences.getString("plot", "北京");
+        village = sharedPreferences.getString("plot", "武汉");
         locationTv.setText(village);
     }
 
@@ -317,14 +330,7 @@ public class MainActivity extends BaseActivity {
                 transaction.hide(fragments.get(cur)).show(fragment);
         }
         transaction.commit();
-      /*  if(i==2&&fragment.isAdded()){
-            CartFragment cartFragment= (CartFragment) fragment;
-            cartFragment.refresh();
-        }
-        if(i==3&&fragment.isAdded()){
-            OrderFragment orderFragment= (OrderFragment) fragment;
-          //  OrderFragment.refresh();
-        }*/
+
         cur = i;
     }
 

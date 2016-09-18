@@ -1,6 +1,7 @@
 package com.android.graduate.daoway.a_home.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 
 import com.android.graduate.daoway.R;
 import com.android.graduate.daoway.a_home.bean.HomeBean;
+import com.android.graduate.daoway.start.ClassDetailitemActivity;
+import com.android.graduate.daoway.start.StartActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -56,13 +59,24 @@ public class ItemGridAdapter extends BaseAdapter {
         }else {
             viewHolder= (ViewHolder) view.getTag();
         }
+       final String id = itemsDatas.get(position).getId();
+       final String serviceId = itemsDatas.get(position).getServiceId();
+
 
         viewHolder.tvName.setText(itemsDatas.get(position).getName());
         viewHolder.tvPrice.setText(itemsDatas.get(position).getPrice() + "");
         viewHolder.tvPriceType.setText(itemsDatas.get(position).getPrice_unit());
         viewHolder.tvBusiness.setText(itemsDatas.get(position).getServiceTitle());
         Picasso.with(mContext).load(itemsDatas.get(position).getPic_url()).into( viewHolder.imageIv);
-
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(mContext, ClassDetailitemActivity.class);
+                intent.putExtra("id",id);
+                intent.putExtra("serviceId",serviceId);
+                mContext.startActivity(intent);
+            }
+        });
         return view;
     }
 

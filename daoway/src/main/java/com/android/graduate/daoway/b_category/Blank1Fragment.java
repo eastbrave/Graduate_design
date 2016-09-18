@@ -75,6 +75,9 @@ public class Blank1Fragment extends Fragment {
     private TextView cartNumTv;//购物车数量对象
     private TextView carTv;
     private Button payBtn;
+    private ClassDetailitemActivity classDetailitemActivity;
+    private ViewHolder viewHolder;
+    private ViewHolder1 viewHolder1;
 
     public static Blank1Fragment newInstance(Bundle args) {
         Blank1Fragment fragment = new Blank1Fragment();
@@ -87,11 +90,13 @@ public class Blank1Fragment extends Fragment {
         super.onCreate(savedInstanceState);
         mContext = getContext();
         //获取购物车对象 和购物车数量对象
-        ClassDetailitemActivity classDetailitemActivity = (ClassDetailitemActivity) mContext;
+        classDetailitemActivity = (ClassDetailitemActivity) mContext;
         cartNumTv = classDetailitemActivity.getCarNumTv();
         carTv = classDetailitemActivity.getCarTv();
         payBtn = classDetailitemActivity.getPayBtn();
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -107,6 +112,14 @@ public class Blank1Fragment extends Fragment {
 
         return view;
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        viewHolder2.productReduceIv.setVisibility(View.GONE);
+        viewHolder2.productNumTv.setVisibility(View.GONE);
+    }
+
     private void setupAnimator() {
         animatorSet = new AnimatorSet();
         animatorSet.addListener(new Animator.AnimatorListener() {
@@ -232,48 +245,10 @@ public class Blank1Fragment extends Fragment {
             }
         });
 
-        //跳到购物车页面
-        carTv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SharedPreferences sp=mContext.getSharedPreferences("isLogin",Context.MODE_PRIVATE);
-                boolean login_key = sp.getBoolean("login_key", false);
-                if(!login_key){
-                    Intent intent=new Intent(mContext, LoginActivity.class);
-                    mContext.startActivity(intent);
-                    return;
-                }
 
-                viewHolder2.productReduceIv.setVisibility(View.GONE);
-                viewHolder2.productNumTv.setVisibility(View.GONE);
 
-                Intent intent = new Intent(mContext, CartActivity.class);
-                startActivity(intent);
-            }
-        });
 
-        payBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SharedPreferences sp=mContext.getSharedPreferences("isLogin",Context.MODE_PRIVATE);
-                boolean login_key = sp.getBoolean("login_key", false);
-                if(!login_key){
-                    Intent intent=new Intent(mContext, LoginActivity.class);
-                    mContext.startActivity(intent);
-                    return;
-                }
 
-                viewHolder2.productReduceIv.setVisibility(View.GONE);
-                viewHolder2.productNumTv.setVisibility(View.GONE);
-                if( ClassDetailitemActivity.totalNum==0){
-                    Toast.makeText(mContext, "还未添加任何商品到购物车，请您继续选购！", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                Intent intent = new Intent(mContext, OrderActivity.class);
-                intent.putExtra("shopName", shopName);
-                startActivity(intent);
-            }
-        });
 
 
     }
@@ -285,25 +260,27 @@ public class Blank1Fragment extends Fragment {
 
     }
 
+
+
+
     private void initData() {
         HttpUtils.init().getDatass(id).enqueue(new Callback<ServiceIsBean>() {
-
-
 
 
             @Override
             public void onResponse(Call<ServiceIsBean> call, Response<ServiceIsBean> response) {
                 data = response.body().getData();
                 shopName = data.getService().getTitle();
+                classDetailitemActivity.getShopName(shopName);
                 skuName=data.getSericePrice().getName();
                 price = data.getSericePrice().getPrice();
                 picUrl = data.getSericePrice().getPicUrl();
-                ViewHolder viewHolder = new ViewHolder(zoomView);
+
                 Picasso.with(getContext()).load(data.getSericePrice().getPicUrl()).placeholder(R.drawable.img_pic_default).into(viewHolder.blank1HeadImage);
-                ViewHolder1 viewHolder1 = new ViewHolder1(inflate);
+
                 viewHolder1.blank1HeadRlTv1.setText(data.getSericePrice().getName());
                 viewHolder1.blank1HeadRlTv2.setText("已售" + data.getSericePrice().getSalesNum());
-                viewHolder2 = new ViewHolder2(scrollView);
+
                 viewHolder2.tvServiceShow1.setText(data.getSericePrice().getPrice() + data.getSericePrice().getPriceUnit());
                 viewHolder2.tvServiceShow2.setText("原价" + data.getSericePrice().getOriginalPrice() + "元");
                 viewHolder2.tvServiceShow3.setText(data.getService().getStartTime() + "-" + data.getService().getEndTime());
@@ -336,8 +313,9 @@ public class Blank1Fragment extends Fragment {
         zoomView = LayoutInflater.from(getContext()).inflate(R.layout.blank1_head, null);
         inflate = LayoutInflater.from(getContext()).inflate(R.layout.blank1_head_bottom, null);
         scrollView = LayoutInflater.from(getContext()).inflate(R.layout.blank1_content, null);
-
-
+        viewHolder = new ViewHolder(zoomView);
+        viewHolder2 = new ViewHolder2(scrollView);
+          viewHolder1 = new ViewHolder1(inflate);
         ball = (ImageView) scrollView.findViewById(R.id.shopping_cart_ball_iv);
         ball.setVisibility(View.GONE);
 

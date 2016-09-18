@@ -1,6 +1,8 @@
 package com.android.graduate.daoway.start;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.graduate.daoway.Carts;
 import com.android.graduate.daoway.CartsDao;
@@ -19,7 +22,9 @@ import com.android.graduate.daoway.a_home.ShopActivity;
 import com.android.graduate.daoway.b_category.Blank1Fragment;
 import com.android.graduate.daoway.b_category.Blank2Fragment;
 import com.android.graduate.daoway.b_category.Blank3Fragment;
+import com.android.graduate.daoway.c_cart.CartActivity;
 import com.android.graduate.daoway.d_order.OrderActivity;
+import com.android.graduate.daoway.h_login_and_register.LoginActivity;
 import com.android.graduate.daoway.main.MainActivity;
 import com.android.graduate.daoway.utils.BaseActivity;
 import com.android.graduate.daoway.z_db.DBUtils;
@@ -56,6 +61,7 @@ public class ClassDetailitemActivity extends BaseActivity  {
     private VpAdapter vpAdapter;
     String id;
     private String serviceId;
+    private String shopName;
     public static long  totalNum;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,15 +95,64 @@ public class ClassDetailitemActivity extends BaseActivity  {
             public void onClick(View view) {
 
                 Intent intent = new Intent(ClassDetailitemActivity.this, ShopActivity.class);
-                intent.putExtra("id",serviceId);
+                intent.putExtra("serviceId",serviceId);
+                startActivity(intent);
+            }
+        });
+
+        carTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sp=getSharedPreferences("isLogin", Context.MODE_PRIVATE);
+                boolean login_key = sp.getBoolean("login_key", false);
+                if(!login_key){
+                    Intent intent=new Intent(ClassDetailitemActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    return;
+                }
+
+
+                Intent intent = new Intent(ClassDetailitemActivity.this, CartActivity.class);
                 startActivity(intent);
             }
         });
 
 
+        payBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sp=getSharedPreferences("isLogin",Context.MODE_PRIVATE);
+                boolean login_key = sp.getBoolean("login_key", false);
+                if(!login_key){
+                    Intent intent=new Intent(ClassDetailitemActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    return;
+                }
+
+
+                if( ClassDetailitemActivity.totalNum==0){
+                    Toast.makeText(ClassDetailitemActivity.this, "还未添加任何商品到购物车，请您继续选购！", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(shopName==null){
+                   return;
+                }
+                Intent intent = new Intent(ClassDetailitemActivity.this, OrderActivity.class);
+                intent.putExtra("shopName", shopName);
+                startActivity(intent);
+            }
+        });
 
 
     }
+
+
+    public void getShopName(String key){
+        shopName=key;
+    }
+
+
+
 
   public void Back(View view){
       finish();

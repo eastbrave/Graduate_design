@@ -51,7 +51,7 @@ public interface HttpService {
 
     //店铺首页
     @GET("/daoway/rest/service/{id}?userId=9a863a39ef0444beb506780a0a6bcfa1&imei=990006202677968")
-    Call<ShopBean> queryShopBean(@Path("id") String id,@Query("manualCity")String ctiy,@Query("lot") double lot, @Query("lat") double lat);
+    Call<ShopBean> queryShopBean(@Path("id") String id,@Query("manualCity")String city,@Query("lot") String lot, @Query("lat") String lat);
 
     //搜索页面
     @GET("/daoway/rest/services/hot_search?userId=9a863a39ef0444beb506780a0a6bcfa1")
