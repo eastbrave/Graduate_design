@@ -13,6 +13,7 @@
        android:gravity="center_vertical"
        android:background="@color/white"
        android:padding="10dp"
+
        >
     <ImageView
         android:id="@+id/item_shop_list_icon_iv"
@@ -60,6 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/takeout_bg_btn_reduce"
+                android:padding="8dp"
                 />
             <TextView
                 android:id="@+id/item_shop_list_select_num_tv"
@@ -68,14 +70,17 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:text="1"
-                android:layout_marginRight="8dp"
-                android:layout_marginLeft="8dp"
+
+
                 />
             <ImageView
                 android:id="@+id/item_shop_list_add_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/takeout_bg_btn_increase_focus"
+                android:paddingLeft="8dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 />
         </LinearLayout>
 

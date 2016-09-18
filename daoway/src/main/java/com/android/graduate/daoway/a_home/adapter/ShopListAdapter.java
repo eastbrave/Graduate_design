@@ -21,6 +21,7 @@ import com.android.graduate.daoway.R;
 import com.android.graduate.daoway.a_home.ShopActivity;
 import com.android.graduate.daoway.a_home.bean.ShopBean;
 import com.android.graduate.daoway.h_login_and_register.LoginActivity;
+import com.android.graduate.daoway.start.ClassDetailitemActivity;
 import com.android.graduate.daoway.z_db.DBUtils;
 import com.squareup.picasso.Picasso;
 
@@ -102,7 +103,7 @@ public class ShopListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View view = convertView;
         ViewHolder viewHolder = null;
         if (view == null) {
@@ -252,6 +253,23 @@ public class ShopListAdapter extends BaseAdapter {
 
             }
         });
+
+        mViewHolder.imageIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(mContext, ClassDetailitemActivity.class);
+                String id = mPriceDatas.get(position).getId();
+                String serviceId = mPriceDatas.get(position).getCategoryId();
+                intent.putExtra("id",id);
+                intent.putExtra("serviceId",id);
+                mContext.startActivity(intent);
+
+            }
+        });
+
+
+
+
         return view;
     }
 

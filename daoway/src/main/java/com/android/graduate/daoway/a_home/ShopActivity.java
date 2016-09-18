@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.util.DisplayMetrics;
@@ -44,6 +46,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -101,9 +104,39 @@ public class ShopActivity extends BaseActivity {
     private SharedPreferences sharedPreferences;
 
 
+    Handler mHandler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            for (int i = 0; i < keys.size(); i++) {
+                viewHolder.shopMenuTab.addTab(viewHolder.shopMenuTab.newTab().setText(keys.get(i)));
+            }
+            viewHolder.shopMenuTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+                @Override
+                public void onTabSelected(TabLayout.Tab tab) {
+                    mPriceDatas.clear();
+                    mPriceDatas.addAll(mapDatas.get(keys.get(tab.getPosition())));
+                    shopListAdapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onTabUnselected(TabLayout.Tab tab) {
+
+                }
+
+                @Override
+                public void onTabReselected(TabLayout.Tab tab) {
+
+                }
+            });
+
+        }
+    };
+
     @Override
     protected void onStart() {
         super.onStart();
+
         sp = getSharedPreferences("isLogin", MODE_PRIVATE);
         boolean login_key = sp.getBoolean("login_key", false);
         if (!login_key) {
@@ -130,7 +163,7 @@ public class ShopActivity extends BaseActivity {
         }
 
         totalPriceTv.setText(totalPrice + "");
-
+//        shopListAdapter.notifyDataSetChanged();
 
     }
 
@@ -147,8 +180,6 @@ public class ShopActivity extends BaseActivity {
 
         initListener();
     }
-
-
 
     private void initListener() {
         shopCartIv.setOnClickListener(new View.OnClickListener() {
@@ -196,7 +227,7 @@ public class ShopActivity extends BaseActivity {
         //= "80999f240bac4e309a28ebf03a7fd34b"
          Intent intent = getIntent();
         id = intent.getStringExtra("serviceId");
-        id="80999f240bac4e309a28ebf03a7fd34b";
+     //   id="80999f240bac4e309a28ebf03a7fd34b";
         HttpUtils.init().queryShopBean(id, city, lot, lat).enqueue(new Callback<ShopBean>() {
             @Override
             public void onResponse(Call<ShopBean> call, Response<ShopBean> response) {
@@ -212,7 +243,7 @@ public class ShopActivity extends BaseActivity {
 
     private void formatResult(ShopBean shopBean) {
         Log.i("east", "formatResult: "+shopBean);
-        ShopBean.DataBean data = shopBean.getData();
+       final ShopBean.DataBean data = shopBean.getData();
         //设置banner
         imgDatas.addAll(data.getImgs());
         bannerView.setPages(new CBViewHolderCreator<HeaderViewHolder>() {
@@ -247,54 +278,16 @@ public class ShopActivity extends BaseActivity {
         viewHolder.shopOrderNumTv.setText(data.getOrderTakingCount() + "");
         viewHolder.orderSuccessRate.setText(data.getOrderTakingRate());
         viewHolder.orderSuccessRate.setText(data.getPositiveCommentRate());
-        viewHolder.shopGuarantee1Tv.setText(data.getGuarantee().getItems().get(0).getLabel());
+        /*viewHolder.shopGuarantee1Tv.setText(data.getGuarantee().getItems().get(0).getLabel());
         viewHolder.shopGuarantee2Tv.setText(data.getGuarantee().getItems().get(1).getLabel());
-        viewHolder.shopGuarantee3Tv.setText(data.getGuarantee().getItems().get(2).getLabel());
-        Picasso.with(this).load(data.getGuarantee().getItems().get(0).getIconUrl())
+        viewHolder.shopGuarantee3Tv.setText(data.getGuarantee().getItems().get(2).getLabel());*/
+     /*   Picasso.with(this).load(data.getGuarantee().getItems().get(0).getIconUrl())
                 .into(viewHolder.shopGuarantee1Iv);
         Picasso.with(this).load(data.getGuarantee().getItems().get(1).getIconUrl())
                 .into(viewHolder.shopGuarantee2Iv);
         Picasso.with(this).load(data.getGuarantee().getItems().get(2).getIconUrl())
-                .into(viewHolder.shopGuarantee3Iv);
-        //设置tab
+                .into(viewHolder.shopGuarantee3Iv);*/
 
-        //数据分类
-
-        keys.add("所有项目");
-        mapDatas.put(keys.get(0), mPriceDatas);
-        for (int i = 0; i < mPriceDatas.size(); i++) {
-            String categoryName = mPriceDatas.get(i).getCategoryName();
-            if (!mapDatas.containsKey(categoryName)) {
-                keys.add(categoryName);
-                List<ShopBean.DataBean.PricesBean> listDatas = new ArrayList<>();
-                listDatas.add(mPriceDatas.get(i));
-                mapDatas.put(categoryName, listDatas);
-            } else {
-                mapDatas.get(categoryName).add(mPriceDatas.get(i));
-            }
-        }
-        for (int i = 0; i < keys.size(); i++) {
-            viewHolder.shopMenuTab.addTab(viewHolder.shopMenuTab.newTab().setText(keys.get(i)));
-        }
-
-        viewHolder.shopMenuTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                mPriceDatas.clear();
-                mPriceDatas.addAll(mapDatas.get(keys.get(tab.getPosition())));
-                shopListAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
         //评价专区
 
        // viewHolder.ratingBar.setStepSize(data.getStar());//几星
@@ -316,6 +309,37 @@ public class ShopActivity extends BaseActivity {
 
             }
         });
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //设置tab
+
+                //数据分类
+
+                List<ShopBean.DataBean.PricesBean> allDatas = new ArrayList<>();
+                allDatas.addAll(data.getPrices());
+                keys.add("所有项目");
+                mapDatas.put(keys.get(0), allDatas);
+                for (int i = 0; i < mPriceDatas.size(); i++) {
+                    String categoryName = mPriceDatas.get(i).getCategoryName();
+                    if (!mapDatas.containsKey(categoryName)) {
+                        keys.add(categoryName);
+                        List<ShopBean.DataBean.PricesBean> listDatas = new ArrayList<>();
+                        listDatas.add(mPriceDatas.get(i));
+                        mapDatas.put(categoryName, listDatas);
+                    } else {
+                        mapDatas.get(categoryName).add(mPriceDatas.get(i));
+                    }
+                }
+                mHandler.sendEmptyMessage(1);
+
+
+
+            }
+        }).start();
+
+
 
     }
 

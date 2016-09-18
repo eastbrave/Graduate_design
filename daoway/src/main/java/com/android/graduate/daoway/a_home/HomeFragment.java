@@ -312,13 +312,7 @@ public class HomeFragment extends Fragment {
         public View createView(Context context) {
             imageView = new ImageView(mContext);
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent=new Intent(mContext,ShopActivity.class);
-                    startActivity(intent);
-                }
-            });
+
             return imageView;
         }
 
