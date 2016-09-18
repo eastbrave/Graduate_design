@@ -1,17 +1,20 @@
 package com.android.graduate.daoway.b_category;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.graduate.daoway.R;
+import com.android.graduate.daoway.start.ClassDetailitemActivity;
 import com.android.graduate.daoway.x_http.HttpService;
 import com.android.graduate.daoway.x_http.HttpUtils;
 import com.android.graduate.daoway.y_bean.CategoryBean;
@@ -49,11 +52,29 @@ public class AllFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_all, container, false);
         ButterKnife.bind(this, view);
+
         initBean();
         setAdapter();
         initData();
         setListen();
+        initListen1();
+        View viewById = view.findViewById(R.id.emptyElement);
+        allList.setEmptyView(viewById);
         return view;
+    }
+
+    private void initListen1() {
+        allList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent intent=new Intent(getContext(), ClassDetailitemActivity.class);
+                intent.putExtra("serviceId",items.get(i).getServiceId());
+                intent.putExtra("id",items.get(i).getId());
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void setListen() {
@@ -152,6 +173,9 @@ public class AllFragment extends Fragment {
           viewHolder.vpFragmentListTitleShow.setText(items.get(i).getServiceTitle());
           viewHolder.vpFragmentListNumShow.setText("已售"+items.get(i).getSalesNum());
           viewHolder.vpFragmentListCommentRateShow.setText("好评"+items.get(i).getPositiveCommentRate());
+
+
+
           return view;
       }
 

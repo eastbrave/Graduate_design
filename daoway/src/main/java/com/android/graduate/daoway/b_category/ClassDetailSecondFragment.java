@@ -1,16 +1,19 @@
 package com.android.graduate.daoway.b_category;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.graduate.daoway.R;
+import com.android.graduate.daoway.a_home.ShopActivity;
 import com.android.graduate.daoway.x_http.HttpUtils;
 import com.android.graduate.daoway.y_bean.ClassDetailBean2;
 import com.squareup.picasso.Picasso;
@@ -46,7 +49,22 @@ public class ClassDetailSecondFragment extends Fragment {
         initNum();
         setAdapter();
         initData();
+        initListen();
         return view;
+    }
+
+    private void initListen() {
+        gvHotShow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent=new Intent(getContext(), ShopActivity.class);
+                String id= data.get(i).getServiceId();
+
+                intent.putExtra("id",id);
+                startActivity(intent);
+
+            }
+        });
     }
 
     private void setAdapter() {

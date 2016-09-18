@@ -265,7 +265,7 @@
         android:layout_width="match_parent"
         android:layout_height="35dp"
         app:tabMode="scrollable"
-        />
+        android:fillViewport="false" />
 
     <!--listView-->
     <com.android.graduate.daoway.widget.MyListView

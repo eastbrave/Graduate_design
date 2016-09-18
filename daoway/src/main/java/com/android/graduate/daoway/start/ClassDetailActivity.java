@@ -13,6 +13,7 @@ import android.widget.RadioGroup;
 import com.android.graduate.daoway.R;
 import com.android.graduate.daoway.b_category.ClassDetailFirstFragment;
 import com.android.graduate.daoway.b_category.ClassDetailSecondFragment;
+import com.android.graduate.daoway.f_search.SearchActivity;
 import com.android.graduate.daoway.utils.BaseActivity;
 import com.android.graduate.daoway.y_bean.CategoryBean;
 
@@ -21,19 +22,22 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ClassDetailActivity extends BaseActivity {
 
-    @BindView(R.id.ClassDetail_image)
-    ImageView ClassDetailImage;
+
     @BindView(R.id.ClassDetail_rg)
     RadioGroup ClassDetailRg;
-    @BindView(R.id.ClassDetail_search)
-    ImageView ClassDetailSearch;
+
     @BindView(R.id.ClassDetail_show)
     FrameLayout ClassDetailShow;
     @BindView(R.id.ClassDetail_rbt)
     RadioButton ClassDetailRbt;
+    @BindView(R.id.ClassDetail_search)
+    ImageView ClassDetailSearch;
+    @BindView(R.id.ClassDetail_image)
+    ImageView ClassDetailImage;
     private List<Fragment> fragments = new ArrayList<>();
     private FragmentManager fragmentManager;
     private int cur;
@@ -48,7 +52,6 @@ public class ClassDetailActivity extends BaseActivity {
         initRg();
         initListen();
     }
-
 
 
     private void initListen() {
@@ -94,11 +97,11 @@ public class ClassDetailActivity extends BaseActivity {
 
         Bundle bundle = new Bundle();
         bundle.putSerializable("bean", bean);
-        bundle.putSerializable("tags",tags);
+        bundle.putSerializable("tags", tags);
         ClassDetailFirstFragment classDetailFirstFragment = ClassDetailFirstFragment.newInstance(bundle);
         String id = bean.getId();
-        Bundle bundle1=new Bundle();
-        bundle1.putString("id",id);
+        Bundle bundle1 = new Bundle();
+        bundle1.putString("id", id);
         ClassDetailSecondFragment classDetailSecondFragment = ClassDetailSecondFragment.newInstance(bundle1);
         fragments.add(classDetailFirstFragment);
         fragments.add(classDetailSecondFragment);
@@ -109,5 +112,14 @@ public class ClassDetailActivity extends BaseActivity {
         transaction.add(R.id.ClassDetail_show, fragment);
         transaction.commit();
         cur = 0;
+    }
+    @OnClick(R.id.ClassDetail_search)
+    public void onClick1() {
+        Intent intent = new Intent(this, SearchActivity.class);
+        startActivity(intent);
+    }
+    @OnClick(R.id.ClassDetail_image)
+    public void onClick2() {
+        finish();
     }
 }

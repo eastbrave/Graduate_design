@@ -82,22 +82,19 @@ public class ClassDetailitemActivity extends BaseActivity  {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ClassDetailitemActivity.this, ShopActivity.class);
+                intent.putExtra("id",serviceId);
                 startActivity(intent);
             }
         });
 
 
-        payBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              /*  Intent intent=new Intent(ClassDetailitemActivity.this, OrderActivity.class);
-                startActivity(intent);*/
-            }
-        });
+
 
     }
 
-
+  public void Back(View view){
+      finish();
+  }
     @Override
     protected void onStart() {
         super.onStart();

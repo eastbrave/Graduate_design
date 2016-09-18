@@ -53,6 +53,7 @@ import retrofit2.Response;
  * Created by Administrator on 2016/9/7.
  */
 public class ShopActivity extends BaseActivity {
+
     @BindView(R.id.shop_cart_num_tv)
     TextView cartNumTv;
     @BindView(R.id.shop_cart_total_price_tv)
@@ -68,11 +69,17 @@ public class ShopActivity extends BaseActivity {
     @BindView(R.id.shop_bar_menu_iv)
     ImageView shopBarMenuIv;
 
-    public static long total ;
-    public static double totalPrice ;
+    public static long total;
+    public static double totalPrice;
     @BindView(R.id.shop_click_to_pay_btn)
     Button payBtn;
-    private String id = "05219ff82a41477e8a7c4539bad74a17";
+    @BindView(R.id.shop_cart_iv)
+    ImageView shopCartIv;
+    @BindView(R.id.ball_shape)
+    ImageView ballShape;
+    @BindView(R.id.shop_bottom)
+    RelativeLayout shopBottom;
+    private String id ;//= "05219ff82a41477e8a7c4539bad74a17";
     private String city = "武汉";
     private double lot, lat;
     // private ZoomViewHolder zoomViewHolder;
@@ -136,12 +143,21 @@ public class ShopActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
         ButterKnife.bind(this);
+        initID();
+
         getIntentInfo();
         initView();
         setBar();
         setAdapter();
         initData();
+
         initListener();
+    }
+
+    private void initID() {
+        Intent intent = getIntent();
+        id = intent.getStringExtra("id");
+
     }
 
     private void initListener() {
@@ -150,7 +166,7 @@ public class ShopActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 //跳转到订单支付页面
-               Intent intent=new Intent(ShopActivity.this,OrderActivity.class);
+                Intent intent = new Intent(ShopActivity.this, OrderActivity.class);
                 startActivity(intent);
 
             }
@@ -222,7 +238,7 @@ public class ShopActivity extends BaseActivity {
 
         shopName = data.getTitle();
         //刷新适配器
-        shopListAdapter = new ShopListAdapter(this, mPriceDatas, cartNumTv, totalPriceTv, shopName);
+        shopListAdapter = new ShopListAdapter(this, mPriceDatas, cartNumTv, totalPriceTv, shopName, shopCartIv,ballShape);
         viewHolder.shopMenuListLv.setAdapter(shopListAdapter);
         // shopListAdapter.notifyDataSetChanged();
         //设置店铺信息

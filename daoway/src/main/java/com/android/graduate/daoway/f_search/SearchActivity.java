@@ -106,6 +106,8 @@ public class SearchActivity extends BaseActivity {
                     clearTv.setVisibility(View.VISIBLE);
                 }
                 Intent intent=new Intent(SearchActivity.this,SearchResultActivity.class);
+                String name = mGridDatas.get(position);
+                intent.putExtra("name",name);
                 startActivity(intent);
             }
         });

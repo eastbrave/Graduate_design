@@ -51,6 +51,8 @@ public class VpFragment extends Fragment {
         setAdapter();
         initData();
         initListen();
+        View viewById = view.findViewById(R.id.emptyElement);
+        vpFragmentList.setEmptyView(viewById);
         return view;
     }
 

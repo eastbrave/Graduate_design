@@ -1,11 +1,14 @@
 package com.android.graduate.daoway.b_category;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -36,6 +39,11 @@ import retrofit2.Response;
 
 
 public class Blank1Fragment extends Fragment {
+    /**
+     * 定义动画执行的起始坐标和结束坐标
+     */
+    private float startX,startY,endX,endY;
+    ImageView ball;
 
     String id;
     @BindView(R.id.shop_scroll_view1)
@@ -48,6 +56,7 @@ public class Blank1Fragment extends Fragment {
     private View zoomView;
     private View inflate;
     private View scrollView;
+    private AnimatorSet animatorSet;
     private ViewHolder2 viewHolder2;
     private long num=0;
     private Context mContext;
@@ -84,17 +93,67 @@ public class Blank1Fragment extends Fragment {
         ButterKnife.bind(this, view);
         initID();
         initView();
+        setupAnimator();
         initData();
+
 
         return view;
     }
+    private void setupAnimator() {
+        animatorSet = new AnimatorSet();
+        animatorSet.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
 
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                ball.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+    }
     private void initListener() {
         //先置空
         num=0;
+        viewHolder2.productAddIv.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch (motionEvent.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        startX = motionEvent.getRawX();
+                        startY = motionEvent.getRawY() ;
+                        break;
+                }
+                return false;
+            }
+        });
         viewHolder2.productAddIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                   endX = carTv.getX();
+//                   endY = carTv.getY();
+//                ball.setVisibility(View.VISIBLE);
+//                //创建动画
+//                ObjectAnimator xAnimator = ObjectAnimator.ofFloat(ball, "x", startX,   endX);
+//                xAnimator.setDuration(500);
+//                ObjectAnimator yAnimator = ObjectAnimator.ofFloat(ball, "y", startY, endY);
+//                yAnimator.setDuration(500);
+//                yAnimator.setInterpolator(new AccelerateInterpolator());
+//                animatorSet.play(xAnimator).with(yAnimator);
+//                animatorSet.start();
+
+
                 viewHolder2. productReduceIv.setVisibility(View.VISIBLE);
                 viewHolder2.productNumTv.setVisibility(View.VISIBLE);
                 cartNumTv.setVisibility(View.VISIBLE);
@@ -149,6 +208,7 @@ public class Blank1Fragment extends Fragment {
 
 
     }
+
 
     private void initID() {
         Bundle arguments = getArguments();
@@ -205,12 +265,22 @@ public class Blank1Fragment extends Fragment {
 
     private void initView() {
         zoomView = LayoutInflater.from(getContext()).inflate(R.layout.blank1_head, null);
-
         inflate = LayoutInflater.from(getContext()).inflate(R.layout.blank1_head_bottom, null);
         scrollView = LayoutInflater.from(getContext()).inflate(R.layout.blank1_content, null);
+
+
+        ball = (ImageView) scrollView.findViewById(R.id.shopping_cart_ball_iv);
+        ball.setVisibility(View.GONE);
+
+
+
+
+
+
+
         shopScrollView1.setZoomView(zoomView);
         shopScrollView1.setZoomEnabled(true);
-        shopScrollView1.setHeaderView(inflate);
+        shopScrollView1.setHeaderView(this.inflate);
         shopScrollView1.setScrollContentView(scrollView);
         DisplayMetrics localDisplayMetrics = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(localDisplayMetrics);

@@ -4,7 +4,13 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     >
-
+    <ImageView
+        android:id="@+id/ball_shape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ball_shape"
+        android:visibility="gone"
+        />
     <RelativeLayout
         android:id="@+id/shop_bottom"
         android:layout_width="match_parent"
