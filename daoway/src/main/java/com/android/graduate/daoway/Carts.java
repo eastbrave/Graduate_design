@@ -10,7 +10,7 @@ import org.greenrobot.greendao.DaoException;
  * Entity mapped to table "CARTS".
  */
 @Entity(active = true)
-public class Carts implements java.io.Serializable {
+public class Carts implements java.io.Serializable{
 
     @Id(autoincrement = true)
     private Long id;

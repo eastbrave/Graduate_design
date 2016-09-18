@@ -9,9 +9,8 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.graduate.daoway.Orders;
+import com.android.graduate.daoway.Carts;
 import com.android.graduate.daoway.R;
-import com.android.graduate.daoway.c_cart.ItemInfo;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -23,12 +22,12 @@ import butterknife.ButterKnife;
  * Created by Administrator on 2016/9/6.
  * mList里面嵌套的GridView的适配器
  */
-public class ItemOrderAdapter extends BaseAdapter {
+public class PayAdapter extends BaseAdapter {
 
     private Context mContext;
-    private List<Orders> itemInfos;
+    private List<Carts> itemInfos;
 
-    public ItemOrderAdapter(Context mContext, List<Orders> itemInfos) {
+    public PayAdapter(Context mContext, List<Carts> itemInfos) {
         this.mContext = mContext;
         this.itemInfos = itemInfos;
     }
@@ -53,7 +52,7 @@ public class ItemOrderAdapter extends BaseAdapter {
         View view = convertView;
         ViewHolder viewHolder = null;
         if (view == null) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.item_order_content, parent, false);
+            view = LayoutInflater.from(mContext).inflate(R.layout.item_cart_content, parent, false);
             viewHolder = new ViewHolder(view);
         } else {
             viewHolder = (ViewHolder) view.getTag();
@@ -61,7 +60,7 @@ public class ItemOrderAdapter extends BaseAdapter {
         Picasso.with(mContext).load(itemInfos.get(position).getImgUrl()).into(viewHolder.icon);
         viewHolder.nameTv.setText(itemInfos.get(position).getSkuName()+"");
         viewHolder.priceTv.setText(itemInfos.get(position).getPrice()+"");
-        viewHolder.selectNumTv.setText(itemInfos.get(position).getSkuNum()+"件");
+        viewHolder.selectNumTv.setText(itemInfos.get(position).getSkuNum()+"");
 
         // TODO: 2016/9/14  加减数量监听
 
@@ -79,10 +78,12 @@ public class ItemOrderAdapter extends BaseAdapter {
         TextView nameTv;
         @BindView(R.id.cart_item_content_shop_price_tv)
         TextView priceTv;
-
+        @BindView(R.id.cart_item_content_shop_list_reduce_iv)
+        ImageView reduceIv;
         @BindView(R.id.cart_item_content_shop_list_select_num_tv)
         TextView selectNumTv;
-
+        @BindView(R.id.cart_item_content_shop_list_add_iv)
+        ImageView addIv;
 
         ViewHolder(View view) {
             ButterKnife.bind(this, view);

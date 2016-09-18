@@ -24,6 +24,7 @@ import com.android.graduate.daoway.CartsDao;
 import com.android.graduate.daoway.R;
 import com.android.graduate.daoway.a_home.adapter.ShopListAdapter;
 import com.android.graduate.daoway.a_home.bean.ShopBean;
+import com.android.graduate.daoway.c_cart.CartActivity;
 import com.android.graduate.daoway.d_order.OrderActivity;
 import com.android.graduate.daoway.utils.BaseActivity;
 import com.android.graduate.daoway.widget.MyListView;
@@ -80,6 +81,7 @@ public class ShopActivity extends BaseActivity {
     @BindView(R.id.shop_bottom)
     RelativeLayout shopBottom;
     private String id ;//= "05219ff82a41477e8a7c4539bad74a17";
+
     private String city = "武汉";
     private double lot, lat;
     // private ZoomViewHolder zoomViewHolder;
@@ -105,15 +107,7 @@ public class ShopActivity extends BaseActivity {
         if (!login_key) {
             return;
         }
-      /*  String phone=sp.getString("userName",null);
-        //判断是已经登陆状态之后再操作数据库
-        UserDao userDao = DBUtils.getUserDao(this);
-        QueryBuilder<User> builder = userDao.queryBuilder();
-        //设置用户查询条件
-        builder.where(UserDao.Properties.Phone.eq(phone));
-        List<User> list = builder.list();
-        User user = list.get(0);
-        List<Carts> carts = user.getCarts();*/
+
         CartsDao cartsDao = DBUtils.getCartsDao(this);
         List<Carts> carts = cartsDao.queryBuilder().list();
         total = 0;
@@ -161,14 +155,11 @@ public class ShopActivity extends BaseActivity {
     }
 
     private void initListener() {
-
-        payBtn.setOnClickListener(new View.OnClickListener() {
+        shopCartIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //跳转到订单支付页面
-                Intent intent = new Intent(ShopActivity.this, OrderActivity.class);
+                Intent intent = new Intent(ShopActivity.this, CartActivity.class);
                 startActivity(intent);
-
             }
         });
 
@@ -313,6 +304,17 @@ public class ShopActivity extends BaseActivity {
         //服务商信息
         viewHolder.shopIntroduceContentTv.setText(data.getDescription());
 
+        //提交支付
+        payBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //跳转到订单支付页面
+                Intent intent = new Intent(ShopActivity.this, OrderActivity.class);
+                intent.putExtra("shopName", shopName);
+                startActivity(intent);
+
+            }
+        });
 
     }
 

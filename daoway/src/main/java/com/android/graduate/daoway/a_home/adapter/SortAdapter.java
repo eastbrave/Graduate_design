@@ -64,6 +64,8 @@ public class SortAdapter extends BaseAdapter {
             e.printStackTrace();
         }
 
+
+
         return view;
     }
 

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.graduate.daoway">
+    <!--支付-->
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- 分享 -->
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -56,7 +61,7 @@
         <activity android:name=".a_home.ShopActivity" />
         <activity android:name=".start.ClassDetailitemActivity" />
         <activity android:name=".start.PoPwindowActivity" />
-
+        <activity android:name=".c_cart.CartActivity"/>
         <!-- 百度地图 -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
@@ -109,17 +114,26 @@
         <activity android:name=".f_search.SearchResultActivity" />
         <activity android:name=".start.MapActivity" />
         <activity android:name=".start.PlotSearchActivity" />
-        <activity android:name=".start.ClassDetailActivity" />
-        <activity android:name=".utils.BaseActivity" />
-        <activity android:name=".f_search.SearchActivity" />
-        <activity android:name=".g_location.CitiesActivity" />
-        <activity android:name=".h_login_and_register.LoginActivity" />
+
         <activity android:name=".h_login_and_register.Register" />
-        <activity android:name=".a_home.ShopActivity" />
-        <activity android:name=".f_search.SearchResultActivity" />
-        <activity android:name=".start.ClassDetailitemActivity" />
+
         <activity android:name=".e_mine.UserInfoActivity" />
         <activity android:name=".d_order.OrderActivity"></activity>
+
+        <!--支付-->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+        </activity>
+
     </application>
 
 </manifest>

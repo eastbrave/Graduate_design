@@ -4,6 +4,8 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,6 +20,7 @@ import com.android.graduate.daoway.CartsDao;
 import com.android.graduate.daoway.R;
 import com.android.graduate.daoway.a_home.ShopActivity;
 import com.android.graduate.daoway.a_home.bean.ShopBean;
+import com.android.graduate.daoway.h_login_and_register.LoginActivity;
 import com.android.graduate.daoway.z_db.DBUtils;
 import com.squareup.picasso.Picasso;
 
@@ -144,6 +147,16 @@ public class ShopListAdapter extends BaseAdapter {
 
             @Override
             public void onClick(View view) {
+               SharedPreferences sp=mContext.getSharedPreferences("isLogin",Context.MODE_PRIVATE);
+                boolean login_key = sp.getBoolean("login_key", false);
+                if(!login_key){
+                    Intent intent=new Intent(mContext, LoginActivity.class);
+                    mContext.startActivity(intent);
+                    return;
+                }
+
+
+
                 if (endX == 0) {
                     endX = shopCartIv.getX();
                     endY = shopCartIv.getY();
@@ -158,37 +171,38 @@ public class ShopListAdapter extends BaseAdapter {
                 animatorSet.play(xAnimator).with(yAnimator);
                 animatorSet.start();
 
+
                 mViewHolder.num += mViewHolder.minBuyNum;
                 mViewHolder.selectNumTv.setVisibility(View.VISIBLE);
                 mViewHolder.reduceIv.setVisibility(View.VISIBLE);
                 ShopActivity.total += mViewHolder.minBuyNum;
                 ShopActivity.totalPrice += mViewHolder.price * mViewHolder.minBuyNum;
                 cartNumTv.setVisibility(View.VISIBLE);
-                cartNumTv.setText(ShopActivity.total + "");
-                totalPriceTv.setText(ShopActivity.totalPrice + "");
-                mViewHolder.selectNumTv.setText(mViewHolder.num + "");
+                cartNumTv.setText( ShopActivity.total+"");
+                totalPriceTv.setText(ShopActivity.totalPrice+"");
+                mViewHolder.selectNumTv.setText(mViewHolder.num+"");
                 //修改数据库数据，并刷新设置,先查询是否存在，不存在就添加，存在就修改数量
                 CartsDao cartsDao = DBUtils.getCartsDao(mContext);
                 String skuName = mViewHolder.tvName.getText().toString();
                 QueryBuilder<Carts> builder = DBUtils.getCartsDao(mContext).queryBuilder();
                 builder.where(CartsDao.Properties.SkuName.eq(skuName));
                 List<Carts> list = builder.list();
-                if (list.size() == 0) {
+                if (list.size()==0){
                     //说明不存在
-                    Carts carts = new Carts();
+                    Carts carts=new Carts();
                     carts.setImgUrl(mViewHolder.url);
-                    carts.setSkuNum("" + mViewHolder.minBuyNum);
+                    carts.setSkuNum(""+ mViewHolder.minBuyNum);
                     carts.setShopName(shopName);
                     carts.setSkuName(skuName);
                     carts.setPrice(mViewHolder.priceTv.getText().toString());
 
                     cartsDao.insert(carts);
 
-                } else {
+                }else {
                     //如果存在就更新数量
                     Carts carts = list.get(0);
-                    long num = Long.parseLong(carts.getSkuNum()) + mViewHolder.minBuyNum;
-                    carts.setSkuNum("" + num);
+                    long num = Long.parseLong(carts.getSkuNum())+mViewHolder.minBuyNum;
+                    carts.setSkuNum(""+ num);
                     cartsDao.update(carts);
                 }
 
@@ -200,10 +214,12 @@ public class ShopListAdapter extends BaseAdapter {
 
             @Override
             public void onClick(View view) {
-                mViewHolder.num -= mViewHolder.minBuyNum;
-                mViewHolder.selectNumTv.setText(mViewHolder.num + "");
-                ShopActivity.total -= mViewHolder.minBuyNum;
-                cartNumTv.setText(ShopActivity.total + "");
+                mViewHolder.num-=mViewHolder.minBuyNum;
+                mViewHolder.selectNumTv.setText(mViewHolder.num+"");
+                ShopActivity.total-=mViewHolder.minBuyNum;
+                cartNumTv.setText( ShopActivity.total+"");
+                ShopActivity.totalPrice-= mViewHolder.price*mViewHolder.minBuyNum;
+                totalPriceTv.setText(ShopActivity.totalPrice+"");
                 //修改数据库数据并刷新设置
                 //修改数据库中数量
                 CartsDao cartsDao = DBUtils.getCartsDao(mContext);
@@ -212,19 +228,28 @@ public class ShopListAdapter extends BaseAdapter {
                 builder.where(CartsDao.Properties.SkuName.eq(skuName));
                 List<Carts> list = builder.list();
                 Carts carts = list.get(0);
-                if (mViewHolder.num == 0) {
+                if(mViewHolder.num==0){
                     mViewHolder.selectNumTv.setVisibility(View.GONE);
                     mViewHolder.reduceIv.setVisibility(View.GONE);
 
                 }
-                Long num = Long.parseLong(carts.getSkuNum()) - mViewHolder.minBuyNum;
-                carts.setSkuNum("" + num);
-                cartsDao.update(carts);
+                    Long num = Long.parseLong(carts.getSkuNum())-mViewHolder.minBuyNum;
+                if(num!=0){
+                    carts.setSkuNum(""+num);
+                    cartsDao.update(carts);
+                }else {
+                    cartsDao.delete(carts);
+                }
 
 
-                if (ShopActivity.total == 0) {
+
+                if(ShopActivity.total==0){
                     cartNumTv.setVisibility(View.GONE);
                 }
+
+
+
+
             }
         });
         return view;

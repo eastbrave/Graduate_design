@@ -11,15 +11,9 @@ import android.widget.TextView;
 
 import com.android.graduate.daoway.Orders;
 import com.android.graduate.daoway.OrdersDao;
-import com.android.graduate.daoway.Orders;
-import com.android.graduate.daoway.OrdersDao;
 import com.android.graduate.daoway.R;
-import com.android.graduate.daoway.c_cart.ItemCartAdapter;
-import com.android.graduate.daoway.c_cart.ItemInfo;
 import com.android.graduate.daoway.widget.MyListView;
 import com.android.graduate.daoway.z_db.DBUtils;
-
-import org.greenrobot.greendao.query.QueryBuilder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,32 +59,54 @@ public class OrderAdapter extends BaseAdapter {
         View view = convertView;
         ViewHolder viewHolder = null;
         if (view == null) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.item_cart, parent, false);
+            view = LayoutInflater.from(mContext).inflate(R.layout.item_order, parent, false);
             viewHolder = new ViewHolder(view);
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
         //设置店铺名
-        final int cur=position;
-        final String orderTime=keys.get(position);
-        String shopName = mapDatas.get(keys.get(0)).get(0).getShopName();
-        viewHolder.shopNameTv.setText(shopName);
+        final int cur = position;
+        final String orderTime = keys.get(position);
+        //// TODO: 2016/9/17 设置店铺名
+        OrdersDao ordersDao = DBUtils.getOrdersDao(mContext);
+        List<Orders> list = ordersDao.queryBuilder().where(OrdersDao.Properties.OrderTime.eq(orderTime)).list();
+        if (list.size() != 0) {
+            Orders orders = list.get(0);
+            String shopName = orders.getShopName();
+            viewHolder.shopNameTv.setText(shopName);
+        }
+
+        //订单日期
+        viewHolder.orderTimeTv.setText(orderTime);
+
+
         //设置内部list
         List<Orders> itemInfos = mapDatas.get(keys.get(position));
-        ItemOrderAdapter itemCartAdapter = new ItemOrderAdapter(mContext,itemInfos);
+        ItemOrderAdapter itemCartAdapter = new ItemOrderAdapter(mContext, itemInfos);
         viewHolder.itemCartLv.setAdapter(itemCartAdapter);
 
 
-        //设置总金额
-        double total=0;
+        //设置总金额和商品总数
+        double total = 0;
+        long totalNum = 0;
         for (int i = 0; i < itemInfos.size(); i++) {
-            long skuNum =Long.parseLong(itemInfos.get(i).getSkuNum()) ;
+            long skuNum = Long.parseLong(itemInfos.get(i).getSkuNum());
+            totalNum += skuNum;
             double price = Double.parseDouble(itemInfos.get(i).getPrice());
-            total+=skuNum*price;
+            total += skuNum * price;
         }
-        viewHolder.shopTotalTv.setText(total+"");
-
-
+        viewHolder.shopTotalTv.setText(total + "");
+        viewHolder.orderNumTv.setText("共"+totalNum+"件商品");
+        viewHolder.deleteTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OrdersDao ordersDao = DBUtils.getOrdersDao(mContext);
+                ordersDao.deleteInTx(ordersDao.queryBuilder().where(OrdersDao.Properties.OrderTime.eq(orderTime)).list());
+                mapDatas.remove(keys.get(cur));
+                keys.remove(cur);
+                OrderAdapter.this.notifyDataSetChanged();
+            }
+        });
 
 
         return view;
@@ -99,7 +115,7 @@ public class OrderAdapter extends BaseAdapter {
 
 
 
-    class ViewHolder {
+     class ViewHolder {
         @BindView(R.id.cart_item_top_shop_check)
         CheckBox shopCheck;
         @BindView(R.id.cart_item_top_shop_name_tv)
@@ -112,11 +128,17 @@ public class OrderAdapter extends BaseAdapter {
         TextView shopTotalTv;
         @BindView(R.id.cart_item_bottom_pay_btn)
         Button payBtn;
-
+        @BindView(R.id.order_time_tv)
+        TextView orderTimeTv;
+         @BindView(R.id.order_num_tv)
+         TextView orderNumTv;
         ViewHolder(View view) {
             ButterKnife.bind(this, view);
             view.setTag(this);
 
         }
     }
+
+
+
 }

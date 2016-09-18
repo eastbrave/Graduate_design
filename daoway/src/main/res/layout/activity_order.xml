@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.android.graduate.daoway.d_order.OrderActivity">
     <RelativeLayout
+        android:id="@+id/pay_top"
         android:layout_width="match_parent"
         android:layout_height="?android:actionBarSize"
         android:background="#ffffff"
@@ -13,6 +14,7 @@
         android:paddingRight="10dp"
         >
         <ImageView
+            android:id="@+id/pay_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/back_red"
@@ -26,209 +28,22 @@
             android:layout_centerInParent="true"
             android:textSize="20sp"
             />
-   </RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:gravity="center_vertical"
-        >
-     <ImageView
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:src="@drawable/buy_address"
-         />
-     <TextView
-         android:layout_width="0dp"
-         android:layout_weight="1"
-         android:layout_height="wrap_content"
-         android:text="武汉 洪山区光谷软件园四期"
-         android:layout_marginLeft="10dp"
-         android:textColor="#000000"
-         />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/me_arrow"
-            />
-    </LinearLayout>
- <View
-     android:layout_width="match_parent"
-     android:layout_height="0.5dp"
-     android:background="@color/color_normal_gray"
-     android:layout_marginLeft="10dp"
-     />
-  <EditText
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:hint="楼号·楼层·门牌号"
-      android:textSize="15sp"
-      android:layout_marginLeft="40dp"
-      android:background="@null"
-      android:padding="10dp"
-      />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/color_normal_gray"
-        android:layout_marginLeft="10dp"
-        />
-   <EditText
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:text="皮蛋君"
-       android:textColor="#000000"
-       android:drawableLeft="@drawable/buy_name"
-       android:background="@null"
-       android:padding="10dp"
-       android:drawablePadding="10dp"
-       android:textSize="15sp"
-       />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/color_normal_gray"
-        android:layout_marginLeft="10dp"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="13862004260"
-        android:textColor="#000000"
-        android:drawableLeft="@drawable/buy_phone"
-        android:background="@null"
-        android:padding="10dp"
-        android:drawablePadding="10dp"
-        android:textSize="15sp"
-        />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="@color/color_normal_gray"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        >
-       <TextView
-           android:layout_width="0dp"
-           android:layout_weight="1"
-           android:layout_height="wrap_content"
-           android:text="服务时间"
-           android:drawableLeft="@drawable/buy_time"
-           android:drawablePadding="10dp"
-           android:textColor="#000000"
-           android:gravity="center_vertical"
-           />
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:drawableRight="@drawable/me_arrow"
-           android:text="请选择服务时间"
-           android:drawablePadding="10dp"
-           android:gravity="center_vertical"
-           />
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="@color/color_normal_gray"
-        />
-
-
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/order_lv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-
-
-
-     <LinearLayout
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:orientation="horizontal"
-         android:padding="10dp"
-         >
-       <TextView
-           android:layout_width="0dp"
-           android:layout_weight="1"
-           android:layout_height="wrap_content"
-           android:text="上门/配送费"
-           android:textColor="#000000"
-           />
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="￥0.00"
-             android:layout_marginRight="5dp"
-             android:textColor="#000000"
-             />
-
-     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/color_normal_gray"
-
+        android:layout_height="match_parent"
+        android:layout_below="@id/pay_top"
+        android:layout_above="@+id/pay_bottom"
         />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        >
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="代金券"
-            android:textColor="#000000"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="两张适用代金券"
-            android:textColor="#000000"
-            android:drawableRight="@drawable/me_arrow"
-            android:gravity="center_vertical"
-            />
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="@color/color_normal_gray"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="80sp"
-        android:hint="如有特殊要求，请给商家留言"
-
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="该资金由到位提供担保，未交易成功100%退款"
-        android:background="@color/color_normal_gray"
-        android:padding="10dp"
-        android:drawableLeft="@drawable/img_buy_guarantee_icon"
-        android:drawablePadding="5dp"
-        android:gravity="center_vertical"
-        />
-
-
-
-
     <RelativeLayout
+        android:id="@id/pay_bottom"
         android:layout_width="match_parent"
         android:layout_height="?android:actionBarSize"
         android:padding="5dp"
         android:background="#ffffff"
-        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true"
         >
         <TextView
             android:id="@+id/daizhifu_show"
@@ -242,6 +57,7 @@
             android:gravity="center_vertical"
             />
         <TextView
+            android:id="@+id/pay_total_price_tv"
             android:layout_toRightOf="@id/daizhifu_show"
             android:layout_marginLeft="10dp"
             android:paddingTop="2dp"
@@ -254,6 +70,7 @@
             />
 
         <Button
+            android:id="@+id/pay_commit_btn"
             android:layout_width="120dp"
             android:layout_height="40dp"
             android:text="立即购买"
@@ -263,7 +80,5 @@
             android:layout_centerVertical="true"
             />
 
-
     </RelativeLayout>
-
-</LinearLayout>
+</RelativeLayout>

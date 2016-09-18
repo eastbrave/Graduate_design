@@ -3,6 +3,8 @@ package com.android.graduate.daoway.b_category;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,13 +13,18 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.graduate.daoway.Carts;
 import com.android.graduate.daoway.CartsDao;
 import com.android.graduate.daoway.R;
+import com.android.graduate.daoway.c_cart.CartActivity;
+import com.android.graduate.daoway.d_order.OrderActivity;
+import com.android.graduate.daoway.h_login_and_register.LoginActivity;
 import com.android.graduate.daoway.start.ClassDetailitemActivity;
 import com.android.graduate.daoway.x_http.HttpUtils;
 import com.android.graduate.daoway.y_bean.ServiceIsBean;
@@ -65,8 +72,9 @@ public class Blank1Fragment extends Fragment {
     private String shopName;
     private String picUrl;
     private String skuName;
-    private TextView cartNumTv;//购物车对象
+    private TextView cartNumTv;//购物车数量对象
     private TextView carTv;
+    private Button payBtn;
 
     public static Blank1Fragment newInstance(Bundle args) {
         Blank1Fragment fragment = new Blank1Fragment();
@@ -82,7 +90,7 @@ public class Blank1Fragment extends Fragment {
         ClassDetailitemActivity classDetailitemActivity = (ClassDetailitemActivity) mContext;
         cartNumTv = classDetailitemActivity.getCarNumTv();
         carTv = classDetailitemActivity.getCarTv();
-
+        payBtn = classDetailitemActivity.getPayBtn();
     }
 
     @Override
@@ -141,6 +149,14 @@ public class Blank1Fragment extends Fragment {
         viewHolder2.productAddIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences sp=mContext.getSharedPreferences("isLogin",Context.MODE_PRIVATE);
+                boolean login_key = sp.getBoolean("login_key", false);
+                if(!login_key){
+                    Intent intent=new Intent(mContext, LoginActivity.class);
+                    mContext.startActivity(intent);
+                    return;
+                }
+
 //                   endX = carTv.getX();
 //                   endY = carTv.getY();
 //                ball.setVisibility(View.VISIBLE);
@@ -197,12 +213,65 @@ public class Blank1Fragment extends Fragment {
                 List<Carts> list =builder.list();
                 Carts carts = list.get(0);
                 long number = Long.parseLong(carts.getSkuNum())-1;
-                carts.setSkuNum(""+ number);
-                cartsDao.update(carts);
+                if(number!=0){
+                    carts.setSkuNum(""+ number);
+                    cartsDao.update(carts);
+                }else{
+                    cartsDao.delete(carts);
+                }
+
                 if(num==0){
                     viewHolder2.productReduceIv.setVisibility(View.GONE);
                     viewHolder2.productNumTv.setVisibility(View.GONE);
                 }
+                if(ClassDetailitemActivity.totalNum==0){
+                    cartNumTv.setVisibility(View.GONE);
+                }
+
+
+            }
+        });
+
+        //跳到购物车页面
+        carTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sp=mContext.getSharedPreferences("isLogin",Context.MODE_PRIVATE);
+                boolean login_key = sp.getBoolean("login_key", false);
+                if(!login_key){
+                    Intent intent=new Intent(mContext, LoginActivity.class);
+                    mContext.startActivity(intent);
+                    return;
+                }
+
+                viewHolder2.productReduceIv.setVisibility(View.GONE);
+                viewHolder2.productNumTv.setVisibility(View.GONE);
+
+                Intent intent = new Intent(mContext, CartActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        payBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sp=mContext.getSharedPreferences("isLogin",Context.MODE_PRIVATE);
+                boolean login_key = sp.getBoolean("login_key", false);
+                if(!login_key){
+                    Intent intent=new Intent(mContext, LoginActivity.class);
+                    mContext.startActivity(intent);
+                    return;
+                }
+
+                viewHolder2.productReduceIv.setVisibility(View.GONE);
+                viewHolder2.productNumTv.setVisibility(View.GONE);
+                if( ClassDetailitemActivity.totalNum==0){
+                    Toast.makeText(mContext, "还未添加任何商品到购物车，请您继续选购！", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                Intent intent = new Intent(mContext, OrderActivity.class);
+                intent.putExtra("shopName", shopName);
+                startActivity(intent);
             }
         });
 

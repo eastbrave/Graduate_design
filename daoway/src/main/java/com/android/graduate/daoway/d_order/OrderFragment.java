@@ -64,9 +64,15 @@ public class OrderFragment extends Fragment {
         // TODO: 2016/9/5
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, view);
+
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
         initData();
         initAdapter();
-        return view;
     }
 
     private void initAdapter() {
@@ -81,18 +87,8 @@ public class OrderFragment extends Fragment {
         if (!login_key) {
             return;
         }
-        String phone = sp.getString("userName", null);
-        //判断是已经登陆状态之后再操作数据库
-        /*UserDao userDao = DBUtils.getUserDao(mContext);
-        QueryBuilder<User> builder = userDao.queryBuilder();
-        //设置用户查询条件
-        builder.where(UserDao.Properties.Phone.eq(phone));
-        List<User> list = builder.list();
-        if(list==null){
-            return;
-        }
-        User user = list.get(0);
-        List<Carts> carts = user.getCarts();*/
+
+
         OrdersDao ordersDao = DBUtils.getOrdersDao(mContext);
         QueryBuilder<Orders> builder = ordersDao.queryBuilder();
         List<Orders> ordersList = builder.list();
@@ -103,20 +99,15 @@ public class OrderFragment extends Fragment {
             if (!mapDatas.containsKey(orderTime)) {
                 //不存在的店铺名
                 keys.add(orderTime);
-                List<Orders> list = builder.where(OrdersDao.Properties.ShopName.eq(orderTime)).list();
+                QueryBuilder<Orders> builder2 = ordersDao.queryBuilder();
+                List<Orders> list = builder2.where(OrdersDao.Properties.OrderTime.eq(orderTime)).list();
                 mapDatas.put(orderTime, list);
             }
         }
 
     }
 
-    public void refresh() {
-        mapDatas.clear();
-        keys.clear();
-        initData();
-        orderAdapter = new OrderAdapter(mContext,keys,mapDatas);
-        orderLv.setAdapter(orderAdapter);
-    }
+
 
 
 }

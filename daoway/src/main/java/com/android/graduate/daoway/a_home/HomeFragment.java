@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -24,6 +25,7 @@ import com.android.graduate.daoway.a_home.bean.BusinessBean;
 import com.android.graduate.daoway.a_home.bean.HomeBean;
 import com.android.graduate.daoway.a_home.bean.RecomBean;
 import com.android.graduate.daoway.a_home.bean.SortBean;
+import com.android.graduate.daoway.start.ClassDetailActivity;
 import com.android.graduate.daoway.widget.MyGridView;
 import com.android.graduate.daoway.x_http.HttpUtils;
 import com.bigkoo.convenientbanner.ConvenientBanner;
@@ -85,7 +87,18 @@ public class HomeFragment extends Fragment {
         ButterKnife.bind(this, view);
         setListTopAndBottom();
         initData();
+        initListener();
         return view;
+    }
+
+    private void initListener() {
+        viewHolder.sortGV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Intent intent=new Intent(mContext, ClassDetailActivity.class);
+
+            }
+        });
     }
 
     private void initData() {

@@ -1,6 +1,7 @@
 package com.android.graduate.daoway.c_cart;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import com.android.graduate.daoway.Orders;
 import com.android.graduate.daoway.OrdersDao;
 import com.android.graduate.daoway.R;
 import com.android.graduate.daoway.a_home.adapter.ItemGridAdapter;
+import com.android.graduate.daoway.d_order.OrderActivity;
+import com.android.graduate.daoway.start.StartActivity;
 import com.android.graduate.daoway.widget.MyListView;
 import com.android.graduate.daoway.z_db.DBUtils;
 
@@ -95,31 +98,11 @@ public class CartAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 //跳转到表单页面
-                // TODO: 2016/9/14  跳转到表单页面
-                SimpleDateFormat formatter = new SimpleDateFormat ("yyyy年MM月dd日 HH:mm:ss ");
-                Date curDate = new Date(System.currentTimeMillis());//获取当前时间
-                String orderTime = formatter.format(curDate);
 
-                CartsDao cartsDao = DBUtils.getCartsDao(mContext);
-                QueryBuilder<Carts> builder = cartsDao.queryBuilder();
-                builder.where(CartsDao.Properties.ShopName.eq(key));
-                List<Carts> list = builder.list();
-                OrdersDao ordersDao = DBUtils.getOrdersDao(mContext);
-                for (int i = 0; i < list.size(); i++) {
-                    String skuName = list.get(i).getSkuName();
-                    String price = list.get(i).getPrice();
-                    String skuNum = list.get(i).getSkuNum();
-                    String imgUrl = list.get(i).getImgUrl();
-                    Orders orders=new Orders();
-                    orders.setSkuName(skuName);
-                    orders.setSkuNum(skuNum);
-                    orders.setPrice(price);
-                    orders.setShopName(key);
-                    orders.setOrderTime(orderTime);
-                    orders.setImgUrl(imgUrl);
+                Intent intent =new Intent(mContext, OrderActivity.class);
+                intent.putExtra("shopName",key);
+                mContext.startActivity(intent);
 
-                    ordersDao.insert(orders);
-                }
             }
         });
         //删除

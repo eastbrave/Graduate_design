@@ -19,6 +19,8 @@ import com.android.graduate.daoway.a_home.ShopActivity;
 import com.android.graduate.daoway.b_category.Blank1Fragment;
 import com.android.graduate.daoway.b_category.Blank2Fragment;
 import com.android.graduate.daoway.b_category.Blank3Fragment;
+import com.android.graduate.daoway.d_order.OrderActivity;
+import com.android.graduate.daoway.main.MainActivity;
 import com.android.graduate.daoway.utils.BaseActivity;
 import com.android.graduate.daoway.z_db.DBUtils;
 
@@ -77,10 +79,15 @@ public class ClassDetailitemActivity extends BaseActivity  {
         return carTv;
     }
 
+    public Button getPayBtn(){
+        return payBtn;
+    }
+
     private void initListener() {
         shopTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(ClassDetailitemActivity.this, ShopActivity.class);
                 intent.putExtra("id",serviceId);
                 startActivity(intent);
@@ -117,6 +124,11 @@ public class ClassDetailitemActivity extends BaseActivity  {
             cartNumTv.setText("" + totalNum);
         }
         cartNumTv.setText(totalNum+"");
+
+
+
+
+
     }
 
     private void initID() {

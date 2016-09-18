@@ -211,12 +211,7 @@ public class MainActivity extends BaseActivity {
 
 
     }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 3 && resultCode == 1) {
-            initData();
-        }
-    }
+
 
     private void initData() {
         sharedPreferences = getSharedPreferences("location", Context.MODE_PRIVATE);
@@ -264,7 +259,7 @@ public class MainActivity extends BaseActivity {
                                 if(!isLogin){
                                     Intent intent=new Intent(MainActivity.this, LoginActivity.class);
                                     startActivity(intent);
-                                    return;
+
                                 }
 
 
@@ -280,7 +275,7 @@ public class MainActivity extends BaseActivity {
                                 if(!isLogin){
                                     Intent intent=new Intent(MainActivity.this, LoginActivity.class);
                                     startActivity(intent);
-                                    return;
+
                                 }
                                 break;
                             case R.id.mine_rb:
@@ -322,14 +317,14 @@ public class MainActivity extends BaseActivity {
                 transaction.hide(fragments.get(cur)).show(fragment);
         }
         transaction.commit();
-        if(i==2&&fragment.isAdded()){
+      /*  if(i==2&&fragment.isAdded()){
             CartFragment cartFragment= (CartFragment) fragment;
             cartFragment.refresh();
         }
         if(i==3&&fragment.isAdded()){
             OrderFragment orderFragment= (OrderFragment) fragment;
           //  OrderFragment.refresh();
-        }
+        }*/
         cur = i;
     }
 
@@ -357,5 +352,16 @@ public class MainActivity extends BaseActivity {
   }
 
 
+    /*
+    * 对于返回结果的处理
+    * */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 3 && resultCode == 1) {
+            initData();
+        }
+
+
+    }
 
 }

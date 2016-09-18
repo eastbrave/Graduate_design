@@ -53,12 +53,7 @@
                 android:textColor="@color/color_Red"
                 android:textSize="15sp"
                 />
-            <ImageView
-                android:id="@+id/cart_item_content_shop_list_reduce_iv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/takeout_bg_btn_reduce"
-                />
+
             <TextView
                 android:id="@+id/cart_item_content_shop_list_select_num_tv"
                 android:layout_width="wrap_content"
@@ -69,12 +64,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginLeft="8dp"
                 />
-            <ImageView
-                android:id="@+id/cart_item_content_shop_list_add_iv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/takeout_bg_btn_increase_focus"
-                />
+
         </LinearLayout>
     </LinearLayout>
 
