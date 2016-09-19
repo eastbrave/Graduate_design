@@ -68,7 +68,8 @@ public class SearchActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        initData();
+        //刷新数据库数据
+        refreshDb();
     }
 
     private void initListener() {
@@ -146,8 +147,6 @@ public class SearchActivity extends BaseActivity {
 
 
     private void initData() {
-        //刷新数据库数据
-        refreshDb();
 
         //网络请求
         //&lot=114.42472076416016&lat=30.4676456451416
@@ -177,6 +176,7 @@ public class SearchActivity extends BaseActivity {
 
     private void formatResult(SearchBean searchBean) {
         List<String> data = searchBean.getData();
+        mGridDatas.clear();
         mGridDatas.addAll(data);
         gridAdapter.notifyDataSetChanged();
 

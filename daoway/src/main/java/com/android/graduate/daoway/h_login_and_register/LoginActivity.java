@@ -120,6 +120,7 @@ public class LoginActivity extends BaseActivity {
                     edit.putLong("userID",id);
 
                     edit.commit();
+                    Toast.makeText(LoginActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
                     LoginActivity.this.finish();
                 }else {
                     Toast.makeText(LoginActivity.this, "账号或密码输入错误", Toast.LENGTH_SHORT).show();
