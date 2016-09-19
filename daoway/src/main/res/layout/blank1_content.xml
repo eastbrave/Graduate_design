@@ -54,6 +54,7 @@
          android:layout_height="wrap_content"
          android:src="@drawable/takeout_bg_btn_reduce"
          android:visibility="gone"
+         android:paddingRight="5dp"
          />
       <TextView
           android:id="@+id/product_reduce_num_tv"
@@ -68,6 +69,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:src="@drawable/takeout_bg_btn_increase_focus"
+          android:paddingLeft="5dp"
           />
    </LinearLayout>
    <View

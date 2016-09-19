@@ -52,15 +52,23 @@ public class MineFragment extends Fragment {
         // TODO: 2016/9/5
         View view = inflater.inflate(R.layout.fragment_mine, container, false);
         ButterKnife.bind(this, view);
-         sp=mContext.getSharedPreferences("isLogin",Context.MODE_PRIVATE);
+
+
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        sp=mContext.getSharedPreferences("isLogin",Context.MODE_PRIVATE);
         login_key = sp.getBoolean("login_key", false);
         if(!login_key){
             userName.setText("未登录");
         }else {
             userName.setText("皮蛋君");
         }
+
         initListener();
-        return view;
     }
 
     private void initListener() {
