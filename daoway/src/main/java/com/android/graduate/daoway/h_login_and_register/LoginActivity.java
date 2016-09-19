@@ -57,7 +57,7 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        inputInfo();
+
         initListener();
     }
 
@@ -68,12 +68,20 @@ public class LoginActivity extends BaseActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        inputInfo();
+    }
+
     private void initListener() {
         //返回键结束当前页面
         backIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                Intent intent=new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+
             }
         });
 
