@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.android.graduate.daoway.R;
-import com.android.graduate.daoway.Search;
+import com.android.graduate.daoway.z_db.Search;
 
 import java.util.List;
 

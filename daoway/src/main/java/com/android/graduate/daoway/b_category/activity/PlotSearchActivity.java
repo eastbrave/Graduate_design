@@ -1,4 +1,4 @@
-package com.android.graduate.daoway.start;
+package com.android.graduate.daoway.b_category.activity;
 
 import android.content.Context;
 import android.content.Intent;

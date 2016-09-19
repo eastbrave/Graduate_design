@@ -5,13 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.graduate.daoway.Orders;
+import com.android.graduate.daoway.z_db.Orders;
 import com.android.graduate.daoway.R;
-import com.android.graduate.daoway.c_cart.ItemInfo;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

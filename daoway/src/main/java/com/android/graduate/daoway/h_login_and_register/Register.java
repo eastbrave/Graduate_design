@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 import com.android.graduate.daoway.R;
 
-import com.android.graduate.daoway.User;
-import com.android.graduate.daoway.UserDao;
+import com.android.graduate.daoway.z_db.User;
+import com.android.graduate.daoway.z_db.UserDao;
 import com.android.graduate.daoway.utils.BaseActivity;
 import com.android.graduate.daoway.z_db.DBUtils;
 

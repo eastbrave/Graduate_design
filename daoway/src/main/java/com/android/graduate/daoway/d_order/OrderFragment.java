@@ -5,22 +5,16 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.android.graduate.daoway.Carts;
-import com.android.graduate.daoway.CartsDao;
-import com.android.graduate.daoway.Orders;
-import com.android.graduate.daoway.OrdersDao;
+import com.android.graduate.daoway.z_db.Orders;
+import com.android.graduate.daoway.z_db.OrdersDao;
 import com.android.graduate.daoway.R;
-import com.android.graduate.daoway.c_cart.CartAdapter;
-import com.android.graduate.daoway.c_cart.ItemInfo;
 import com.android.graduate.daoway.z_db.DBUtils;
 
-import org.greenrobot.greendao.query.Query;
 import org.greenrobot.greendao.query.QueryBuilder;
 
 import java.util.ArrayList;

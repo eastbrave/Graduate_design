@@ -17,12 +17,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alipay.sdk.app.PayTask;
-import com.android.graduate.daoway.Carts;
-import com.android.graduate.daoway.CartsDao;
-import com.android.graduate.daoway.Orders;
-import com.android.graduate.daoway.OrdersDao;
+import com.android.graduate.daoway.z_db.Carts;
+import com.android.graduate.daoway.z_db.CartsDao;
+import com.android.graduate.daoway.z_db.Orders;
+import com.android.graduate.daoway.z_db.OrdersDao;
 import com.android.graduate.daoway.R;
-import com.android.graduate.daoway.main.MainActivity;
 import com.android.graduate.daoway.pay.PayResult;
 import com.android.graduate.daoway.pay.SignUtils;
 import com.android.graduate.daoway.z_db.DBUtils;
@@ -157,7 +156,7 @@ public class OrderActivity extends AppCompatActivity {
 
                //// TODO: 2016/9/17 跳转到支付页面
                 /////-----------------------------------需要放在后台服务器 begin-----------------------------------
-                String orderInfo = getOrderInfo("印度魔鬼椒", "连吃三颗免单", ""+total);
+                String orderInfo = getOrderInfo(shopName, "连吃三颗免单", ""+total);
 
                 /**
                  * 特别注意，这里的签名逻辑需要放在服务端，切勿将私钥泄露在代码中！

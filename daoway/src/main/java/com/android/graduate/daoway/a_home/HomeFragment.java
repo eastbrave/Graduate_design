@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -25,7 +24,7 @@ import com.android.graduate.daoway.a_home.bean.BusinessBean;
 import com.android.graduate.daoway.a_home.bean.HomeBean;
 import com.android.graduate.daoway.a_home.bean.RecomBean;
 import com.android.graduate.daoway.a_home.bean.SortBean;
-import com.android.graduate.daoway.start.ClassDetailActivity;
+import com.android.graduate.daoway.b_category.activity.ClassDetailActivity;
 import com.android.graduate.daoway.widget.MyGridView;
 import com.android.graduate.daoway.x_http.HttpUtils;
 import com.android.graduate.daoway.y_bean.CategoryBean;
@@ -39,7 +38,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -91,6 +89,19 @@ public class HomeFragment extends Fragment {
         initListener();
         return view;
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        viewHolder.banner.startTurning(3000);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        viewHolder.banner.stopTurning();
+    }
+
 
     private void initListener() {
         viewHolder.sortGV.setOnItemClickListener(new AdapterView.OnItemClickListener() {

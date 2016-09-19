@@ -272,7 +272,7 @@
     <com.android.graduate.daoway.widget.MyListView
         android:id="@+id/shop_menu_list_lv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
 
     <View
         android:layout_width="match_parent"

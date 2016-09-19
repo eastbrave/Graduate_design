@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.android.graduate.daoway.Orders;
-import com.android.graduate.daoway.OrdersDao;
+import com.android.graduate.daoway.z_db.Orders;
+import com.android.graduate.daoway.z_db.OrdersDao;
 import com.android.graduate.daoway.R;
 import com.android.graduate.daoway.widget.MyListView;
 import com.android.graduate.daoway.z_db.DBUtils;

@@ -1,4 +1,4 @@
-package com.android.graduate.daoway.start;
+package com.android.graduate.daoway.b_category.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,8 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.graduate.daoway.Carts;
-import com.android.graduate.daoway.CartsDao;
+import com.android.graduate.daoway.z_db.Carts;
+import com.android.graduate.daoway.z_db.CartsDao;
 import com.android.graduate.daoway.R;
 import com.android.graduate.daoway.a_home.ShopActivity;
 import com.android.graduate.daoway.b_category.Blank1Fragment;
@@ -25,7 +25,6 @@ import com.android.graduate.daoway.b_category.Blank3Fragment;
 import com.android.graduate.daoway.c_cart.CartActivity;
 import com.android.graduate.daoway.d_order.OrderActivity;
 import com.android.graduate.daoway.h_login_and_register.LoginActivity;
-import com.android.graduate.daoway.main.MainActivity;
 import com.android.graduate.daoway.utils.BaseActivity;
 import com.android.graduate.daoway.z_db.DBUtils;
 

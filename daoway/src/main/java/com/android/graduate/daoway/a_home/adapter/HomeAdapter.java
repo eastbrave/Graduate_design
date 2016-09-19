@@ -1,20 +1,15 @@
 package com.android.graduate.daoway.a_home.adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.graduate.daoway.R;
 import com.android.graduate.daoway.a_home.bean.HomeBean;
-import com.android.graduate.daoway.start.ClassDetailitemActivity;
 import com.android.graduate.daoway.widget.MyGridView;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 

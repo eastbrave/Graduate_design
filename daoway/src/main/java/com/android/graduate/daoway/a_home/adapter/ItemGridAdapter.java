@@ -11,8 +11,7 @@ import android.widget.TextView;
 
 import com.android.graduate.daoway.R;
 import com.android.graduate.daoway.a_home.bean.HomeBean;
-import com.android.graduate.daoway.start.ClassDetailitemActivity;
-import com.android.graduate.daoway.start.StartActivity;
+import com.android.graduate.daoway.b_category.activity.ClassDetailitemActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

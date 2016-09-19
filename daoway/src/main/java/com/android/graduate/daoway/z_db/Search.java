@@ -1,4 +1,4 @@
-package com.android.graduate.daoway;
+package com.android.graduate.daoway.z_db;
 
 import org.greenrobot.greendao.annotation.*;
 

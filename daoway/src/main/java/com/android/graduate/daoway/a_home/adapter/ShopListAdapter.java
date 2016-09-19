@@ -2,26 +2,23 @@ package com.android.graduate.daoway.a_home.adapter;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateInterpolator;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.graduate.daoway.Carts;
-import com.android.graduate.daoway.CartsDao;
+import com.android.graduate.daoway.z_db.Carts;
+import com.android.graduate.daoway.z_db.CartsDao;
 import com.android.graduate.daoway.R;
 import com.android.graduate.daoway.a_home.ShopActivity;
 import com.android.graduate.daoway.a_home.bean.ShopBean;
 import com.android.graduate.daoway.h_login_and_register.LoginActivity;
-import com.android.graduate.daoway.start.ClassDetailitemActivity;
+import com.android.graduate.daoway.b_category.activity.ClassDetailitemActivity;
 import com.android.graduate.daoway.z_db.DBUtils;
 import com.squareup.picasso.Picasso;
 

@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.graduate.daoway.R;
-import com.android.graduate.daoway.start.ClassDetailitemActivity;
+import com.android.graduate.daoway.b_category.activity.ClassDetailitemActivity;
 import com.android.graduate.daoway.x_http.HttpUtils;
 import com.android.graduate.daoway.y_bean.ClassDetailBean;
 import com.squareup.picasso.Picasso;

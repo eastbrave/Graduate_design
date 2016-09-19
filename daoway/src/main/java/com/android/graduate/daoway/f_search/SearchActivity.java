@@ -15,8 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.graduate.daoway.R;
-import com.android.graduate.daoway.Search;
-import com.android.graduate.daoway.SearchDao;
+import com.android.graduate.daoway.z_db.Search;
+import com.android.graduate.daoway.z_db.SearchDao;
 import com.android.graduate.daoway.f_search.SearchBean.SearchBean;
 import com.android.graduate.daoway.utils.BaseActivity;
 import com.android.graduate.daoway.widget.MyGridView;
@@ -61,6 +61,7 @@ public class SearchActivity extends BaseActivity {
         setContentView(R.layout.activity_search);
         ButterKnife.bind(this);
         intView();
+        initData();
         initListener();
 
     }

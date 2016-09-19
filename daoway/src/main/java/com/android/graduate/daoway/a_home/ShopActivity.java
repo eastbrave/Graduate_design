@@ -22,8 +22,8 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.android.graduate.daoway.Carts;
-import com.android.graduate.daoway.CartsDao;
+import com.android.graduate.daoway.z_db.Carts;
+import com.android.graduate.daoway.z_db.CartsDao;
 import com.android.graduate.daoway.R;
 import com.android.graduate.daoway.a_home.adapter.ShopListAdapter;
 import com.android.graduate.daoway.a_home.bean.ShopBean;
@@ -361,7 +361,7 @@ public class ShopActivity extends BaseActivity {
 
         @Override
         public void UpdateUI(Context context, int position, ShopBean.DataBean.ImgsBean data) {
-            Picasso.with(context).load(imgDatas.get(position).getUrl()).into(imageView);
+            Picasso.with(context).load(imgDatas.get(position).getUrl()).placeholder(R.drawable.img_pic_default).into(imageView);
         }
     }
 

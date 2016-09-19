@@ -16,7 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.graduate.daoway.R;
-import com.android.graduate.daoway.start.ClassDetailActivity;
+import com.android.graduate.daoway.b_category.activity.ClassDetailActivity;
 import com.android.graduate.daoway.widget.MyGridView;
 import com.android.graduate.daoway.x_http.HttpUtils;
 import com.android.graduate.daoway.y_bean.CategoryBean;

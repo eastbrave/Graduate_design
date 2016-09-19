@@ -1,4 +1,4 @@
-package com.android.graduate.daoway.start;
+package com.android.graduate.daoway.b_category.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -65,7 +65,6 @@ public class MapActivity extends BaseActivity {
     private PlotListAdapter mAdapter;
     private List<XiaoQuBean.DataBean.CommunitiesBean> communitie = new ArrayList<>();
     private SharedPreferences.Editor editor;
-
     private SharedPreferences sharedPreferences;
 
     @Override
@@ -92,22 +91,12 @@ public class MapActivity extends BaseActivity {
         HttpUtils.init().getCommunities(latNum, lotNum).enqueue(new Callback<XiaoQuBean>() {
             @Override
             public void onResponse(Call<XiaoQuBean> call, Response<XiaoQuBean> response) {
-                XiaoQuBean.DataBean data=null;
-                List<XiaoQuBean.DataBean.BaiduCommunitiesBean> baiduCommunities=null;
-                int cityID=0;
-                try{
-                    data= response.body().getData();
-                    cityName = data.getParent().getCity();
-                    communitie = data.getCommunities();
-                    cityID= data.getParent().getId();
-                    baiduCommunities =
-                            data.getBaiduCommunities();
-                }catch (Exception e){
-                    e.printStackTrace();
-                    return;
-                }
-
-
+                XiaoQuBean.DataBean data = response.body().getData();
+                cityName = data.getParent().getCity();
+                communitie = data.getCommunities();
+                int cityID = data.getParent().getId();
+                List<XiaoQuBean.DataBean.BaiduCommunitiesBean> baiduCommunities =
+                        data.getBaiduCommunities();
                 //将baiduCommunitiesBean转换成communitiesBean,并加入数据列表
                 for (int i = 0; i < baiduCommunities.size(); i++) {
                     XiaoQuBean.DataBean.BaiduCommunitiesBean baiduCommunitiesBean = baiduCommunities.get(i);
